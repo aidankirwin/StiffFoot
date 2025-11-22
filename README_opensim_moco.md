@@ -13,13 +13,21 @@ You’ll need:
 - **Git**
 - **Anaconda** or **Miniconda** (64‑bit, Python 3.x)
 
-After installing Anaconda/Miniconda, make sure you can run:
+Conda reccomends you do NOT add to PATH, therefore we need to launch VSCode from the navigator. When you do this, a couple things need to be run as prerequisites.
+
+First. Run:
 
 ```bash
 conda --version
 ```
+This will confirm a successful instalation of conda.
 
-from an **Anaconda Prompt** or your terminal.
+Next run the folllowing and restart your terminal once completed:
+
+```bash
+conda init powershell
+```
+Restart the terminal
 
 ---
 
@@ -33,18 +41,12 @@ From here on, all commands assume your terminal is open in the project root.
 
 ## 2. Create a Conda environment for OpenSim + Moco
 
-We’ll standardize on **Python 3.13**, which is supported by current OpenSim Conda packages that include Moco.
+We’ll standardize on **Python 3.11**, which is supported by current OpenSim Conda packages that include Moco.
 
 From an **Anaconda Prompt** in the project root:
 
 ```bash
-conda init powershell
-```
-
-This will initialize and modify profiles in the shell. Be sure to restart powershell in VSCode after that. Then run
-
-```bash
-conda create -n opensim_moco_env
+conda create -n opensim_env python=3.11
 conda activate opensim_moco_env
 ```
 
@@ -60,17 +62,26 @@ Install the OpenSim Conda package (4.5.x or newer, which includes Moco):
 conda install -c opensim-org opensim
 ```
 
-For reproducibility, we can pin a specific version (we will not do this for now):
+For reproducibility, we can pin a specific version (At the time of development 4.5 is the version):
 
 ```bash
 conda install -c opensim-org opensim=4.5
 ```
 
-Conda will resolve the compatible build for **Python 3.13**.
+Conda will resolve the compatible build for **Python 3.11** if you do not specify.
 
 ---
 
-## 4. Install project-specific Python dependencies
+## 5. Install git
+
+We are using anacondas environment now in VSCode so Git will not work. We need to install it:
+
+```bash
+conda install git -y
+```
+---
+
+## 5. Install project-specific Python dependencies
 
 We need to now install the `requirements.txt` to install those packages **inside the same environment**:
 
@@ -80,7 +91,7 @@ pip install -r requirements.txt
 ```
 ---
 
-## 5. Verify that OpenSim + Moco works
+## 6. Verify that OpenSim + Moco works
 
 From the project root, with `opensim_moco_env` activated:
 
@@ -109,7 +120,7 @@ Type `exit()` or press `Ctrl+Z` then Enter (Windows) to leave the Python prompt.
 
 ---
 
-## 6. Running the project code
+## 7. Running the project code
 
 With the environment activated (`conda activate opensim_moco_env`) and from the project root, you can run the project’s scripts. For example:
 
@@ -125,7 +136,7 @@ Check this README or the project’s `scripts/` / `examples/` / `sim/` folders f
 
 ---
 
-## 7. Typical workflow for team members
+## 8. Typical workflow for team members
 
 Each team member needs to do this **once**:
 
@@ -146,9 +157,9 @@ python <your_script_here.py>
 
 ---
 
-## 8. Troubleshooting
+## 9. Troubleshooting
 
-### 8.1. `ImportError` or “DLL load failed” for `opensim`
+### 9.1. `ImportError` or “DLL load failed” for `opensim`
 
 - Make sure you installed `opensim` *inside* the `opensim_moco_env` environment (not in `base`).
 - Confirm the environment is active before running Python:
@@ -157,7 +168,7 @@ python <your_script_here.py>
   python -c "import opensim as osim; print(osim.GetVersionAndDate())"
   ```
 
-### 8.2. Wrong Python or OpenSim version
+### 9.2. Wrong Python or OpenSim version
 
 - Check Python version:
   ```bash
