@@ -29,6 +29,8 @@ conda init powershell
 ```
 Restart the terminal
 
+NOTE: YOU CAN ALSO JUST USE THE ANACONDA POWERSHELL PROMPT TO DO ALL OF THIS.
+
 ---
 
 ## 1. Get the project files
@@ -72,7 +74,7 @@ Conda will resolve the compatible build for **Python 3.11** if you do not specif
 
 ---
 
-## 5. Install git
+## 5. Install git (only if using VSCode from conda)
 
 We are using anacondas environment now in VSCode so Git will not work. We need to install it:
 
