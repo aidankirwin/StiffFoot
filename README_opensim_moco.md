@@ -25,11 +25,10 @@ This will confirm a successful instalation of conda.
 Next run the folllowing and restart your terminal once completed:
 
 ```bash
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 conda init powershell
 ```
 Restart the terminal
-
-NOTE: YOU CAN ALSO JUST USE THE ANACONDA POWERSHELL PROMPT TO DO ALL OF THIS.
 
 ---
 
@@ -74,7 +73,7 @@ Conda will resolve the compatible build for **Python 3.11** if you do not specif
 
 ---
 
-## 5. Install git (only if using VSCode from conda)
+## 5. Install git
 
 We are using anacondas environment now in VSCode so Git will not work. We need to install it:
 

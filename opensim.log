@@ -253,3 +253,43 @@
 [2025-11-22 19:24:46.872] [info] Sat Nov 22 19:24:46 2025
 [2025-11-22 19:24:46.872] [info] MocoCasADiSolver succeeded!
 [2025-11-22 19:24:46.872] [info] ========================================================================
+[2025-11-22 19:30:40.312] [info] ========================================================================
+[2025-11-22 19:30:40.312] [info] MocoCasADiSolver starting.
+[2025-11-22 19:30:40.312] [info] Sat Nov 22 19:30:40 2025
+[2025-11-22 19:30:40.312] [info] ------------------------------------------------------------------------
+[2025-11-22 19:30:40.312] [info] Costs: (total: 1)
+[2025-11-22 19:30:40.312] [info]   goal. MocoFinalTimeGoal, enabled: true, mode: cost, weight: 1.0
+[2025-11-22 19:30:40.313] [info] Endpoint constraints: none
+[2025-11-22 19:30:40.313] [info] Kinematic constraints: none
+[2025-11-22 19:30:40.313] [info] Path constraints: none
+[2025-11-22 19:30:40.313] [info] States: (total: 2)
+[2025-11-22 19:30:40.313] [info]   /slider/position/value. bounds: [-5, 5] initial: 0 final: 1
+[2025-11-22 19:30:40.313] [info]   /slider/position/speed. bounds: [-50, 50] initial: 0 final: 0
+[2025-11-22 19:30:40.313] [info] Controls: (total: 1)
+[2025-11-22 19:30:40.313] [info]   /actuator. bounds: [-50, 50]
+[2025-11-22 19:30:40.313] [info] Input controls: none
+[2025-11-22 19:30:40.313] [info] Parameters: none
+[2025-11-22 19:30:40.365] [info] Number of threads: 24
+[2025-11-22 19:30:59.484] [info] ========================================================================
+[2025-11-22 19:30:59.484] [info] MocoCasADiSolver starting.
+[2025-11-22 19:30:59.484] [info] Sat Nov 22 19:30:59 2025
+[2025-11-22 19:30:59.484] [info] ------------------------------------------------------------------------
+[2025-11-22 19:30:59.485] [info] Costs: (total: 1)
+[2025-11-22 19:30:59.485] [info]   goal. MocoFinalTimeGoal, enabled: true, mode: cost, weight: 1.0
+[2025-11-22 19:30:59.485] [info] Endpoint constraints: none
+[2025-11-22 19:30:59.485] [info] Kinematic constraints: none
+[2025-11-22 19:30:59.485] [info] Path constraints: none
+[2025-11-22 19:30:59.485] [info] States: (total: 2)
+[2025-11-22 19:30:59.485] [info]   /slider/position/value. bounds: [-5, 5] initial: 0 final: 1
+[2025-11-22 19:30:59.485] [info]   /slider/position/speed. bounds: [-50, 50] initial: 0 final: 0
+[2025-11-22 19:30:59.485] [info] Controls: (total: 1)
+[2025-11-22 19:30:59.485] [info]   /actuator. bounds: [-50, 50]
+[2025-11-22 19:30:59.485] [info] Input controls: none
+[2025-11-22 19:30:59.485] [info] Parameters: none
+[2025-11-22 19:30:59.536] [info] Number of threads: 24
+[2025-11-22 19:31:00.329] [info] Set log level to Info.
+[2025-11-22 19:31:00.329] [info] ------------------------------------------------------------------------
+[2025-11-22 19:31:00.330] [info] Elapsed real time: 845 millisecond(s).
+[2025-11-22 19:31:00.330] [info] Sat Nov 22 19:31:00 2025
+[2025-11-22 19:31:00.330] [info] MocoCasADiSolver succeeded!
+[2025-11-22 19:31:00.330] [info] ========================================================================
