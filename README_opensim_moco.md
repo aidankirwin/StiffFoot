@@ -25,6 +25,7 @@ This will confirm a successful instalation of conda.
 Next run the folllowing and restart your terminal once completed:
 
 ```bash
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 conda init powershell
 ```
 Restart the terminal

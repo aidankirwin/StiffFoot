@@ -1,0 +1,3 @@
+[2025-11-22 19:15:24.422] [info] Updating Model file from 40000 to latest format...
+[2025-11-22 19:15:24.423] [info] Loaded model model from file models/dynamic_walker_example_model.osim
+[2025-11-22 19:15:24.423] [warning] Couldn't find file 'box.vtp'.
