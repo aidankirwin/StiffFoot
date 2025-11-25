@@ -51,7 +51,7 @@ df = pd.read_csv("segments.csv")
 print(df)
 
 # Parameters
-segment_radius = 0.01   # visualization radius
+segment_radius = 0.0205   # visualization radius
 segment_mass = 0.05
 segment_inertia_val = 0  # simple thin cylinder inertia
 
@@ -97,10 +97,10 @@ for idx, row in df.iterrows():
     joint = osim.PinJoint(
         f"joint_{seg_name}",
         parent_body,
-        osim.Vec3(0,-2*parent_length,0),  # distal end of parent
+        osim.Vec3(0,-parent_length,0),  # distal end of parent
         osim.Vec3(0,0,0),              # parent orientation
         segment,
-        osim.Vec3(0,0,0),              # child proximal end
+        osim.Vec3(0,length,0),              # child proximal end
         osim.Vec3(0,0,0)          # child orientation along z
     )
     model.addJoint(joint)
