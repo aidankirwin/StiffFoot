@@ -53,7 +53,7 @@ print(df)
 # Parameters
 segment_radius = 0.01   # visualization radius
 segment_mass = 0.05
-segment_inertia_val = 1e-4  # simple thin cylinder inertia
+segment_inertia_val = 0  # simple thin cylinder inertia
 
 # Initial parent is the pylon
 parent_body = model.getBodySet().get("pylon_r")
@@ -71,7 +71,7 @@ for idx, row in df.iterrows():
     # Compute segment vector in 2D
     dx = row['end_x'] - row['start_x']
     dy = row['end_y'] - row['start_y']
-    length = np.sqrt(dx**2 + dy**2)
+    length = round(np.sqrt(dx**2 + dy**2), 3) 
     
     # Mass center at middle of segment
     mass_center = osim.Vec3(0, 0, length/2)
@@ -81,52 +81,28 @@ for idx, row in df.iterrows():
 
     # angle = get_relative_angle(row, df, False)
     
-    if idx == 0:
-        # Modify existing segment_1
-        segment = model.getBodySet().get("segment_1")
-        segment.setMass(segment_mass)
-        segment.setMassCenter(mass_center)
-        segment.setInertia(osim.Inertia(segment_inertia_val, segment_inertia_val, segment_inertia_val))
-        
-        # PinJoint connecting to pylon
-        joint = osim.PinJoint(
-            "joint_segment_1",
-            parent_body,
-            osim.Vec3(0,0,0),  # parent frame location
-            osim.Vec3(0,0,0),                               # parent orientation
-            segment,
-            osim.Vec3(0,10,0),                               # child frame at proximal end
-            osim.Vec3(0,10,0)                           # child orientation along z
-        )
-        model.addJoint(joint)
-
-        # Remove old geometries if necessary (optional)
-        # Attach cylinder
-        segment.attachGeometry(cyl)
-        
-    else:
-        parent_body = model.getBodySet().get(f"segment_{int(row['Parent'])}")
-        # Create new segment
-        segment = osim.Body(
-            seg_name,
-            segment_mass,
-            mass_center,
-            osim.Inertia(segment_inertia_val, segment_inertia_val, segment_inertia_val)
-        )
-        model.addBody(segment)
-        segment.attachGeometry(cyl)
-        
-        # PinJoint: connect to distal end of parent
-        joint = osim.PinJoint(
-            f"joint_{seg_name}",
-            parent_body,
-            osim.Vec3(0,0,parent_length),  # distal end of parent
-            osim.Vec3(0,0,0),              # parent orientation
-            segment,
-            osim.Vec3(0,0,0),              # child proximal end
-            osim.Vec3(0,0,length)          # child orientation along z
-        )
-        model.addJoint(joint)
+    parent_body = model.getBodySet().get(f"segment_{int(row['Parent'])}")
+    # Create new segment
+    segment = osim.Body(
+        seg_name,
+        segment_mass,
+        mass_center,
+        osim.Inertia(segment_inertia_val, segment_inertia_val, segment_inertia_val)
+    )
+    model.addBody(segment)
+    segment.attachGeometry(cyl)
+    
+    # PinJoint: connect to distal end of parent
+    joint = osim.PinJoint(
+        f"joint_{seg_name}",
+        parent_body,
+        osim.Vec3(0,0,parent_length),  # distal end of parent
+        osim.Vec3(0,0,0),              # parent orientation
+        segment,
+        osim.Vec3(0,1,0),              # child proximal end
+        osim.Vec3(0,0,0)          # child orientation along z
+    )
+    model.addJoint(joint)
     
     # Update parent for next iteration
     parent_body = segment
