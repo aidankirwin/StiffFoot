@@ -57,7 +57,7 @@ segment_inertia_val = 0  # simple thin cylinder inertia
 
 # Initial parent is the pylon
 parent_body = model.getBodySet().get("pylon_r")
-parent_length = 0.0  # length along parent z-axis from joint origin to distal end
+parent_length = 0.05 # length along parent z-axis from joint origin to distal end
 
 for idx, row in df.iterrows():
     '''
@@ -80,8 +80,9 @@ for idx, row in df.iterrows():
     cyl = osim.Cylinder(segment_radius, length)
 
     # angle = get_relative_angle(row, df, False)
-    
-    parent_body = model.getBodySet().get(f"segment_{int(row['Parent'])}")
+
+    if idx != 0:
+        parent_body = model.getBodySet().get(f"segment_{int(row['Parent'])}")
     # Create new segment
     segment = osim.Body(
         seg_name,
@@ -91,15 +92,15 @@ for idx, row in df.iterrows():
     )
     model.addBody(segment)
     segment.attachGeometry(cyl)
-    
+
     # PinJoint: connect to distal end of parent
     joint = osim.PinJoint(
         f"joint_{seg_name}",
         parent_body,
-        osim.Vec3(0,0,parent_length),  # distal end of parent
+        osim.Vec3(0,-2*parent_length,0),  # distal end of parent
         osim.Vec3(0,0,0),              # parent orientation
         segment,
-        osim.Vec3(0,1,0),              # child proximal end
+        osim.Vec3(0,0,0),              # child proximal end
         osim.Vec3(0,0,0)          # child orientation along z
     )
     model.addJoint(joint)
