@@ -1,0 +1,5 @@
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+(& "C:\Users\conno\anaconda3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | Invoke-Expression
+
+Set-ExecutionPolicy -ExecutionPolicy AllSigned -Scope CurrentUser

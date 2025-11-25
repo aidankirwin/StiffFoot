@@ -1,8 +1,673 @@
-[2025-11-22 14:25:54.335] [warning] No time bounds set.
-[2025-11-22 14:25:54.336] [info] No Input controls are connected to InputController /controllerset/actuator_controller, therefore it will be ignored when computing model controls.
-[2025-11-22 14:25:54.336] [info] No Input controls are connected to InputController /controllerset/actuator_controller, therefore it will be ignored when computing model controls.
-[2025-11-22 14:25:54.337] [info] No Input controls are connected to InputController /controllerset/actuator_controller, therefore it will be ignored when computing model controls.
-[2025-11-22 14:25:54.337] [warning] No time bounds set.
-[2025-11-22 14:25:54.338] [info] No Input controls are connected to InputController /controllerset/actuator_controller, therefore it will be ignored when computing model controls.
-[2025-11-22 14:25:54.338] [info] No Input controls are connected to InputController /controllerset/actuator_controller, therefore it will be ignored when computing model controls.
-[2025-11-22 14:25:54.339] [info] No Input controls are connected to InputController /controllerset/actuator_controller, therefore it will be ignored when computing model controls.
+[2025-11-25 10:57:22.297] [info] Updating Model file from 40000 to latest format...
+[2025-11-25 10:57:22.301] [info] Loaded model gait10dof18musc.osim from file gait10dof18musc.osim
+[2025-11-25 10:57:22.302] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-11-25 10:57:22.302] [warning] Couldn't find file 'pelvis.vtp'.
+[2025-11-25 10:57:22.302] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-11-25 10:57:22.302] [warning] Couldn't find file 'femur_r.vtp'.
+[2025-11-25 10:57:22.302] [warning] Couldn't find file 'tibia_r.vtp'.
+[2025-11-25 10:57:22.302] [warning] Couldn't find file 'fibula.vtp'.
+[2025-11-25 10:57:22.303] [warning] Couldn't find file 'talus.vtp'.
+[2025-11-25 10:57:22.303] [warning] Couldn't find file 'foot.vtp'.
+[2025-11-25 10:57:22.303] [warning] Couldn't find file 'bofoot.vtp'.
+[2025-11-25 10:57:22.303] [warning] Couldn't find file 'femur_l.vtp'.
+[2025-11-25 10:57:22.303] [warning] Couldn't find file 'tibia_l.vtp'.
+[2025-11-25 10:57:22.303] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-11-25 10:57:22.303] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-11-25 10:57:22.303] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-11-25 10:57:22.303] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-11-25 10:57:22.304] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-11-25 10:57:22.304] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-11-25 10:57:22.304] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-11-25 10:57:22.304] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2025-11-25 10:57:22.331] [info] Adding reserve actuators with an optimal force of 10.0...
+[2025-11-25 10:57:22.339] [info] Added 10 reserve actuator(s), for each of the following coordinates:
+[2025-11-25 10:57:22.339] [info]   /jointset/ground_pelvis/pelvis_tilt
+[2025-11-25 10:57:22.339] [info]   /jointset/ground_pelvis/pelvis_tx
+[2025-11-25 10:57:22.339] [info]   /jointset/ground_pelvis/pelvis_ty
+[2025-11-25 10:57:22.339] [info]   /jointset/hip_r/hip_flexion_r
+[2025-11-25 10:57:22.339] [info]   /jointset/knee_r/knee_angle_r
+[2025-11-25 10:57:22.339] [info]   /jointset/ankle_r/ankle_angle_r
+[2025-11-25 10:57:22.339] [info]   /jointset/hip_l/hip_flexion_l
+[2025-11-25 10:57:22.339] [info]   /jointset/knee_l/knee_angle_l
+[2025-11-25 10:57:22.339] [info]   /jointset/ankle_l/ankle_angle_l
+[2025-11-25 10:57:22.339] [info]   /jointset/back/lumbar_extension
+[2025-11-25 10:57:23.139] [info] ========================================================================
+[2025-11-25 10:57:23.139] [info] MocoCasADiSolver starting.
+[2025-11-25 10:57:23.140] [info] Tue Nov 25 10:57:23 2025
+[2025-11-25 10:57:23.140] [info] ------------------------------------------------------------------------
+[2025-11-25 10:57:23.140] [info] Costs: (total: 1)
+[2025-11-25 10:57:23.140] [info]   metabolic_energy. MocoOutputGoal, enabled: true, mode: cost, weight: 1.0
+[2025-11-25 10:57:23.140] [info]         output: /metabolics|total_metabolic_rate, type: double, exponent: 1
+[2025-11-25 10:57:23.140] [info] Endpoint constraints: none
+[2025-11-25 10:57:23.140] [info] Kinematic constraints: none
+[2025-11-25 10:57:23.140] [info] Path constraints: none
+[2025-11-25 10:57:23.140] [info] States: (total: 56)
+[2025-11-25 10:57:23.140] [info]   /forceset/hamstrings_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.140] [info]   /jointset/back/lumbar_extension/value. bounds: [-1.5708, 1.5708]
+[2025-11-25 10:57:23.140] [info]   /jointset/knee_l/knee_angle_l/value. bounds: [-2.0944, 0.174533]
+[2025-11-25 10:57:23.140] [info]   /forceset/bifemsh_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.140] [info]   /forceset/glut_max_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.140] [info]   /forceset/iliopsoas_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.140] [info]   /forceset/gastroc_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.140] [info]   /forceset/vasti_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.140] [info]   /forceset/rect_fem_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.140] [info]   /forceset/rect_fem_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.140] [info]   /forceset/gastroc_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.140] [info]   /forceset/vasti_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.140] [info]   /forceset/iliopsoas_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.140] [info]   /forceset/soleus_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.140] [info]   /forceset/tib_ant_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.140] [info]   /jointset/ground_pelvis/pelvis_tilt/value. bounds: [-0.2, 0.2] initial: 0 final: 0
+[2025-11-25 10:57:23.140] [info]   /forceset/hamstrings_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.140] [info]   /forceset/bifemsh_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.141] [info]   /jointset/ground_pelvis/pelvis_tx/speed. bounds: [-50, 50]
+[2025-11-25 10:57:23.141] [info]   /forceset/glut_max_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.141] [info]   /forceset/iliopsoas_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.141] [info]   /forceset/gastroc_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /forceset/vasti_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /forceset/rect_fem_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.141] [info]   /forceset/tib_ant_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /forceset/gastroc_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.141] [info]   /forceset/vasti_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.141] [info]   /forceset/soleus_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.141] [info]   /forceset/tib_ant_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:23.141] [info]   /jointset/ground_pelvis/pelvis_tx/value. bounds: [0, 2] initial: 0 final: 1
+[2025-11-25 10:57:23.141] [info]   /jointset/ankle_l/ankle_angle_l/value. bounds: [-1.5708, 1.5708]
+[2025-11-25 10:57:23.141] [info]   /jointset/knee_r/knee_angle_r/speed. bounds: [-50, 50]
+[2025-11-25 10:57:23.141] [info]   /forceset/bifemsh_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /jointset/ground_pelvis/pelvis_ty/value. bounds: [0.8, 1.1]
+[2025-11-25 10:57:23.141] [info]   /forceset/hamstrings_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /forceset/glut_max_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /forceset/soleus_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /forceset/tib_ant_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /forceset/hamstrings_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /forceset/bifemsh_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /forceset/glut_max_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /forceset/iliopsoas_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /forceset/rect_fem_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /forceset/soleus_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:23.141] [info]   /jointset/ground_pelvis/pelvis_tilt/speed. bounds: [-50, 50]
+[2025-11-25 10:57:23.141] [info]   /jointset/ankle_l/ankle_angle_l/speed. bounds: [-50, 50]
+[2025-11-25 10:57:23.141] [info]   /jointset/ground_pelvis/pelvis_ty/speed. bounds: [-50, 50]
+[2025-11-25 10:57:23.141] [info]   /jointset/ankle_r/ankle_angle_r/value. bounds: [-1.5708, 1.5708]
+[2025-11-25 10:57:23.142] [info]   /jointset/hip_r/hip_flexion_r/value. bounds: [-2.0944, 2.0944]
+[2025-11-25 10:57:23.142] [info]   /jointset/ankle_r/ankle_angle_r/speed. bounds: [-50, 50]
+[2025-11-25 10:57:23.142] [info]   /jointset/hip_r/hip_flexion_r/speed. bounds: [-50, 50]
+[2025-11-25 10:57:23.142] [info]   /jointset/knee_r/knee_angle_r/value. bounds: [-2.0944, 0.174533]
+[2025-11-25 10:57:23.142] [info]   /jointset/back/lumbar_extension/speed. bounds: [-50, 50]
+[2025-11-25 10:57:23.142] [info]   /jointset/knee_l/knee_angle_l/speed. bounds: [-50, 50]
+[2025-11-25 10:57:23.142] [info]   /jointset/hip_l/hip_flexion_l/value. bounds: [-2.0944, 2.0944]
+[2025-11-25 10:57:23.142] [info]   /jointset/hip_l/hip_flexion_l/speed. bounds: [-50, 50]
+[2025-11-25 10:57:23.142] [info] Controls: (total: 28)
+[2025-11-25 10:57:23.142] [info]   /forceset/reserve_jointset_ankle_l_ankle_angle_l. bounds: [-inf, inf]
+[2025-11-25 10:57:23.142] [info]   /forceset/hamstrings_r. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/reserve_jointset_hip_r_hip_flexion_r. bounds: [-inf, inf]
+[2025-11-25 10:57:23.142] [info]   /forceset/reserve_jointset_ground_pelvis_pelvis_ty. bounds: [-inf, inf]
+[2025-11-25 10:57:23.142] [info]   /forceset/bifemsh_r. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/glut_max_r. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/iliopsoas_r. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/rect_fem_r. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/gastroc_r. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/vasti_r. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/soleus_r. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/tib_ant_r. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/hamstrings_l. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/bifemsh_l. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/glut_max_l. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/iliopsoas_l. bounds: [0.01, 1]
+[2025-11-25 10:57:23.142] [info]   /forceset/reserve_jointset_ground_pelvis_pelvis_tx. bounds: [-inf, inf]
+[2025-11-25 10:57:23.142] [info]   /forceset/rect_fem_l. bounds: [0.01, 1]
+[2025-11-25 10:57:23.143] [info]   /forceset/gastroc_l. bounds: [0.01, 1]
+[2025-11-25 10:57:23.143] [info]   /forceset/vasti_l. bounds: [0.01, 1]
+[2025-11-25 10:57:23.143] [info]   /forceset/soleus_l. bounds: [0.01, 1]
+[2025-11-25 10:57:23.143] [info]   /forceset/tib_ant_l. bounds: [0.01, 1]
+[2025-11-25 10:57:23.143] [info]   /forceset/reserve_jointset_ground_pelvis_pelvis_tilt. bounds: [-inf, inf]
+[2025-11-25 10:57:23.143] [info]   /forceset/reserve_jointset_knee_r_knee_angle_r. bounds: [-inf, inf]
+[2025-11-25 10:57:23.143] [info]   /forceset/reserve_jointset_ankle_r_ankle_angle_r. bounds: [-inf, inf]
+[2025-11-25 10:57:23.143] [info]   /forceset/reserve_jointset_hip_l_hip_flexion_l. bounds: [-inf, inf]
+[2025-11-25 10:57:23.143] [info]   /forceset/reserve_jointset_knee_l_knee_angle_l. bounds: [-inf, inf]
+[2025-11-25 10:57:23.143] [info]   /forceset/reserve_jointset_back_lumbar_extension. bounds: [-inf, inf]
+[2025-11-25 10:57:23.143] [info] Input controls: none
+[2025-11-25 10:57:23.143] [info] Parameters: none
+[2025-11-25 10:57:23.760] [info] Number of threads: 32
+[2025-11-25 10:57:45.851] [info] Updating Model file from 40000 to latest format...
+[2025-11-25 10:57:45.855] [info] Loaded model gait10dof18musc.osim from file gait10dof18musc.osim
+[2025-11-25 10:57:45.855] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-11-25 10:57:45.855] [warning] Couldn't find file 'pelvis.vtp'.
+[2025-11-25 10:57:45.855] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-11-25 10:57:45.855] [warning] Couldn't find file 'femur_r.vtp'.
+[2025-11-25 10:57:45.856] [warning] Couldn't find file 'tibia_r.vtp'.
+[2025-11-25 10:57:45.856] [warning] Couldn't find file 'fibula.vtp'.
+[2025-11-25 10:57:45.856] [warning] Couldn't find file 'talus.vtp'.
+[2025-11-25 10:57:45.856] [warning] Couldn't find file 'foot.vtp'.
+[2025-11-25 10:57:45.856] [warning] Couldn't find file 'bofoot.vtp'.
+[2025-11-25 10:57:45.857] [warning] Couldn't find file 'femur_l.vtp'.
+[2025-11-25 10:57:45.857] [warning] Couldn't find file 'tibia_l.vtp'.
+[2025-11-25 10:57:45.857] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-11-25 10:57:45.857] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-11-25 10:57:45.857] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-11-25 10:57:45.857] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-11-25 10:57:45.857] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-11-25 10:57:45.858] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-11-25 10:57:45.858] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-11-25 10:57:45.858] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2025-11-25 10:57:45.875] [info] Adding reserve actuators with an optimal force of 10.0...
+[2025-11-25 10:57:45.883] [info] Added 10 reserve actuator(s), for each of the following coordinates:
+[2025-11-25 10:57:45.883] [info]   /jointset/ground_pelvis/pelvis_tilt
+[2025-11-25 10:57:45.883] [info]   /jointset/ground_pelvis/pelvis_tx
+[2025-11-25 10:57:45.883] [info]   /jointset/ground_pelvis/pelvis_ty
+[2025-11-25 10:57:45.883] [info]   /jointset/hip_r/hip_flexion_r
+[2025-11-25 10:57:45.883] [info]   /jointset/knee_r/knee_angle_r
+[2025-11-25 10:57:45.883] [info]   /jointset/ankle_r/ankle_angle_r
+[2025-11-25 10:57:45.883] [info]   /jointset/hip_l/hip_flexion_l
+[2025-11-25 10:57:45.883] [info]   /jointset/knee_l/knee_angle_l
+[2025-11-25 10:57:45.883] [info]   /jointset/ankle_l/ankle_angle_l
+[2025-11-25 10:57:45.883] [info]   /jointset/back/lumbar_extension
+[2025-11-25 10:57:46.694] [info] ========================================================================
+[2025-11-25 10:57:46.694] [info] MocoCasADiSolver starting.
+[2025-11-25 10:57:46.694] [info] Tue Nov 25 10:57:46 2025
+[2025-11-25 10:57:46.695] [info] ------------------------------------------------------------------------
+[2025-11-25 10:57:46.695] [info] Costs: (total: 1)
+[2025-11-25 10:57:46.695] [info]   metabolic_energy. MocoOutputGoal, enabled: true, mode: cost, weight: 1.0
+[2025-11-25 10:57:46.695] [info]         output: /metabolics|total_metabolic_rate, type: double, exponent: 1
+[2025-11-25 10:57:46.695] [info] Endpoint constraints: none
+[2025-11-25 10:57:46.695] [info] Kinematic constraints: none
+[2025-11-25 10:57:46.695] [info] Path constraints: none
+[2025-11-25 10:57:46.695] [info] States: (total: 56)
+[2025-11-25 10:57:46.695] [info]   /forceset/hamstrings_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.695] [info]   /jointset/back/lumbar_extension/value. bounds: [-1.5708, 1.5708]
+[2025-11-25 10:57:46.695] [info]   /jointset/knee_l/knee_angle_l/value. bounds: [-2.0944, 0.174533]
+[2025-11-25 10:57:46.695] [info]   /forceset/bifemsh_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.696] [info]   /forceset/glut_max_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.696] [info]   /forceset/iliopsoas_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.696] [info]   /forceset/gastroc_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.696] [info]   /forceset/vasti_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.696] [info]   /forceset/rect_fem_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.696] [info]   /forceset/rect_fem_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.696] [info]   /forceset/gastroc_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.696] [info]   /forceset/vasti_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.696] [info]   /forceset/iliopsoas_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.697] [info]   /forceset/soleus_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.697] [info]   /forceset/tib_ant_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.697] [info]   /jointset/ground_pelvis/pelvis_tilt/value. bounds: [-0.2, 0.2] initial: 0 final: 0
+[2025-11-25 10:57:46.697] [info]   /forceset/hamstrings_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.697] [info]   /forceset/bifemsh_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.697] [info]   /jointset/ground_pelvis/pelvis_tx/speed. bounds: [-50, 50]
+[2025-11-25 10:57:46.697] [info]   /forceset/glut_max_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.697] [info]   /forceset/iliopsoas_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.697] [info]   /forceset/gastroc_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.697] [info]   /forceset/vasti_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.697] [info]   /forceset/rect_fem_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.697] [info]   /forceset/tib_ant_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.697] [info]   /forceset/gastroc_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.697] [info]   /forceset/vasti_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.697] [info]   /forceset/soleus_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.697] [info]   /forceset/tib_ant_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:57:46.697] [info]   /jointset/ground_pelvis/pelvis_tx/value. bounds: [0, 2] initial: 0 final: 1
+[2025-11-25 10:57:46.697] [info]   /jointset/ankle_l/ankle_angle_l/value. bounds: [-1.5708, 1.5708]
+[2025-11-25 10:57:46.697] [info]   /jointset/knee_r/knee_angle_r/speed. bounds: [-50, 50]
+[2025-11-25 10:57:46.697] [info]   /forceset/bifemsh_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.697] [info]   /jointset/ground_pelvis/pelvis_ty/value. bounds: [0.8, 1.1]
+[2025-11-25 10:57:46.698] [info]   /forceset/hamstrings_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.698] [info]   /forceset/glut_max_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.698] [info]   /forceset/soleus_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.698] [info]   /forceset/tib_ant_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.698] [info]   /forceset/hamstrings_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.698] [info]   /forceset/bifemsh_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.698] [info]   /forceset/glut_max_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.698] [info]   /forceset/iliopsoas_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.698] [info]   /forceset/rect_fem_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.698] [info]   /forceset/soleus_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:57:46.698] [info]   /jointset/ground_pelvis/pelvis_tilt/speed. bounds: [-50, 50]
+[2025-11-25 10:57:46.698] [info]   /jointset/ankle_l/ankle_angle_l/speed. bounds: [-50, 50]
+[2025-11-25 10:57:46.698] [info]   /jointset/ground_pelvis/pelvis_ty/speed. bounds: [-50, 50]
+[2025-11-25 10:57:46.698] [info]   /jointset/ankle_r/ankle_angle_r/value. bounds: [-1.5708, 1.5708]
+[2025-11-25 10:57:46.698] [info]   /jointset/hip_r/hip_flexion_r/value. bounds: [-2.0944, 2.0944]
+[2025-11-25 10:57:46.698] [info]   /jointset/ankle_r/ankle_angle_r/speed. bounds: [-50, 50]
+[2025-11-25 10:57:46.698] [info]   /jointset/hip_r/hip_flexion_r/speed. bounds: [-50, 50]
+[2025-11-25 10:57:46.698] [info]   /jointset/knee_r/knee_angle_r/value. bounds: [-2.0944, 0.174533]
+[2025-11-25 10:57:46.698] [info]   /jointset/back/lumbar_extension/speed. bounds: [-50, 50]
+[2025-11-25 10:57:46.698] [info]   /jointset/knee_l/knee_angle_l/speed. bounds: [-50, 50]
+[2025-11-25 10:57:46.698] [info]   /jointset/hip_l/hip_flexion_l/value. bounds: [-2.0944, 2.0944]
+[2025-11-25 10:57:46.698] [info]   /jointset/hip_l/hip_flexion_l/speed. bounds: [-50, 50]
+[2025-11-25 10:57:46.698] [info] Controls: (total: 28)
+[2025-11-25 10:57:46.699] [info]   /forceset/reserve_jointset_ankle_l_ankle_angle_l. bounds: [-inf, inf]
+[2025-11-25 10:57:46.699] [info]   /forceset/hamstrings_r. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/reserve_jointset_hip_r_hip_flexion_r. bounds: [-inf, inf]
+[2025-11-25 10:57:46.699] [info]   /forceset/reserve_jointset_ground_pelvis_pelvis_ty. bounds: [-inf, inf]
+[2025-11-25 10:57:46.699] [info]   /forceset/bifemsh_r. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/glut_max_r. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/iliopsoas_r. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/rect_fem_r. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/gastroc_r. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/vasti_r. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/soleus_r. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/tib_ant_r. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/hamstrings_l. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/bifemsh_l. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/glut_max_l. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/iliopsoas_l. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/reserve_jointset_ground_pelvis_pelvis_tx. bounds: [-inf, inf]
+[2025-11-25 10:57:46.699] [info]   /forceset/rect_fem_l. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/gastroc_l. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/vasti_l. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/soleus_l. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/tib_ant_l. bounds: [0.01, 1]
+[2025-11-25 10:57:46.699] [info]   /forceset/reserve_jointset_ground_pelvis_pelvis_tilt. bounds: [-inf, inf]
+[2025-11-25 10:57:46.699] [info]   /forceset/reserve_jointset_knee_r_knee_angle_r. bounds: [-inf, inf]
+[2025-11-25 10:57:46.699] [info]   /forceset/reserve_jointset_ankle_r_ankle_angle_r. bounds: [-inf, inf]
+[2025-11-25 10:57:46.699] [info]   /forceset/reserve_jointset_hip_l_hip_flexion_l. bounds: [-inf, inf]
+[2025-11-25 10:57:46.699] [info]   /forceset/reserve_jointset_knee_l_knee_angle_l. bounds: [-inf, inf]
+[2025-11-25 10:57:46.699] [info]   /forceset/reserve_jointset_back_lumbar_extension. bounds: [-inf, inf]
+[2025-11-25 10:57:46.699] [info] Input controls: none
+[2025-11-25 10:57:46.699] [info] Parameters: none
+[2025-11-25 10:57:47.332] [info] Number of threads: 32
+[2025-11-25 10:58:09.719] [info] Updating Model file from 40000 to latest format...
+[2025-11-25 10:58:09.723] [info] Loaded model gait10dof18musc.osim from file gait10dof18musc.osim
+[2025-11-25 10:58:09.723] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-11-25 10:58:09.724] [warning] Couldn't find file 'pelvis.vtp'.
+[2025-11-25 10:58:09.724] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-11-25 10:58:09.724] [warning] Couldn't find file 'femur_r.vtp'.
+[2025-11-25 10:58:09.724] [warning] Couldn't find file 'tibia_r.vtp'.
+[2025-11-25 10:58:09.724] [warning] Couldn't find file 'fibula.vtp'.
+[2025-11-25 10:58:09.725] [warning] Couldn't find file 'talus.vtp'.
+[2025-11-25 10:58:09.725] [warning] Couldn't find file 'foot.vtp'.
+[2025-11-25 10:58:09.725] [warning] Couldn't find file 'bofoot.vtp'.
+[2025-11-25 10:58:09.725] [warning] Couldn't find file 'femur_l.vtp'.
+[2025-11-25 10:58:09.725] [warning] Couldn't find file 'tibia_l.vtp'.
+[2025-11-25 10:58:09.725] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-11-25 10:58:09.726] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-11-25 10:58:09.726] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-11-25 10:58:09.726] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-11-25 10:58:09.726] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-11-25 10:58:09.726] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-11-25 10:58:09.726] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-11-25 10:58:09.726] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2025-11-25 10:58:09.744] [info] Adding reserve actuators with an optimal force of 10.0...
+[2025-11-25 10:58:09.752] [info] Added 10 reserve actuator(s), for each of the following coordinates:
+[2025-11-25 10:58:09.752] [info]   /jointset/ground_pelvis/pelvis_tilt
+[2025-11-25 10:58:09.753] [info]   /jointset/ground_pelvis/pelvis_tx
+[2025-11-25 10:58:09.753] [info]   /jointset/ground_pelvis/pelvis_ty
+[2025-11-25 10:58:09.753] [info]   /jointset/hip_r/hip_flexion_r
+[2025-11-25 10:58:09.753] [info]   /jointset/knee_r/knee_angle_r
+[2025-11-25 10:58:09.753] [info]   /jointset/ankle_r/ankle_angle_r
+[2025-11-25 10:58:09.753] [info]   /jointset/hip_l/hip_flexion_l
+[2025-11-25 10:58:09.753] [info]   /jointset/knee_l/knee_angle_l
+[2025-11-25 10:58:09.753] [info]   /jointset/ankle_l/ankle_angle_l
+[2025-11-25 10:58:09.753] [info]   /jointset/back/lumbar_extension
+[2025-11-25 10:58:10.572] [info] ========================================================================
+[2025-11-25 10:58:10.573] [info] MocoCasADiSolver starting.
+[2025-11-25 10:58:10.573] [info] Tue Nov 25 10:58:10 2025
+[2025-11-25 10:58:10.573] [info] ------------------------------------------------------------------------
+[2025-11-25 10:58:10.573] [info] Costs: (total: 1)
+[2025-11-25 10:58:10.573] [info]   metabolic_energy. MocoOutputGoal, enabled: true, mode: cost, weight: 1.0
+[2025-11-25 10:58:10.573] [info]         output: /metabolics|total_metabolic_rate, type: double, exponent: 1
+[2025-11-25 10:58:10.573] [info] Endpoint constraints: none
+[2025-11-25 10:58:10.573] [info] Kinematic constraints: none
+[2025-11-25 10:58:10.573] [info] Path constraints: none
+[2025-11-25 10:58:10.573] [info] States: (total: 56)
+[2025-11-25 10:58:10.574] [info]   /forceset/hamstrings_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.574] [info]   /jointset/back/lumbar_extension/value. bounds: [-1.5708, 1.5708]
+[2025-11-25 10:58:10.574] [info]   /jointset/knee_l/knee_angle_l/value. bounds: [-2.0944, 0.174533]
+[2025-11-25 10:58:10.574] [info]   /forceset/bifemsh_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.574] [info]   /forceset/glut_max_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.574] [info]   /forceset/iliopsoas_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.575] [info]   /forceset/gastroc_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.575] [info]   /forceset/vasti_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.575] [info]   /forceset/rect_fem_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.575] [info]   /forceset/rect_fem_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.575] [info]   /forceset/gastroc_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.575] [info]   /forceset/vasti_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.575] [info]   /forceset/iliopsoas_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.575] [info]   /forceset/soleus_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.575] [info]   /forceset/tib_ant_r/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.575] [info]   /jointset/ground_pelvis/pelvis_tilt/value. bounds: [-0.2, 0.2] initial: 0 final: 0
+[2025-11-25 10:58:10.575] [info]   /forceset/hamstrings_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.575] [info]   /forceset/bifemsh_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.575] [info]   /jointset/ground_pelvis/pelvis_tx/speed. bounds: [-50, 50]
+[2025-11-25 10:58:10.575] [info]   /forceset/glut_max_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.575] [info]   /forceset/iliopsoas_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.575] [info]   /forceset/gastroc_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.576] [info]   /forceset/vasti_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.576] [info]   /forceset/rect_fem_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.576] [info]   /forceset/tib_ant_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.576] [info]   /forceset/gastroc_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.576] [info]   /forceset/vasti_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.576] [info]   /forceset/soleus_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.576] [info]   /forceset/tib_ant_l/activation. bounds: [0.01, 1] initial: [0.01, 0.2] final: [0.01, 1]
+[2025-11-25 10:58:10.576] [info]   /jointset/ground_pelvis/pelvis_tx/value. bounds: [0, 2] initial: 0 final: 1
+[2025-11-25 10:58:10.576] [info]   /jointset/ankle_l/ankle_angle_l/value. bounds: [-1.5708, 1.5708]
+[2025-11-25 10:58:10.576] [info]   /jointset/knee_r/knee_angle_r/speed. bounds: [-50, 50]
+[2025-11-25 10:58:10.576] [info]   /forceset/bifemsh_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.576] [info]   /jointset/ground_pelvis/pelvis_ty/value. bounds: [0.8, 1.1]
+[2025-11-25 10:58:10.576] [info]   /forceset/hamstrings_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.576] [info]   /forceset/glut_max_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.576] [info]   /forceset/soleus_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.576] [info]   /forceset/tib_ant_r/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.576] [info]   /forceset/hamstrings_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.576] [info]   /forceset/bifemsh_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.576] [info]   /forceset/glut_max_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.576] [info]   /forceset/iliopsoas_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.576] [info]   /forceset/rect_fem_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.577] [info]   /forceset/soleus_l/normalized_tendon_force. bounds: [0, 5]
+[2025-11-25 10:58:10.577] [info]   /jointset/ground_pelvis/pelvis_tilt/speed. bounds: [-50, 50]
+[2025-11-25 10:58:10.577] [info]   /jointset/ankle_l/ankle_angle_l/speed. bounds: [-50, 50]
+[2025-11-25 10:58:10.577] [info]   /jointset/ground_pelvis/pelvis_ty/speed. bounds: [-50, 50]
+[2025-11-25 10:58:10.577] [info]   /jointset/ankle_r/ankle_angle_r/value. bounds: [-1.5708, 1.5708]
+[2025-11-25 10:58:10.577] [info]   /jointset/hip_r/hip_flexion_r/value. bounds: [-2.0944, 2.0944]
+[2025-11-25 10:58:10.577] [info]   /jointset/ankle_r/ankle_angle_r/speed. bounds: [-50, 50]
+[2025-11-25 10:58:10.577] [info]   /jointset/hip_r/hip_flexion_r/speed. bounds: [-50, 50]
+[2025-11-25 10:58:10.577] [info]   /jointset/knee_r/knee_angle_r/value. bounds: [-2.0944, 0.174533]
+[2025-11-25 10:58:10.577] [info]   /jointset/back/lumbar_extension/speed. bounds: [-50, 50]
+[2025-11-25 10:58:10.577] [info]   /jointset/knee_l/knee_angle_l/speed. bounds: [-50, 50]
+[2025-11-25 10:58:10.577] [info]   /jointset/hip_l/hip_flexion_l/value. bounds: [-2.0944, 2.0944]
+[2025-11-25 10:58:10.577] [info]   /jointset/hip_l/hip_flexion_l/speed. bounds: [-50, 50]
+[2025-11-25 10:58:10.577] [info] Controls: (total: 28)
+[2025-11-25 10:58:10.577] [info]   /forceset/reserve_jointset_ankle_l_ankle_angle_l. bounds: [-inf, inf]
+[2025-11-25 10:58:10.577] [info]   /forceset/hamstrings_r. bounds: [0.01, 1]
+[2025-11-25 10:58:10.577] [info]   /forceset/reserve_jointset_hip_r_hip_flexion_r. bounds: [-inf, inf]
+[2025-11-25 10:58:10.577] [info]   /forceset/reserve_jointset_ground_pelvis_pelvis_ty. bounds: [-inf, inf]
+[2025-11-25 10:58:10.577] [info]   /forceset/bifemsh_r. bounds: [0.01, 1]
+[2025-11-25 10:58:10.577] [info]   /forceset/glut_max_r. bounds: [0.01, 1]
+[2025-11-25 10:58:10.577] [info]   /forceset/iliopsoas_r. bounds: [0.01, 1]
+[2025-11-25 10:58:10.577] [info]   /forceset/rect_fem_r. bounds: [0.01, 1]
+[2025-11-25 10:58:10.577] [info]   /forceset/gastroc_r. bounds: [0.01, 1]
+[2025-11-25 10:58:10.577] [info]   /forceset/vasti_r. bounds: [0.01, 1]
+[2025-11-25 10:58:10.577] [info]   /forceset/soleus_r. bounds: [0.01, 1]
+[2025-11-25 10:58:10.577] [info]   /forceset/tib_ant_r. bounds: [0.01, 1]
+[2025-11-25 10:58:10.577] [info]   /forceset/hamstrings_l. bounds: [0.01, 1]
+[2025-11-25 10:58:10.577] [info]   /forceset/bifemsh_l. bounds: [0.01, 1]
+[2025-11-25 10:58:10.578] [info]   /forceset/glut_max_l. bounds: [0.01, 1]
+[2025-11-25 10:58:10.578] [info]   /forceset/iliopsoas_l. bounds: [0.01, 1]
+[2025-11-25 10:58:10.578] [info]   /forceset/reserve_jointset_ground_pelvis_pelvis_tx. bounds: [-inf, inf]
+[2025-11-25 10:58:10.578] [info]   /forceset/rect_fem_l. bounds: [0.01, 1]
+[2025-11-25 10:58:10.578] [info]   /forceset/gastroc_l. bounds: [0.01, 1]
+[2025-11-25 10:58:10.578] [info]   /forceset/vasti_l. bounds: [0.01, 1]
+[2025-11-25 10:58:10.578] [info]   /forceset/soleus_l. bounds: [0.01, 1]
+[2025-11-25 10:58:10.578] [info]   /forceset/tib_ant_l. bounds: [0.01, 1]
+[2025-11-25 10:58:10.578] [info]   /forceset/reserve_jointset_ground_pelvis_pelvis_tilt. bounds: [-inf, inf]
+[2025-11-25 10:58:10.578] [info]   /forceset/reserve_jointset_knee_r_knee_angle_r. bounds: [-inf, inf]
+[2025-11-25 10:58:10.578] [info]   /forceset/reserve_jointset_ankle_r_ankle_angle_r. bounds: [-inf, inf]
+[2025-11-25 10:58:10.578] [info]   /forceset/reserve_jointset_hip_l_hip_flexion_l. bounds: [-inf, inf]
+[2025-11-25 10:58:10.578] [info]   /forceset/reserve_jointset_knee_l_knee_angle_l. bounds: [-inf, inf]
+[2025-11-25 10:58:10.578] [info]   /forceset/reserve_jointset_back_lumbar_extension. bounds: [-inf, inf]
+[2025-11-25 10:58:10.578] [info] Input controls: none
+[2025-11-25 10:58:10.578] [info] Parameters: none
+[2025-11-25 10:58:11.228] [info] Number of threads: 32
+[2025-11-25 10:58:24.698] [info] Set log level to Info.
+[2025-11-25 10:58:24.700] [info] ------------------------------------------------------------------------
+[2025-11-25 10:58:24.700] [info] Elapsed real time: 14 second(s).
+[2025-11-25 10:58:24.700] [info] Tue Nov 25 10:58:24 2025
+[2025-11-25 10:58:24.701] [warning] MocoCasADiSolver did NOT succeed:
+[2025-11-25 10:58:24.701] [warning]   Invalid_Number_Detected
+[2025-11-25 10:58:24.701] [info] ========================================================================
+[2025-11-25 11:26:25.179] [info] Updating Model file from 40000 to latest format...
+[2025-11-25 11:26:25.183] [info] Loaded model 2D_gait from file 2D_gait.osim
+[2025-11-25 11:26:25.184] [warning] Couldn't find file 'r_pelvis.vtp'.
+[2025-11-25 11:26:25.184] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-11-25 11:26:25.184] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-11-25 11:26:25.184] [warning] Couldn't find file 'l_femur.vtp'.
+[2025-11-25 11:26:25.184] [warning] Couldn't find file 'r_femur.vtp'.
+[2025-11-25 11:26:25.184] [warning] Couldn't find file 'l_tibia.vtp'.
+[2025-11-25 11:26:25.184] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-11-25 11:26:25.184] [warning] Couldn't find file 'r_tibia.vtp'.
+[2025-11-25 11:26:25.184] [warning] Couldn't find file 'r_fibula.vtp'.
+[2025-11-25 11:26:25.184] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-11-25 11:26:25.184] [warning] Couldn't find file 'r_talus.vtp'.
+[2025-11-25 11:26:25.185] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-11-25 11:26:25.185] [warning] Couldn't find file 'r_foot.vtp'.
+[2025-11-25 11:26:25.185] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-11-25 11:26:25.185] [warning] Couldn't find file 'r_bofoot.vtp'.
+[2025-11-25 11:26:25.185] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-11-25 11:26:25.185] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-11-25 11:26:25.185] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-11-25 11:26:25.185] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2025-11-25 11:26:25.211] [warning] Table not uniformly sampled! Resampling with interval: 0.00959366
+[2025-11-25 11:26:58.299] [info] Updating Model file from 40000 to latest format...
+[2025-11-25 11:26:58.303] [info] Loaded model 2D_gait from file 2D_gait.osim
+[2025-11-25 11:26:58.303] [warning] Couldn't find file 'r_pelvis.vtp'.
+[2025-11-25 11:26:58.304] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-11-25 11:26:58.304] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-11-25 11:26:58.304] [warning] Couldn't find file 'l_femur.vtp'.
+[2025-11-25 11:26:58.304] [warning] Couldn't find file 'r_femur.vtp'.
+[2025-11-25 11:26:58.304] [warning] Couldn't find file 'l_tibia.vtp'.
+[2025-11-25 11:26:58.304] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-11-25 11:26:58.304] [warning] Couldn't find file 'r_tibia.vtp'.
+[2025-11-25 11:26:58.304] [warning] Couldn't find file 'r_fibula.vtp'.
+[2025-11-25 11:26:58.304] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-11-25 11:26:58.304] [warning] Couldn't find file 'r_talus.vtp'.
+[2025-11-25 11:26:58.304] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-11-25 11:26:58.304] [warning] Couldn't find file 'r_foot.vtp'.
+[2025-11-25 11:26:58.305] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-11-25 11:26:58.305] [warning] Couldn't find file 'r_bofoot.vtp'.
+[2025-11-25 11:26:58.305] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-11-25 11:26:58.305] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-11-25 11:26:58.305] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-11-25 11:26:58.305] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2025-11-25 11:26:58.328] [warning] Table not uniformly sampled! Resampling with interval: 0.00959366
+[2025-11-25 11:27:09.871] [info] Updating Model file from 40000 to latest format...
+[2025-11-25 11:27:09.875] [info] Loaded model 2D_gait from file 2D_gait.osim
+[2025-11-25 11:27:09.875] [warning] Couldn't find file 'r_pelvis.vtp'.
+[2025-11-25 11:27:09.875] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-11-25 11:27:09.875] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-11-25 11:27:09.875] [warning] Couldn't find file 'l_femur.vtp'.
+[2025-11-25 11:27:09.875] [warning] Couldn't find file 'r_femur.vtp'.
+[2025-11-25 11:27:09.875] [warning] Couldn't find file 'l_tibia.vtp'.
+[2025-11-25 11:27:09.875] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-11-25 11:27:09.875] [warning] Couldn't find file 'r_tibia.vtp'.
+[2025-11-25 11:27:09.876] [warning] Couldn't find file 'r_fibula.vtp'.
+[2025-11-25 11:27:09.876] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-11-25 11:27:09.876] [warning] Couldn't find file 'r_talus.vtp'.
+[2025-11-25 11:27:09.876] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-11-25 11:27:09.876] [warning] Couldn't find file 'r_foot.vtp'.
+[2025-11-25 11:27:09.876] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-11-25 11:27:09.876] [warning] Couldn't find file 'r_bofoot.vtp'.
+[2025-11-25 11:27:09.876] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-11-25 11:27:09.876] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-11-25 11:27:09.876] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-11-25 11:27:09.876] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2025-11-25 11:27:09.900] [warning] Table not uniformly sampled! Resampling with interval: 0.00959366
+[2025-11-25 11:27:13.939] [info] Updating Model file from 40000 to latest format...
+[2025-11-25 11:27:13.943] [info] Loaded model 2D_gait from file 2D_gait.osim
+[2025-11-25 11:27:13.944] [warning] Couldn't find file 'r_pelvis.vtp'.
+[2025-11-25 11:27:13.944] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-11-25 11:27:13.944] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-11-25 11:27:13.944] [warning] Couldn't find file 'l_femur.vtp'.
+[2025-11-25 11:27:13.944] [warning] Couldn't find file 'r_femur.vtp'.
+[2025-11-25 11:27:13.944] [warning] Couldn't find file 'l_tibia.vtp'.
+[2025-11-25 11:27:13.944] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-11-25 11:27:13.944] [warning] Couldn't find file 'r_tibia.vtp'.
+[2025-11-25 11:27:13.944] [warning] Couldn't find file 'r_fibula.vtp'.
+[2025-11-25 11:27:13.944] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-11-25 11:27:13.944] [warning] Couldn't find file 'r_talus.vtp'.
+[2025-11-25 11:27:13.944] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-11-25 11:27:13.945] [warning] Couldn't find file 'r_foot.vtp'.
+[2025-11-25 11:27:13.945] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-11-25 11:27:13.945] [warning] Couldn't find file 'r_bofoot.vtp'.
+[2025-11-25 11:27:13.945] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-11-25 11:27:13.945] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-11-25 11:27:13.945] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-11-25 11:27:13.945] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2025-11-25 11:27:13.969] [warning] Table not uniformly sampled! Resampling with interval: 0.00959366
+[2025-11-25 11:27:32.247] [info] Updating Model file from 40000 to latest format...
+[2025-11-25 11:27:32.251] [info] Loaded model 2D_gait from file 2D_gait.osim
+[2025-11-25 11:27:32.251] [warning] Couldn't find file 'r_pelvis.vtp'.
+[2025-11-25 11:27:32.251] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-11-25 11:27:32.252] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-11-25 11:27:32.252] [warning] Couldn't find file 'l_femur.vtp'.
+[2025-11-25 11:27:32.252] [warning] Couldn't find file 'r_femur.vtp'.
+[2025-11-25 11:27:32.252] [warning] Couldn't find file 'l_tibia.vtp'.
+[2025-11-25 11:27:32.252] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-11-25 11:27:32.252] [warning] Couldn't find file 'r_tibia.vtp'.
+[2025-11-25 11:27:32.252] [warning] Couldn't find file 'r_fibula.vtp'.
+[2025-11-25 11:27:32.252] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-11-25 11:27:32.252] [warning] Couldn't find file 'r_talus.vtp'.
+[2025-11-25 11:27:32.252] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-11-25 11:27:32.252] [warning] Couldn't find file 'r_foot.vtp'.
+[2025-11-25 11:27:32.252] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-11-25 11:27:32.253] [warning] Couldn't find file 'r_bofoot.vtp'.
+[2025-11-25 11:27:32.253] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-11-25 11:27:32.253] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-11-25 11:27:32.253] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-11-25 11:27:32.253] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2025-11-25 11:27:32.277] [warning] Table not uniformly sampled! Resampling with interval: 0.00959366
+[2025-11-25 11:27:33.149] [info] ========================================================================
+[2025-11-25 11:27:33.149] [info] MocoCasADiSolver starting.
+[2025-11-25 11:27:33.150] [info] Tue Nov 25 11:27:33 2025
+[2025-11-25 11:27:33.150] [info] ------------------------------------------------------------------------
+[2025-11-25 11:27:33.150] [info] Costs: (total: 3)
+[2025-11-25 11:27:33.150] [info]   state_tracking. MocoStateTrackingGoal, enabled: true, mode: cost, weight: 30.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/groundPelvis/pelvis_tilt/value, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/groundPelvis/pelvis_tx/value, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/groundPelvis/pelvis_ty/value, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/hip_l/hip_flexion_l/value, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/hip_r/hip_flexion_r/value, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/knee_l/knee_angle_l/value, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/knee_r/knee_angle_r/value, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/ankle_l/ankle_angle_l/value, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/ankle_r/ankle_angle_r/value, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/lumbar/lumbar/value, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/groundPelvis/pelvis_tilt/speed, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/groundPelvis/pelvis_tx/speed, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/groundPelvis/pelvis_ty/speed, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/hip_l/hip_flexion_l/speed, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/hip_r/hip_flexion_r/speed, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/knee_l/knee_angle_l/speed, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/knee_r/knee_angle_r/speed, weight: 1.0
+[2025-11-25 11:27:33.150] [info]         state: /jointset/ankle_l/ankle_angle_l/speed, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         state: /jointset/ankle_r/ankle_angle_r/speed, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         state: /jointset/lumbar/lumbar/speed, weight: 1.0
+[2025-11-25 11:27:33.151] [info]   control_effort. MocoControlGoal, enabled: true, mode: cost, weight: 0.1
+[2025-11-25 11:27:33.151] [info]         control: /lumbarAct, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /hamstrings_r, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /bifemsh_r, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /glut_max_r, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /iliopsoas_r, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /rect_fem_r, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /vasti_r, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /gastroc_r, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /soleus_r, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /tib_ant_r, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /hamstrings_l, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /bifemsh_l, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /glut_max_l, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /iliopsoas_l, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /rect_fem_l, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /vasti_l, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /gastroc_l, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /soleus_l, weight: 1.0
+[2025-11-25 11:27:33.151] [info]         control: /tib_ant_l, weight: 1.0
+[2025-11-25 11:27:33.151] [info]   met. MocoOutputGoal, enabled: true, mode: cost, weight: 0.1
+[2025-11-25 11:27:33.151] [info]         output: /metabolic_cost|total_metabolic_rate, type: double, exponent: 1
+[2025-11-25 11:27:33.151] [info] Endpoint constraints: (total: 1)
+[2025-11-25 11:27:33.151] [info]   symmetryGoal. MocoPeriodicityGoal, enabled: true, mode: endpoint_constraint
+[2025-11-25 11:27:33.151] [info]         state periodicity pairs:
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/groundPelvis/pelvis_tilt/value, final: /jointset/groundPelvis/pelvis_tilt/value
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/groundPelvis/pelvis_tilt/speed, final: /jointset/groundPelvis/pelvis_tilt/speed
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/groundPelvis/pelvis_tx/speed, final: /jointset/groundPelvis/pelvis_tx/speed
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/groundPelvis/pelvis_ty/value, final: /jointset/groundPelvis/pelvis_ty/value
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/groundPelvis/pelvis_ty/speed, final: /jointset/groundPelvis/pelvis_ty/speed
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/hip_l/hip_flexion_l/value, final: /jointset/hip_r/hip_flexion_r/value
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/hip_l/hip_flexion_l/speed, final: /jointset/hip_r/hip_flexion_r/speed
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/hip_r/hip_flexion_r/value, final: /jointset/hip_l/hip_flexion_l/value
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/hip_r/hip_flexion_r/speed, final: /jointset/hip_l/hip_flexion_l/speed
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/knee_l/knee_angle_l/value, final: /jointset/knee_r/knee_angle_r/value
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/knee_l/knee_angle_l/speed, final: /jointset/knee_r/knee_angle_r/speed
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/knee_r/knee_angle_r/value, final: /jointset/knee_l/knee_angle_l/value
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/knee_r/knee_angle_r/speed, final: /jointset/knee_l/knee_angle_l/speed
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/ankle_l/ankle_angle_l/value, final: /jointset/ankle_r/ankle_angle_r/value
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/ankle_l/ankle_angle_l/speed, final: /jointset/ankle_r/ankle_angle_r/speed
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/ankle_r/ankle_angle_r/value, final: /jointset/ankle_l/ankle_angle_l/value
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/ankle_r/ankle_angle_r/speed, final: /jointset/ankle_l/ankle_angle_l/speed
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/lumbar/lumbar/value, final: /jointset/lumbar/lumbar/value
+[2025-11-25 11:27:33.152] [info]                 initial: /jointset/lumbar/lumbar/speed, final: /jointset/lumbar/lumbar/speed
+[2025-11-25 11:27:33.152] [info]                 initial: /hamstrings_r/activation, final: /hamstrings_l/activation
+[2025-11-25 11:27:33.152] [info]                 initial: /bifemsh_r/activation, final: /bifemsh_l/activation
+[2025-11-25 11:27:33.152] [info]                 initial: /glut_max_r/activation, final: /glut_max_l/activation
+[2025-11-25 11:27:33.152] [info]                 initial: /iliopsoas_r/activation, final: /iliopsoas_l/activation
+[2025-11-25 11:27:33.152] [info]                 initial: /rect_fem_r/activation, final: /rect_fem_l/activation
+[2025-11-25 11:27:33.152] [info]                 initial: /vasti_r/activation, final: /vasti_l/activation
+[2025-11-25 11:27:33.152] [info]                 initial: /gastroc_r/activation, final: /gastroc_l/activation
+[2025-11-25 11:27:33.153] [info]                 initial: /soleus_r/activation, final: /soleus_l/activation
+[2025-11-25 11:27:33.153] [info]                 initial: /tib_ant_r/activation, final: /tib_ant_l/activation
+[2025-11-25 11:27:33.153] [info]                 initial: /hamstrings_l/activation, final: /hamstrings_r/activation
+[2025-11-25 11:27:33.153] [info]                 initial: /bifemsh_l/activation, final: /bifemsh_r/activation
+[2025-11-25 11:27:33.153] [info]                 initial: /glut_max_l/activation, final: /glut_max_r/activation
+[2025-11-25 11:27:33.153] [info]                 initial: /iliopsoas_l/activation, final: /iliopsoas_r/activation
+[2025-11-25 11:27:33.153] [info]                 initial: /rect_fem_l/activation, final: /rect_fem_r/activation
+[2025-11-25 11:27:33.153] [info]                 initial: /vasti_l/activation, final: /vasti_r/activation
+[2025-11-25 11:27:33.153] [info]                 initial: /gastroc_l/activation, final: /gastroc_r/activation
+[2025-11-25 11:27:33.153] [info]                 initial: /soleus_l/activation, final: /soleus_r/activation
+[2025-11-25 11:27:33.153] [info]                 initial: /tib_ant_l/activation, final: /tib_ant_r/activation
+[2025-11-25 11:27:33.153] [info]         control periodicity pairs:
+[2025-11-25 11:27:33.153] [info]                 initial: /lumbarAct, final: /lumbarAct
+[2025-11-25 11:27:33.153] [info] Kinematic constraints: none
+[2025-11-25 11:27:33.153] [info] Path constraints: none
+[2025-11-25 11:27:33.153] [info] States: (total: 38)
+[2025-11-25 11:27:33.153] [info]   /gastroc_l/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.153] [info]   /jointset/groundPelvis/pelvis_tilt/value. bounds: [-0.349066, -0.174533]
+[2025-11-25 11:27:33.153] [info]   /jointset/groundPelvis/pelvis_tx/value. bounds: [0, 1]
+[2025-11-25 11:27:33.154] [info]   /jointset/groundPelvis/pelvis_ty/value. bounds: [0.75, 1.25]
+[2025-11-25 11:27:33.154] [info]   /jointset/knee_l/knee_angle_l/speed. bounds: [-50, 50]
+[2025-11-25 11:27:33.154] [info]   /jointset/hip_l/hip_flexion_l/value. bounds: [-0.174533, 1.0472]
+[2025-11-25 11:27:33.154] [info]   /jointset/ankle_r/ankle_angle_r/value. bounds: [-0.261799, 0.436332]
+[2025-11-25 11:27:33.154] [info]   /jointset/hip_r/hip_flexion_r/value. bounds: [-0.174533, 1.0472]
+[2025-11-25 11:27:33.154] [info]   /jointset/knee_l/knee_angle_l/value. bounds: [-0.872665, 0]
+[2025-11-25 11:27:33.154] [info]   /jointset/knee_r/knee_angle_r/value. bounds: [-0.872665, 0]
+[2025-11-25 11:27:33.154] [info]   /jointset/knee_r/knee_angle_r/speed. bounds: [-50, 50]
+[2025-11-25 11:27:33.154] [info]   /jointset/ankle_l/ankle_angle_l/value. bounds: [-0.261799, 0.436332]
+[2025-11-25 11:27:33.154] [info]   /jointset/lumbar/lumbar/value. bounds: [0, 0.349066]
+[2025-11-25 11:27:33.154] [info]   /jointset/groundPelvis/pelvis_tilt/speed. bounds: [-50, 50]
+[2025-11-25 11:27:33.154] [info]   /jointset/groundPelvis/pelvis_tx/speed. bounds: [-50, 50]
+[2025-11-25 11:27:33.154] [info]   /jointset/groundPelvis/pelvis_ty/speed. bounds: [-50, 50]
+[2025-11-25 11:27:33.154] [info]   /jointset/hip_l/hip_flexion_l/speed. bounds: [-50, 50]
+[2025-11-25 11:27:33.154] [info]   /jointset/ankle_r/ankle_angle_r/speed. bounds: [-50, 50]
+[2025-11-25 11:27:33.154] [info]   /jointset/hip_r/hip_flexion_r/speed. bounds: [-50, 50]
+[2025-11-25 11:27:33.154] [info]   /jointset/ankle_l/ankle_angle_l/speed. bounds: [-50, 50]
+[2025-11-25 11:27:33.154] [info]   /jointset/lumbar/lumbar/speed. bounds: [-50, 50]
+[2025-11-25 11:27:33.154] [info]   /hamstrings_r/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.154] [info]   /bifemsh_r/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /glut_max_r/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /iliopsoas_r/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /rect_fem_r/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /tib_ant_r/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /vasti_r/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /gastroc_r/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /soleus_r/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /hamstrings_l/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /bifemsh_l/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /glut_max_l/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /iliopsoas_l/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /rect_fem_l/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /tib_ant_l/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /vasti_l/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /soleus_l/activation. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info] Controls: (total: 19)
+[2025-11-25 11:27:33.155] [info]   /lumbarAct. bounds: [-150, 150]
+[2025-11-25 11:27:33.155] [info]   /hamstrings_r. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /bifemsh_r. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /glut_max_r. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /iliopsoas_r. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /rect_fem_r. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /tib_ant_r. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /vasti_r. bounds: [0.01, 1]
+[2025-11-25 11:27:33.155] [info]   /gastroc_r. bounds: [0.01, 1]
+[2025-11-25 11:27:33.156] [info]   /soleus_r. bounds: [0.01, 1]
+[2025-11-25 11:27:33.156] [info]   /hamstrings_l. bounds: [0.01, 1]
+[2025-11-25 11:27:33.156] [info]   /bifemsh_l. bounds: [0.01, 1]
+[2025-11-25 11:27:33.156] [info]   /glut_max_l. bounds: [0.01, 1]
+[2025-11-25 11:27:33.156] [info]   /iliopsoas_l. bounds: [0.01, 1]
+[2025-11-25 11:27:33.156] [info]   /rect_fem_l. bounds: [0.01, 1]
+[2025-11-25 11:27:33.156] [info]   /tib_ant_l. bounds: [0.01, 1]
+[2025-11-25 11:27:33.156] [info]   /vasti_l. bounds: [0.01, 1]
+[2025-11-25 11:27:33.156] [info]   /gastroc_l. bounds: [0.01, 1]
+[2025-11-25 11:27:33.156] [info]   /soleus_l. bounds: [0.01, 1]
+[2025-11-25 11:27:33.156] [info] Input controls: none
+[2025-11-25 11:27:33.156] [info] Parameters: none
+[2025-11-25 11:27:33.780] [info] Number of threads: 32
+[2025-11-25 11:28:56.972] [info] Set log level to Info.
+[2025-11-25 11:28:56.975] [info] ------------------------------------------------------------------------
+[2025-11-25 11:28:56.975] [info] Elapsed real time: 84 second(s) (1 minute(s), 24 second(s)).
+[2025-11-25 11:28:56.975] [info] Tue Nov 25 11:28:56 2025
+[2025-11-25 11:28:56.975] [info] MocoCasADiSolver succeeded!
+[2025-11-25 11:28:56.975] [info] ========================================================================
