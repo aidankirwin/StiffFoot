@@ -53,9 +53,9 @@ df = pd.read_csv("segments.csv")
 print(df)
 
 # Parameters
-segment_radius = 0.01   # visualization radius
-segment_mass = 0.05
-segment_inertia_val = 0  # simple thin cylinder inertia
+segment_radius = 0.01    # visualization radius
+segment_mass = 0.025     # mass of each segment
+segment_inertia = [segment_mass * segment_radius**2 / 4 , segment_mass * segment_radius**2 / 4 , segment_mass * segment_radius**2 / 2]
 
 # Initial parent is the pylon
 parent_body = model.getBodySet().get("pylon_r")
@@ -92,7 +92,7 @@ for idx, row in df.iterrows():
         seg_name,
         segment_mass,
         mass_center,
-        osim.Inertia(segment_inertia_val, segment_inertia_val, segment_inertia_val)
+        osim.Inertia(segment_inertia[0], segment_inertia[1], segment_inertia[2])
     )
     model.addBody(segment)
     segment.attachGeometry(cyl)

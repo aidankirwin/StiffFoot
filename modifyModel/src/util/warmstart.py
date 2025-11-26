@@ -5,21 +5,8 @@ import pandas as pd
 original_sto = "sto/coords_tbl.csv"
 output_sto = "sto/warmstart_modified.sto"
 
-# Prosthesis DOFs to add
-prosthesis_dofs = [
-    "socket_rotation_r",
-    "socket_piston_r",
-    "SP_rotation_r"
-]
-
 # 20 joint segment coordinates
-segment_dofs = [f"/jointset/joint_segment_{i}/joint_segment_{i}_coord_0/value" for i in range(1, 21)]
-
-# All DOFs missing from original STO
-added_dofs = prosthesis_dofs + segment_dofs + [
-    "subtalar_angle_l",
-    "mtp_angle_l"
-]
+added_dofs = [f"/jointset/joint_segment_{i}/joint_segment_{i}_coord_0/value" for i in range(1, 21)]
 
 # Initialization value for missing DOFs
 default_value = 0.0
@@ -79,11 +66,12 @@ remove_dofs = [
 # Load original STO
 df = pd.read_csv(original_sto)
 
-# Drop columns that no longer exist in the model
-for col in remove_dofs:
-    if col in df.columns:
-        df = df.drop(columns=[col])
-        print(f"Removed column: {col}")
+cols_to_drop = [
+    col for col in df.columns
+    if any(sub in col for sub in remove_dofs)
+]
+
+df = df.drop(columns=cols_to_drop)
 
 # Add missing DOFs with default initialization
 for dof in added_dofs:
