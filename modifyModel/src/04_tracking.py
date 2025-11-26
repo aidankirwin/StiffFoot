@@ -79,10 +79,10 @@ model = osim.Model(model_file)
 # are based on Falisse et al. (2022), "Modeling toes contributes to 
 # realistic stance knee mechanics in three-dimensional predictive 
 # simulations of walking."
-expressionBasedForceSet = osim.ForceSet(
-        'sto/subject_walk_scaled_ExpressionBasedCoordinateForceSet.xml')
-for i in range(expressionBasedForceSet.getSize()):
-    model.addComponent(expressionBasedForceSet.get(i).clone())
+#expressionBasedForceSet = osim.ForceSet(
+#        'sto/subject_walk_scaled_ExpressionBasedCoordinateForceSet.xml')
+#for i in range(expressionBasedForceSet.getSize()):
+#    model.addComponent(expressionBasedForceSet.get(i).clone())
 
 # ------------------------- FOOT GROUND CONTACT ---------------------------------
 # Parameters for foot contact spheres
