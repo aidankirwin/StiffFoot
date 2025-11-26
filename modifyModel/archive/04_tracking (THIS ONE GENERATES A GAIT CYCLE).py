@@ -4,7 +4,7 @@ import math
 import csv
 
 # ---------- User settings ----------
-model_file = "models/prosthesisModel_11.osim"        # your modified Rajagopal + prosthesis
+model_file = "models/prosthesisModel_8.osim"        # your modified Rajagopal + prosthesis
 coords_file = "sto/coords_modified.sto"         # reconstructed coordinates (states reference)
 external_loads = None                # set to "" if you don't have it
 desired_speed = 1.2                            # adjust to match your data if known
@@ -34,7 +34,11 @@ def add_foot_ground_contact(model, ground_contact_space, foot_body_name, contact
     model.addContactGeometry(foot_contact_sphere)
 
     # Define Contact Force Parameters (stiffness, dissipation, friction, etc.)
-    stiffness = 7e7
+    stiffness = 4e5
+    dissipation = 2.0
+    static_friction = 0.8
+    dynamic_friction = 0.4
+    transition_velocity = 0.2
 
     # Create the SmoothSphereHalfSpaceForce
     sshs_force = osim.SmoothSphereHalfSpaceForce()
@@ -42,13 +46,16 @@ def add_foot_ground_contact(model, ground_contact_space, foot_body_name, contact
     sshs_force.connectSocket_sphere(foot_contact_sphere)
     sshs_force.connectSocket_half_space(ground_contact_space)
     sshs_force.set_stiffness(stiffness)
+    sshs_force.set_dissipation(dissipation)
+    sshs_force.set_static_friction(static_friction)
+    sshs_force.set_dynamic_friction(dynamic_friction)
+    sshs_force.set_transition_velocity(transition_velocity)
 
     # Add the force to the model
     model.get_ComponentSet().addComponent(sshs_force)
     model.finalizeConnections() # Essential after adding components
 
     print(f'Added ground contact for {foot_body_name} with stiffness {stiffness}')
-    return model
 
 # Don't want to set the pelvis dof bounds too tight
 # pelvis_dofs = [
@@ -70,22 +77,27 @@ model = osim.Model(model_file)
 # ------------------------- FOOT GROUND CONTACT ---------------------------------
 # Parameters for foot contact spheres
 foot_radius = 0.03  # radius of sphere (m)
+foot_mass = 1.0     # placeholder mass if needed for visualization
+contact_stiffness = 1e5
+contact_dissipation = 2.0
+friction_coeff = 0.8
 
-# Get the ground frame and the foot body
-ground = model.getGround()
+### NOTE: COMMENTED THIS OUT FOR NOW WHILE DEBUGGING
+# # Get the ground frame and the foot body
+# ground = model.getGround()
 
-# Define the ContactHalfSpace for the ground
-# Location and orientation define the ground plane (y=0)
-ground_contact_space = osim.ContactHalfSpace(
-    osim.Vec3(0, 0, 0),  # Location on ground
-    osim.Vec3(0, 0, 0), # Orientation
-    ground
-)
-ground_contact_space.setName('GroundContactSpace')
-model.addContactGeometry(ground_contact_space)
+# # Define the ContactHalfSpace for the ground
+# # Location and orientation define the ground plane (y=0)
+# ground_contact_space = osim.ContactHalfSpace(
+#     osim.Vec3(0, 0, 0),  # Location on ground
+#     osim.Vec3(0, 0, 0), # Orientation (rotation around x to make it a horizontal plane)
+#     ground
+# )
+# ground_contact_space.setName('GroundContactSpace')
+# model.addContactGeometry(ground_contact_space)
 
-model = add_foot_ground_contact(model, ground_contact_space, 'calcn_l', foot_radius, osim.Vec3(0, -0.01, 0))
-model = add_foot_ground_contact(model, ground_contact_space, 'segment_12', foot_radius, osim.Vec3(0, -0.01, 0))
+# add_foot_ground_contact(model, ground_contact_space, 'calcn_l', foot_radius, osim.Vec3(0, -0.01, 0))
+# add_foot_ground_contact(model, ground_contact_space, 'segment_12', foot_radius, osim.Vec3(0, -0.01, 0))
 
 # ------------------------- METABOLICS ---------------------------------
 # add metabolic cost model
@@ -104,7 +116,13 @@ model.finalizeConnections()
 
 # ------------------------- MODEL PROCESSOR ---------------------------------
 mp = osim.ModelProcessor(model)
-### NOTE: the model muscles have already been converted to DeGroote-Fregly muscles prior to starting tracking
+# mp.append(osim.ModOpIgnoreTendonCompliance())
+# mp.append(osim.ModOpReplaceMusclesWithDeGrooteFregly2016())
+# mp.append(osim.ModOpIgnorePassiveFiberForcesDGF())
+# mp.append(osim.ModOpScaleActiveFiberForceCurveWidthDGF(1.5))
+# Add external loads file (if using GRFs)
+if external_loads:
+    mp.append(osim.ModOpAddExternalLoads(external_loads))
 
 track.setModel(mp)
 
@@ -123,17 +141,18 @@ track.set_track_reference_position_derivatives(True)
 track.set_apply_tracked_states_to_guess(True)
 track.set_initial_time(0.48)
 track.set_final_time(1.61)
+track.set_mesh_interval(0.02)
 
 # Don't track the veritcal position of the pelvis and only lightly track
 # the speed. Let the optimization determine the vertical position of the
 # model, which will make it easier to find the position of the feet that 
 # leads to the best tracking of the kinematics and ground reaction forces.
-statesWeightSet = osim.MocoWeightSet()
-statesWeightSet.cloneAndAppend(
-        osim.MocoWeight('/jointset/ground_pelvis/pelvis_ty/value', 0.0))
-statesWeightSet.cloneAndAppend(
-        osim.MocoWeight('/jointset/ground_pelvis/pelvis_ty/speed', 0.1))
-track.set_states_weight_set(statesWeightSet)
+# statesWeightSet = osim.MocoWeightSet()
+# statesWeightSet.cloneAndAppend(
+#         osim.MocoWeight('/jointset/ground_pelvis/pelvis_ty/value', 0.0))
+# statesWeightSet.cloneAndAppend(
+#         osim.MocoWeight('/jointset/ground_pelvis/pelvis_ty/speed', 0.1))
+# track.set_states_weight_set(statesWeightSet)
 
 # Instead of calling solve(), call initialize() to receive a pre-configured
 # MocoStudy object based on the settings above. Use this to customize the
@@ -144,46 +163,24 @@ study = track.initialize()
 # problem by default and set the overall weight to 0.1.
 problem = study.updProblem()
 
+# Constrain the states and controls to be periodic.
+periodicityGoal = osim.MocoPeriodicityGoal("periodicity")
+
 model = mp.process()
 model.initSystem()
 
-# -------------------------- PERIODICITY GOAL --------------------------------
-
-# # Constrain the states and controls to be periodic.
-# periodicityGoal = osim.MocoPeriodicityGoal('periodicity')
-# coordinates = model.getCoordinateSet()
-# for icoord in range(coordinates.getSize()):
-#     coordinate = coordinates.get(icoord)
-#     coordName = coordinate.getName()
-
-#     # Exclude the knee_angle_l/r_beta coordinates from the periodicity
-#     # constraint because they are coupled to the knee_angle_l/r
-#     # coordinates.
-#     if 'beta' in coordName: continue 
-
-#     if not '_tx' in coordName:
-#         valueName = coordinate.getStateVariableNames().get(0)
-#         periodicityGoal.addStatePair(
-#                 osim.MocoPeriodicityGoalPair(valueName))
-#     speedName = coordinate.getStateVariableNames().get(1)
-#     periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(speedName))
-
-# muscles = model.getMuscles()
-# for imusc in range(muscles.getSize()):
-#     muscle = muscles.get(imusc)
-#     stateName = muscle.getStateVariableNames().get(0)
-#     periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(stateName))
-#     controlName = muscle.getAbsolutePathString()
-#     periodicityGoal.addControlPair(
-#             osim.MocoPeriodicityGoalPair(controlName))
-
-# actuators = model.getActuators()
-# for iactu in range(actuators.getSize()):
-#     actu = osim.CoordinateActuator.safeDownCast(actuators.get(iactu))
-#     if actu is not None: 
-#         controlName = actu.getAbsolutePathString()
-#         periodicityGoal.addControlPair(
-#                 osim.MocoPeriodicityGoalPair(controlName))
+# # Add all periodicity pairs
+# for i in range(model.getNumStateVariables()):
+#     currentStateName = str(model.getStateVariableNames().getitem(i))
+#     if 'pelvis_tx/value' not in currentStateName:
+#         periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(currentStateName))
+    
+# forceSet = model.getForceSet()
+# for i in range(forceSet.getSize()):
+#     force = forceSet.get(i)
+#     if "Actuator" in force.getConcreteClassName():  # Only actuators with controls
+#         forcePath = forceSet.get(i).getAbsolutePathString()
+#         periodicityGoal.addControlPair(osim.MocoPeriodicityGoalPair(forcePath))
 
 # problem.addGoal(periodicityGoal)
 
@@ -195,8 +192,6 @@ model.initSystem()
 # # as possible.
 # effort.setWeightForControlPattern('.*pelvis.*', 10)
 
-
-# -------------------------- METABOLIC COST GOAL --------------------------------
 # Metabolic cost; total metabolic rate includes activation heat rate,
 # maintenance heat rate, shortening heat rate, mechanical work rate, and
 # basal metabolic rate.
@@ -230,9 +225,6 @@ for label in labels:
     if 'pelvis' in label:
         lower = -0.5
         upper = 0.5
-    elif 'patellofemoral' in label:
-        lower = x0 - 1e-3
-        upper = x0 + 1e-3
 
     # set bounds based on variable (speed or position) and the initial value
     elif '/speed' in label:
@@ -258,9 +250,21 @@ for label in labels:
     problem.setStateInfo(label, [], [lower, upper])
 
 
-# Manually set bounds
-problem.setStateInfo('/jointset/ground_pelvis/pelvis_ty/value', [0.75, 1.25])
-problem.setStateInfo("/jointset/ground_pelvis/pelvis_ty/speed", [-0.5, 0.5])
+# pelvis_ty = model.getCoordinateSet().get("pelvis_ty")
+problem.setStateInfo(
+    "/jointset/ground_pelvis/pelvis_ty/value",
+    [], 
+    [0.85, 1.1],  # reasonable bounds above the floor (m)
+    1.0           # initial guess near mid-height
+)
+
+# For speeds of pelvis vertical translation
+problem.setStateInfo(
+    "/jointset/ground_pelvis/pelvis_ty/speed",
+    [], 
+    [-0.5, 0.5],  # reasonable speed bounds
+    0.0
+)
 
 # ------------------ CONTROL REGULARIZATION (stabilizes solution) ----------
 # control_reg = osim.MocoControlGoal("control_reg", 1e-2)
@@ -270,19 +274,21 @@ problem.setStateInfo("/jointset/ground_pelvis/pelvis_ty/speed", [-0.5, 0.5])
 # ------------------------------ SOLVER -------------------------------------
 solver = osim.MocoCasADiSolver.safeDownCast(study.updSolver())
 solver.resetProblem(problem)
-
+solver.set_num_mesh_intervals(50)
+solver.set_verbosity(2)
+solver.set_verbosity(2)
+solver.set_optim_solver('ipopt')
+solver.set_optim_convergence_tolerance(1e-4)
+solver.set_optim_constraint_tolerance(1e-4)
+solver.set_optim_max_iterations(5)
 # Use the Legendre-Gauss-Radau transcription scheme, a psuedospectral 
 # scheme with high integration accuracy.
 solver.set_transcription_scheme('legendre-gauss-radau-3')
 # Use the Bordalba et al. (2023) kinematic constraint method.
 solver.set_kinematic_constraint_method('Bordalba2023')
-
-solver.set_num_mesh_intervals(20)
-solver.set_verbosity(2)
+# Set the solver's convergence and constraint tolerances.
 solver.set_optim_convergence_tolerance(1e-2)
 solver.set_optim_constraint_tolerance(1e-4)
-solver.set_optim_max_iterations(30)
-
 # We've updated the MocoProblem, so call resetProblem() to pass the updated
 # problem to the solver.
 solver.resetProblem(problem)
