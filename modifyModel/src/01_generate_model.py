@@ -45,7 +45,7 @@ def get_relative_angle(row, df, deg=False):
     return angle
 
 # Load model
-model = osim.Model("models/GenericAmputee_no_patella.osim")
+model = osim.Model("original_model/GenericAmputee_r.osim")
 print("Loaded model")
 
 # Load segment coordinates from CSV

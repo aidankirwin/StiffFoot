@@ -275,8 +275,6 @@ problem.setStateInfo(
     0.0
 )
 
-model.assemble()
-
 # ------------------ CONTROL REGULARIZATION (stabilizes solution) ----------
 # control_reg = osim.MocoControlGoal("control_reg", 1e-2)
 # control_reg.setDivideByDisplacement(False)
