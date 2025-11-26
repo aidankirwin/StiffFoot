@@ -22,9 +22,11 @@ def get_relative_angle(row, df, deg=False):
     """
     if row['Parent'] == 0:
         # No parent (e.g., connects to pylon)
-        return 0.0
+        return np.radians(-90.0)
     
     # Find parent row
+    df['Segment'] = df['Segment'].astype(int)
+    df['Parent'] = df['Parent'].astype(int)
     parent_row = df[df['Segment'] == row['Parent']].iloc[0]
     
     # Segment vectors
@@ -38,7 +40,7 @@ def get_relative_angle(row, df, deg=False):
     angle = np.arctan2(det, dot)
     
     if deg:
-        angle = np.degrees(angle)
+        angle = np.radians(angle)
     
     return angle
 
@@ -51,13 +53,13 @@ df = pd.read_csv("segments.csv")
 print(df)
 
 # Parameters
-segment_radius = 0.0205   # visualization radius
+segment_radius = 0.01   # visualization radius
 segment_mass = 0.05
 segment_inertia_val = 0  # simple thin cylinder inertia
 
 # Initial parent is the pylon
 parent_body = model.getBodySet().get("pylon_r")
-parent_length = 0.05 # length along parent z-axis from joint origin to distal end
+parent_length = 0.155 # length along parent z-axis from joint origin to distal end
 
 for idx, row in df.iterrows():
     '''
@@ -71,6 +73,8 @@ for idx, row in df.iterrows():
     # Compute segment vector in 2D
     dx = row['end_x'] - row['start_x']
     dy = row['end_y'] - row['start_y']
+    dx = dx / 2
+    dy = dy / 2
     length = round(np.sqrt(dx**2 + dy**2), 3) 
     
     # Mass center at middle of segment
@@ -79,7 +83,7 @@ for idx, row in df.iterrows():
     # Cylinder geometry
     cyl = osim.Cylinder(segment_radius, length)
 
-    # angle = get_relative_angle(row, df, False)
+    angle = get_relative_angle(row, df, False)
 
     if idx != 0:
         parent_body = model.getBodySet().get(f"segment_{int(row['Parent'])}")
@@ -98,12 +102,47 @@ for idx, row in df.iterrows():
         f"joint_{seg_name}",
         parent_body,
         osim.Vec3(0,-parent_length,0),  # distal end of parent
-        osim.Vec3(0,0,0),              # parent orientation
+        osim.Vec3(0,0,angle),              # parent orientation
         segment,
         osim.Vec3(0,length,0),              # child proximal end
         osim.Vec3(0,0,0)          # child orientation along z
     )
     model.addJoint(joint)
+    # TODO: maybe lock the first joint?
+    # if idx == 0:
+    #     coord = joint.upd_coordinates(0) # joint_segment_1_coord_0
+    #     coord.set_locked(0, True)
+
+    # use translation-only Transforms to avoid Rotation ctor overload issues
+    parent_frame = osim.PhysicalOffsetFrame(
+        f"{seg_name}_parent_frame",
+        parent_body,
+        osim.Transform(osim.Vec3(0, -parent_length, 0))
+    )
+    child_frame = osim.PhysicalOffsetFrame(
+        f"{seg_name}_child_frame",
+        segment,
+        osim.Transform(osim.Vec3(0, length, 0))
+    )
+    model.addComponent(parent_frame)
+    model.addComponent(child_frame)
+
+    # Attach viscoelastic element (damper + spring) to joint
+    ve = osim.BushingForce(
+        f"viscoelastic_{seg_name}",
+        parent_frame,
+        child_frame,
+        osim.Vec3(0,0,0),                # translational stiffness
+        osim.Vec3(0,0,0.05),            # rotational stiffness [N*m/rad]
+        osim.Vec3(0,0,0),                # translational damping
+        osim.Vec3(0,0,0.05)              # rotational damping [N*m/(rad/s)]
+    )
+    model.addForce(ve)
+
+    # Set coordinate default values
+    coord = model.getCoordinateSet().get(f"joint_{seg_name}_coord_0")
+    coord.setDefaultValue(0)
+    # coord.setDefaultSpeed(0)
     
     # Update parent for next iteration
     parent_body = segment

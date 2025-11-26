@@ -1,6 +1,14 @@
 import opensim as osim
 
-model = osim.Model("GenericAmputee_r.osim")
+model = osim.Model("models/prosthesisModel_5_bounds_fixed.osim")
+
+model.initSystem()
+
+print("==== Coordinates ====")
+for i in range(model.getCoordinateSet().getSize()):
+    coord = model.getCoordinateSet().get(i)
+    print(i, coord.getName())
+    # print(coord.getStateVariableNames())
 
 print("==== Bodies ====")
 for i in range(model.getBodySet().getSize()):
@@ -17,3 +25,5 @@ print("\n==== Muscles ====")
 for i in range(model.getMuscles().getSize()):
     m = model.getMuscles().get(i)
     print(i, m.getName())
+
+print(osim.GetVersionAndDate())

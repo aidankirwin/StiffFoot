@@ -10,7 +10,7 @@ study = osim.MocoStudy()
 study.setName('gaitPrediction')
 
 problem = study.updProblem()
-modelProcessor = osim.ModelProcessor('2D_gait.osim')
+modelProcessor = osim.ModelProcessor('models/model_degroote.osim')
 problem.setModelProcessor(modelProcessor)
 
 # ------------------------------

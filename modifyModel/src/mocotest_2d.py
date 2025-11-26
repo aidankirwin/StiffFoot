@@ -1,52 +1,3 @@
-# -------------------------------------------------------------------------- #
-# OpenSim Moco: example2DWalking.py                                          #
-# -------------------------------------------------------------------------- #
-# Copyright (c) 2025 Stanford University and the Authors                     #
-#                                                                            #
-# Author(s): Brian Umberger                                                  #
-#                                                                            #
-# Licensed under the Apache License, Version 2.0 (the "License") you may     #
-# not use this file except in compliance with the License. You may obtain a  #
-# copy of the License at http://www.apache.org/licenses/LICENSE-2.0          #
-#                                                                            #
-# Unless required by applicable law or agreed to in writing, software        #
-# distributed under the License is distributed on an "AS IS" BASIS,          #
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   #
-# See the License for the specific language governing permissions and        #
-# limitations under the License.                                             #
-# -------------------------------------------------------------------------- #
-
-# This is a Python implementation of an example optimal control
-# problem (2-D walking) orginally created in C++ by Antoine Falisse
-# (see: example2DWalking.cpp).
-#
-# This example features two different optimal control problems:
-#  - The first problem is a tracking simulation of walking.
-#  - The second problem is a predictive simulation of walking.
-#
-# The code is inspired from Falisse A, Serrancoli G, Dembia C, Gillis J,
-# De Groote F: Algorithmic differentiation improves the computational
-# efficiency of OpenSim-based trajectory optimization of human movement.
-# PLOS One, 2019.
-#
-# Model
-# -----
-# The model described in the file '2D_gait.osim' included in this file is a
-# modified version of the 'gait10dof18musc.osim' available within OpenSim. We
-# replaced the moving knee flexion axis by a fixed flexion axis, replaced the
-# Millard2012EquilibriumMuscles by DeGrooteFregly2016Muscles, and added
-# SmoothSphereHalfSpaceForces (two contacts per foot) to model the
-# contact interactions between the feet and the ground.
-#
-# Do not use this model for research. The path of the gastroc muscle contains
-# an error--the path does not cross the knee joint.
-#
-# Data
-# ----
-# The coordinate data included in the 'referenceCoordinates.sto' comes from
-# predictive simulations generated in Falisse et al. 2019.  As such,
-# they deviate slightly from typical experimental gait data.
-
 import os
 import opensim as osim
 import re
@@ -60,9 +11,8 @@ study = osim.MocoStudy()
 study.setName('gaitPrediction')
 
 problem = study.updProblem()
-modelProcessor = osim.ModelProcessor('2D_gait.osim')
+modelProcessor = osim.ModelProcessor('models/model_degroote.osim')
 problem.setModelProcessor(modelProcessor)
-
 
 # Goals
 # =====
@@ -107,7 +57,6 @@ for i in range(model.getNumStateVariables()):
 # Symmetric coordinate actuator controls
 symmetryGoal.addControlPair(osim.MocoPeriodicityGoalPair('/lumbarAct'))
 
-
 # Prescribed average gait speed
 speedGoal = osim.MocoAverageSpeedGoal('speed')
 problem.addGoal(speedGoal)
@@ -118,7 +67,6 @@ effortGoal = osim.MocoControlGoal('effort', 10)
 problem.addGoal(effortGoal)
 effortGoal.setExponent(3)
 effortGoal.setDivideByDisplacement(True)
-
 
 # Bounds
 # ======
