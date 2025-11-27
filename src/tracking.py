@@ -235,7 +235,7 @@ def solve_metabolic_tracking(model=None):
         '/jointset/ground_pelvis/pelvis_ty/value',
         [], 
         [0.9, 1.05],
-        0.975         # initial guess around midpoint
+        0.058         # initial guess around midpoint
     )
 
     problem.setStateInfo(
