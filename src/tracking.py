@@ -86,7 +86,6 @@ def solve_metabolic_tracking():
     add_foot_ground_contact(model, ground_contact_space)
 
     # ------------------------- METABOLICS ---------------------------------
-    # Add metabolic cost model - SKIP REMOVED MUSCLES
     metabolics = osim.Bhargava2004SmoothedMuscleMetabolics()
     metabolics.setName('metabolic_cost')
     metabolics.set_use_smoothing(True)
@@ -113,7 +112,7 @@ def solve_metabolic_tracking():
     tableProcessor.append(osim.TabOpAppendCoordinateValueDerivativesAsSpeeds())
     track.setStatesReference(tableProcessor)
 
-    track.set_states_global_tracking_weight(30)
+    track.set_states_global_tracking_weight(100)
     track.set_allow_unused_references(True)
     track.set_track_reference_position_derivatives(True)
     track.set_apply_tracked_states_to_guess(True)
@@ -168,13 +167,6 @@ def solve_metabolic_tracking():
 
     problem.addGoal(periodicityGoal)
 
-    effort = osim.MocoControlGoal.safeDownCast(problem.updGoal("control_effort"))
-    effort.setWeight(0.1)
-
-    # Put larger individual weights on the pelvis CoordinateActuators, which act 
-    # as the residual, or 'hand-of-god', forces which we would like to keep as small
-    # as possible.
-    effort.setWeightForControlPattern('.*pelvis.*', 10)
 
 
     # -------------------------- METABOLIC COST GOAL --------------------------------

@@ -62,8 +62,12 @@ def generate_model_with_segments():
 
     # Parameters
     segment_radius = 0.01    # visualization radius
-    segment_mass = 0.025     # mass of each segment
+    segment_mass = 0.025     # mass of each segment, assume constant
     segment_inertia = [segment_mass * segment_radius**2 / 4 , segment_mass * segment_radius**2 / 4 , segment_mass * segment_radius**2 / 2]
+
+    # These are used to calculate the initial values of the viscoelastic elements
+    young_modulus = 1.4e9  # Pa (base untis: N/m^2)
+    area_moment_of_inertia = (np.pi * segment_radius**4) / 4 # m^4
 
     # Initial parent is the pylon
     parent_body = model.getBodySet().get("pylon_r")
