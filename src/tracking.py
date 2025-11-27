@@ -23,8 +23,8 @@ def solve_metabolic_tracking(model=None):
         """
         Adds four contact spheres:
         1. Heel of left foot (calcn_l)
-        2. Mid-foot left (calcn_l)
-        3. Mid-foot right (segment_12)
+        2. Mid-foot left (toes_l)
+        3. Mid-foot right (segment_14)
         4. Heel of right foot (segment_20)
         """
         # Parameters
@@ -46,8 +46,8 @@ def solve_metabolic_tracking(model=None):
             force.connectSocket_half_space(ground_contact_space)
 
             # Soft contact parameters
-            force.set_stiffness(5000)
-            force.set_dissipation(1.0)
+            force.set_stiffness(400000)  # N/m
+            force.set_dissipation(2.0)  # increase
             force.set_static_friction(0.6)
             force.set_dynamic_friction(0.5)
             force.set_transition_velocity(0.2)
@@ -217,12 +217,12 @@ def solve_metabolic_tracking(model=None):
             lower = -0.5
             upper = 0.5
         # set bounds based on variable (speed or position) and the initial value
-        elif '/speed' in label:
+        elif '/speed' in label: # LOOSEN BOUNDS
+            lower = x0 - 0.2
+            upper = x0 + 0.2
+        else:
             lower = x0 - 0.1
             upper = x0 + 0.1
-        else:
-            lower = x0 - 0.05
-            upper = x0 + 0.05
 
         # Clip to trajectory min/max
         lower = max(np.min(value), lower)
@@ -264,12 +264,12 @@ def solve_metabolic_tracking(model=None):
     solver = osim.MocoCasADiSolver.safeDownCast(study.updSolver())
     solver.resetProblem(problem)
 
-    solver.set_num_mesh_intervals(75)  # matches your user setting
+    solver.set_num_mesh_intervals(100)  # increased from 75
     solver.set_optim_max_iterations(1000)  # increase slowly
 
     solver.set_verbosity(2)
     solver.set_optim_solver('ipopt')
-    solver.set_optim_convergence_tolerance(1e-2)
+    solver.set_optim_convergence_tolerance(1e-1) # increased from 1e-2
     solver.set_optim_constraint_tolerance(1e-2)
 
     solver.set_transcription_scheme('legendre-gauss-radau-3')

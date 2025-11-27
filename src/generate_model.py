@@ -66,7 +66,7 @@ def generate_model_with_segments(save_model=False, stiffness_array=None):
     segment_inertia = [segment_mass * segment_radius**2 / 4 , segment_mass * segment_radius**2 / 4 , segment_mass * segment_radius**2 / 2]
 
     # These are used to calculate the initial values of the viscoelastic elements
-    young_modulus = 1.4e9  # Pa (base untis: N/m^2)
+    young_modulus = 1.4e6  # Pa (base untis: N/m^2). TEMPORARILY CHANGED FROM 1.4e9 TO 1.4e6 FOR TESTING
     area_moment_of_inertia = (np.pi * segment_radius**4) / 4 # m^4
 
     # Initial parent is the pylon
