@@ -80,10 +80,6 @@ def solve_metabolic_tracking(model=None):
 
     add_foot_ground_contact(model, ground_contact_space)
 
-    model.printToXML("models/new_model.osim")
-    print("Saved model as new_model.osim")
-    return
-
     # ------------------------- METABOLICS ---------------------------------
     metabolics = osim.Bhargava2004SmoothedMuscleMetabolics()
     metabolics.setName('metabolic_cost')
