@@ -11,7 +11,7 @@ def solve_metabolic_tracking(model=None):
     """
 
     # ---------- User settings ----------
-    model_file = 'models/prosthesisModel_3.osim'        # your modified Rajagopal + prosthesis
+    model_file = 'models/prosthesisModel_4.osim'        # your modified Rajagopal + prosthesis
     coords_file = 'sto/coords_modified_new.sto'         # reconstructed coordinates (states reference)
     # -----------------------------------
 
@@ -71,7 +71,7 @@ def solve_metabolic_tracking(model=None):
     ground = model.getGround()
 
     ground_contact_space = osim.ContactHalfSpace(
-        osim.Vec3(0, -0.887, 0),
+        osim.Vec3(0, 0.05, 0),
         osim.Vec3(0, 0, 90*np.pi/180),
         ground
     )
@@ -79,6 +79,10 @@ def solve_metabolic_tracking(model=None):
     model.addContactGeometry(ground_contact_space)
 
     add_foot_ground_contact(model, ground_contact_space)
+
+    model.printToXML("models/new_model.osim")
+    print("Saved model as new_model.osim")
+    return
 
     # ------------------------- METABOLICS ---------------------------------
     metabolics = osim.Bhargava2004SmoothedMuscleMetabolics()

@@ -16,53 +16,6 @@ remove_dofs = [
     "ankle_angle_r"  # deleted right ankle due to prosthesis
 ]
 
-# ========== COORDINATE ORDER FROM YOUR MODIFIED MODEL ======================= #
-
-# desired_order = [
-#     "pelvis_tilt",
-#     "pelvis_list",
-#     "pelvis_rotation",
-#     "pelvis_tx",
-#     "pelvis_ty",
-#     "pelvis_tz",
-#     "hip_flexion_r",
-#     "hip_adduction_r",
-#     "hip_rotation_r",
-#     "knee_angle_r",
-#     "knee_angle_r_beta",
-#     "socket_rotation_r",
-#     "socket_piston_r",
-#     "SP_rotation_r",
-#     "hip_flexion_l",
-#     "hip_adduction_l",
-#     "hip_rotation_l",
-#     "knee_angle_l",
-#     "knee_angle_l_beta",
-#     "ankle_angle_l",
-#     "subtalar_angle_l",
-#     "mtp_angle_l",
-#     "lumbar_extension",
-#     "lumbar_bending",
-#     "lumbar_rotation",
-#     "arm_flex_r",
-#     "arm_add_r",
-#     "arm_rot_r",
-#     "elbow_flex_r",
-#     "pro_sup_r",
-#     "wrist_flex_r",
-#     "wrist_dev_r",
-#     "arm_flex_l",
-#     "arm_add_l",
-#     "arm_rot_l",
-#     "elbow_flex_l",
-#     "pro_sup_l",
-#     "wrist_flex_l",
-#     "wrist_dev_l",
-# ] + segment_dofs
-
-# =========================================================================== #
-
-
 # Load original STO
 df = pd.read_csv(original_sto)
 
@@ -83,8 +36,9 @@ print(df.columns)
 
 # convert all values to radians
 for col in df.columns:
-    if col != "time":
+    if col not in ["time", "/jointset/ground_pelvis/pelvis_tx/value", "/jointset/ground_pelvis/pelvis_ty/value", "/jointset/ground_pelvis/pelvis_tz/value"]:
         df[col] = df[col].apply(lambda x: x * (3.141592653589793 / 180.0))
+
         print(f"Converted column to radians: {col}")
 
 # # Reorder
