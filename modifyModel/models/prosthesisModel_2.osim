@@ -5917,7 +5917,7 @@
 							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
 							<translation>0 -0.0070000000000000001 0</translation>
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
-							<orientation>0 0 0.69302758974097944</orientation>
+							<orientation>0 0 0.69302758974097967</orientation>
 						</PhysicalOffsetFrame>
 						<PhysicalOffsetFrame name="segment_6_offset">
 							<!--The geometry used to display the axes of this Frame.-->
@@ -5963,7 +5963,7 @@
 							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
 							<translation>0 -0.0070000000000000001 0</translation>
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
-							<orientation>0 0 0.12047903169028706</orientation>
+							<orientation>0 0 0.12047903169028708</orientation>
 						</PhysicalOffsetFrame>
 						<PhysicalOffsetFrame name="segment_7_offset">
 							<!--The geometry used to display the axes of this Frame.-->
@@ -6285,7 +6285,7 @@
 							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
 							<translation>0 -0.012 0</translation>
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
-							<orientation>0 0 0.17968203839446895</orientation>
+							<orientation>0 0 0.17968203839446892</orientation>
 						</PhysicalOffsetFrame>
 						<PhysicalOffsetFrame name="segment_14_offset">
 							<!--The geometry used to display the axes of this Frame.-->

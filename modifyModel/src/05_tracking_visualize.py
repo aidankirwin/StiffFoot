@@ -1,4 +1,4 @@
-﻿import opensim as osim
+import opensim as osim
 import numpy as np
 import math
 import csv
@@ -26,23 +26,11 @@ def add_foot_ground_contact(model, ground_contact_space, foot_body_name, contact
     foot_contact_sphere.setName(f'{foot_body_name}_ContactSphere')
     model.addContactGeometry(foot_contact_sphere)
 
-    # Define Contact Force Parameters
-    # stiffness = 4e5
-    # dissipation = 2.0
-    # static_friction = 0.8
-    # dynamic_friction = 0.4
-    # transition_velocity = 0.2
-
     # Create the SmoothSphereHalfSpaceForce
     sshs_force = osim.SmoothSphereHalfSpaceForce()
     sshs_force.setName(f'{foot_body_name}_GroundForce')
     sshs_force.connectSocket_sphere(foot_contact_sphere)
     sshs_force.connectSocket_half_space(ground_contact_space)
-    # sshs_force.set_stiffness(stiffness)
-    # sshs_force.set_dissipation(dissipation)
-    # sshs_force.set_static_friction(static_friction)
-    # sshs_force.set_dynamic_friction(dynamic_friction)
-    # sshs_force.set_transition_velocity(transition_velocity)
 
     model.get_ComponentSet().addComponent(sshs_force)
     model.finalizeConnections()
@@ -51,7 +39,7 @@ def add_foot_ground_contact(model, ground_contact_space, foot_body_name, contact
 
 # setup mocotrack
 track = osim.MocoTrack()
-track.setName('tracking')
+track.setName('tracking_visualize_contact')
 
 # load model
 model = osim.Model(model_file)
@@ -71,8 +59,15 @@ model.addContactGeometry(ground_contact_space)
 add_foot_ground_contact(model, ground_contact_space, 'calcn_l', foot_radius, osim.Vec3(0, -0.01, 0))
 add_foot_ground_contact(model, ground_contact_space, 'segment_12', foot_radius, osim.Vec3(0, -0.01, 0))
 
+# Add visualization geometry for the ground plane
+ground_plane = osim.Brick(osim.Vec3(5, 0.01, 5))  # large flat plane
+ground_plane.setColor(osim.Vec3(0.8, 0.8, 0.8))  # light gray
+ground_plane.setOpacity(0.5)
+ground.attachGeometry(ground_plane)
+
+print('Added ground plane visualization')
+
 # ------------------------- METABOLICS ---------------------------------
-# Add metabolic cost model - SKIP REMOVED MUSCLES
 metabolics = osim.Bhargava2004SmoothedMuscleMetabolics()
 metabolics.setName('metabolic_cost')
 metabolics.set_use_smoothing(True)
@@ -115,21 +110,15 @@ study = track.initialize()
 problem = study.updProblem()
 
 # -------------------------- PERIODICITY GOAL --------------------------------
-
-# Get processed model for coordinate checking
 processed_model = mp.process()
 processed_model.initSystem()
 
-# Constrain the states and controls to be periodic.
 periodicityGoal = osim.MocoPeriodicityGoal('periodicity')
 coordinates = processed_model.getCoordinateSet()
 for icoord in range(coordinates.getSize()):
     coordinate = coordinates.get(icoord)
     coordName = coordinate.getName()
 
-    # Exclude the knee_angle_l/r_beta coordinates from the periodicity
-    # constraint because they are coupled to the knee_angle_l/r
-    # coordinates.
     if 'beta' in coordName: continue 
 
     if not '_tx' in coordName:
@@ -160,17 +149,9 @@ problem.addGoal(periodicityGoal)
 
 effort = osim.MocoControlGoal.safeDownCast(problem.updGoal("control_effort"))
 effort.setWeight(0.1)
-
-# Put larger individual weights on the pelvis CoordinateActuators, which act 
-# as the residual, or 'hand-of-god', forces which we would like to keep as small
-# as possible.
 effort.setWeightForControlPattern('.*pelvis.*', 10)
 
-
 # -------------------------- METABOLIC COST GOAL --------------------------------
-# Metabolic cost; total metabolic rate includes activation heat rate,
-# maintenance heat rate, shortening heat rate, mechanical work rate, and
-# basal metabolic rate.
 metGoal = osim.MocoOutputGoal('met',0.1)
 problem.addGoal(metGoal)
 metGoal.setOutputPath('/metabolic_cost|total_metabolic_rate')
@@ -178,21 +159,17 @@ metGoal.setDivideByDisplacement(True)
 metGoal.setDivideByMass(True)
 
 # -------------------------- CLEANUP BOUNDS --------------------------------
-
 coordinatesUpdated = tableProcessor.process(processed_model)
 labels = coordinatesUpdated.getColumnLabels()
 index = coordinatesUpdated.getNearestRowIndexForTime(0.48)
 
 for label in labels:
-    # Extract coordinate name from state path
-    coord_name = label.split('/')[-2]  # second-to-last element
+    coord_name = label.split('/')[-2]
     
-    # Skip removed coordinates
     if coord_name in REMOVED_COORDS:
         print(f'Skipping removed coordinate: {coord_name}')
         continue
     
-    # Check if coordinate exists in model
     try:
         state_info = processed_model.getCoordinateSet().get(coord_name)
     except:
@@ -200,20 +177,15 @@ for label in labels:
         continue
     
     value = coordinatesUpdated.getDependentColumn(label).to_numpy()
-    value = [np.pi * (v / 180.0) for v in value]  # deg to rad
+    value = [np.pi * (v / 180.0) for v in value]
 
-    # get the initial value from the reference
     x0 = value[index]
-
-    # Get the model-defined joint limits
     model_lb = state_info.getRangeMin()
     model_ub = state_info.getRangeMax()
 
-    # tight bounds for pelvis coords causes bound violations
     if 'pelvis' in label:
         lower = -0.5
         upper = 0.5
-    # set bounds based on variable (speed or position) and the initial value
     elif '/speed' in label:
         lower = x0 - 0.1
         upper = x0 + 0.1
@@ -221,22 +193,17 @@ for label in labels:
         lower = x0 - 0.05
         upper = x0 + 0.05
 
-    # Clip to trajectory min/max
     lower = max(np.min(value), lower)
     upper = min(np.max(value), upper)
-
-    # Clip to model limits
     lower = max(model_lb, lower)
     upper = min(model_ub, upper)
 
     if lower > upper:
-        # fallback to x0  small epsilon
         lower = x0 - 1e-6
         upper = x0 + 1e-6
     
     problem.setStateInfo(label, [], [lower, upper])
 
-# pelvis_ty bounds
 problem.setStateInfo(
     '/jointset/ground_pelvis/pelvis_ty/value',
     [], 
@@ -251,7 +218,7 @@ problem.setStateInfo(
     0.0
 )
 
-# ------------------ CONTROL REGULARIZATION (stabilizes solution) ----------
+# ------------------ CONTROL REGULARIZATION ----------
 control_reg = osim.MocoControlGoal("control_reg", 1e-2)
 control_reg.setDivideByDisplacement(False)
 problem.addGoal(control_reg)
@@ -264,7 +231,7 @@ solver.set_verbosity(2)
 solver.set_optim_solver('ipopt')
 solver.set_optim_convergence_tolerance(1e-4)
 solver.set_optim_constraint_tolerance(1e-4)
-solver.set_optim_max_iterations(20)
+solver.set_optim_max_iterations(5)  # Set to 5 iterations
 solver.set_transcription_scheme('legendre-gauss-radau-3')
 solver.set_kinematic_constraint_method('Bordalba2023')
 solver.set_optim_convergence_tolerance(1e-2)
@@ -272,18 +239,23 @@ solver.set_optim_constraint_tolerance(1e-4)
 solver.resetProblem(problem)
 
 # ------------------------------ SOLVE --------------------------------------
-print('Solving muscle-driven STATE TRACKING ...')
+print('Solving muscle-driven STATE TRACKING with contact visualization...')
 solution = study.solve()
 
 try:
     fullStride = osim.createPeriodicTrajectory(solution)
-    fullStride.write('output/gait_cycle.sto')
+    fullStride.write('output/gait_cycle_with_contact.sto')
 
     print('   ')
     print(f"The metabolic cost of transport is: {10*solution.getObjectiveTerm('met'):.3f} J/kg/m")
     print('   ')
+    
+    # Visualize the solution with the contact spheres and ground plane
+    print('Opening visualizer...')
+    study.visualize(solution)
+    
 except:
     if not solution.success():
         print('Solver failed. Unsealing solution for debugging.')
         solution.unseal()
-        solution.write('failed_solution.sto')
+        solution.write('failed_solution_with_contact.sto')

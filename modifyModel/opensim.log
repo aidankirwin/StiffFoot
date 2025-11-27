@@ -1,0 +1,1094 @@
+[2025-11-26 20:20:13.007] [info] Loaded model GenericAmputeeModel_Right from file models/new_model.osim
+[2025-11-26 20:20:13.008] [warning] Couldn't find file 'r_pelvis.vtp'.
+[2025-11-26 20:20:13.008] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-11-26 20:20:13.008] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-11-26 20:20:13.008] [warning] Couldn't find file 'femur_r.vtp'.
+[2025-11-26 20:20:13.027] [warning] Couldn't find file 'femur_l.vtp'.
+[2025-11-26 20:20:13.028] [warning] Couldn't find file 'tibia_l.vtp'.
+[2025-11-26 20:20:13.028] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-11-26 20:20:13.028] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-11-26 20:20:13.028] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-11-26 20:20:13.028] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-11-26 20:20:13.028] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-11-26 20:20:13.029] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-11-26 20:20:13.029] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-11-26 20:20:13.029] [warning] Couldn't find file 'hat_ribs_scap.vtp'.
+[2025-11-26 20:20:13.029] [warning] Couldn't find file 'humerus_rv.vtp'.
+[2025-11-26 20:20:13.029] [warning] Couldn't find file 'ulna_rv.vtp'.
+[2025-11-26 20:20:13.029] [warning] Couldn't find file 'radius_rv.vtp'.
+[2025-11-26 20:20:13.029] [warning] Couldn't find file 'pisiform_rvs.vtp'.
+[2025-11-26 20:20:13.029] [warning] Couldn't find file 'lunate_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'scaphoid_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'triquetrum_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'hamate_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'capitate_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'trapezoid_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'trapezium_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'metacarpal2_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'index_proximal_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'index_medial_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'index_distal_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'metacarpal3_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'middle_proximal_rvs.vtp'.
+[2025-11-26 20:20:13.030] [warning] Couldn't find file 'middle_medial_rvs.vtp'.
+[2025-11-26 20:20:13.031] [warning] Couldn't find file 'middle_distal_rvs.vtp'.
+[2025-11-26 20:20:13.031] [warning] Couldn't find file 'metacarpal4_rvs.vtp'.
+[2025-11-26 20:20:13.031] [warning] Couldn't find file 'ring_proximal_rvs.vtp'.
+[2025-11-26 20:20:13.031] [warning] Couldn't find file 'ring_medial_rvs.vtp'.
+[2025-11-26 20:20:13.031] [warning] Couldn't find file 'ring_distal_rvs.vtp'.
+[2025-11-26 20:20:13.031] [warning] Couldn't find file 'metacarpal5_rvs.vtp'.
+[2025-11-26 20:20:13.031] [warning] Couldn't find file 'little_proximal_rvs.vtp'.
+[2025-11-26 20:20:13.031] [warning] Couldn't find file 'little_medial_rvs.vtp'.
+[2025-11-26 20:20:13.031] [warning] Couldn't find file 'little_distal_rvs.vtp'.
+[2025-11-26 20:20:13.032] [warning] Couldn't find file 'metacarpal1_rvs.vtp'.
+[2025-11-26 20:20:13.032] [warning] Couldn't find file 'thumb_proximal_rvs.vtp'.
+[2025-11-26 20:20:13.032] [warning] Couldn't find file 'thumb_distal_rvs.vtp'.
+[2025-11-26 20:20:13.032] [warning] Couldn't find file 'humerus_lv.vtp'.
+[2025-11-26 20:20:13.032] [warning] Couldn't find file 'ulna_lv.vtp'.
+[2025-11-26 20:20:13.032] [warning] Couldn't find file 'radius_lv.vtp'.
+[2025-11-26 20:20:13.032] [warning] Couldn't find file 'pisiform_lvs.vtp'.
+[2025-11-26 20:20:13.032] [warning] Couldn't find file 'lunate_lvs.vtp'.
+[2025-11-26 20:20:13.032] [warning] Couldn't find file 'scaphoid_lvs.vtp'.
+[2025-11-26 20:20:13.033] [warning] Couldn't find file 'triquetrum_lvs.vtp'.
+[2025-11-26 20:20:13.033] [warning] Couldn't find file 'hamate_lvs.vtp'.
+[2025-11-26 20:20:13.033] [warning] Couldn't find file 'capitate_lvs.vtp'.
+[2025-11-26 20:20:13.033] [warning] Couldn't find file 'trapezoid_lvs.vtp'.
+[2025-11-26 20:20:13.033] [warning] Couldn't find file 'trapezium_lvs.vtp'.
+[2025-11-26 20:20:13.033] [warning] Couldn't find file 'metacarpal2_lvs.vtp'.
+[2025-11-26 20:20:13.033] [warning] Couldn't find file 'index_proximal_lvs.vtp'.
+[2025-11-26 20:20:13.033] [warning] Couldn't find file 'index_medial_lvs.vtp'.
+[2025-11-26 20:20:13.033] [warning] Couldn't find file 'index_distal_lvs.vtp'.
+[2025-11-26 20:20:13.034] [warning] Couldn't find file 'metacarpal3_lvs.vtp'.
+[2025-11-26 20:20:13.034] [warning] Couldn't find file 'middle_proximal_lvs.vtp'.
+[2025-11-26 20:20:13.034] [warning] Couldn't find file 'middle_medial_lvs.vtp'.
+[2025-11-26 20:20:13.034] [warning] Couldn't find file 'middle_distal_lvs.vtp'.
+[2025-11-26 20:20:13.034] [warning] Couldn't find file 'metacarpal4_lvs.vtp'.
+[2025-11-26 20:20:13.034] [warning] Couldn't find file 'ring_proximal_lvs.vtp'.
+[2025-11-26 20:20:13.034] [warning] Couldn't find file 'ring_medial_lvs.vtp'.
+[2025-11-26 20:20:13.034] [warning] Couldn't find file 'ring_distal_lvs.vtp'.
+[2025-11-26 20:20:13.034] [warning] Couldn't find file 'metacarpal5_lvs.vtp'.
+[2025-11-26 20:20:13.034] [warning] Couldn't find file 'little_proximal_lvs.vtp'.
+[2025-11-26 20:20:13.035] [warning] Couldn't find file 'little_medial_lvs.vtp'.
+[2025-11-26 20:20:13.035] [warning] Couldn't find file 'little_distal_lvs.vtp'.
+[2025-11-26 20:20:13.035] [warning] Couldn't find file 'metacarpal1_lvs.vtp'.
+[2025-11-26 20:20:13.035] [warning] Couldn't find file 'thumb_proximal_lvs.vtp'.
+[2025-11-26 20:20:13.035] [warning] Couldn't find file 'thumb_distal_lvs.vtp'.
+[2025-11-26 20:20:51.305] [info] Loaded model GenericAmputeeModel_Right from file models/new_model.osim
+[2025-11-26 20:20:51.306] [warning] Couldn't find file 'r_pelvis.vtp'.
+[2025-11-26 20:20:51.307] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-11-26 20:20:51.307] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-11-26 20:20:51.307] [warning] Couldn't find file 'femur_r.vtp'.
+[2025-11-26 20:20:51.326] [warning] Couldn't find file 'femur_l.vtp'.
+[2025-11-26 20:20:51.326] [warning] Couldn't find file 'tibia_l.vtp'.
+[2025-11-26 20:20:51.326] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-11-26 20:20:51.326] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-11-26 20:20:51.326] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-11-26 20:20:51.326] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-11-26 20:20:51.326] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-11-26 20:20:51.327] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-11-26 20:20:51.327] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-11-26 20:20:51.327] [warning] Couldn't find file 'hat_ribs_scap.vtp'.
+[2025-11-26 20:20:51.327] [warning] Couldn't find file 'humerus_rv.vtp'.
+[2025-11-26 20:20:51.327] [warning] Couldn't find file 'ulna_rv.vtp'.
+[2025-11-26 20:20:51.327] [warning] Couldn't find file 'radius_rv.vtp'.
+[2025-11-26 20:20:51.327] [warning] Couldn't find file 'pisiform_rvs.vtp'.
+[2025-11-26 20:20:51.327] [warning] Couldn't find file 'lunate_rvs.vtp'.
+[2025-11-26 20:20:51.327] [warning] Couldn't find file 'scaphoid_rvs.vtp'.
+[2025-11-26 20:20:51.327] [warning] Couldn't find file 'triquetrum_rvs.vtp'.
+[2025-11-26 20:20:51.327] [warning] Couldn't find file 'hamate_rvs.vtp'.
+[2025-11-26 20:20:51.327] [warning] Couldn't find file 'capitate_rvs.vtp'.
+[2025-11-26 20:20:51.328] [warning] Couldn't find file 'trapezoid_rvs.vtp'.
+[2025-11-26 20:20:51.328] [warning] Couldn't find file 'trapezium_rvs.vtp'.
+[2025-11-26 20:20:51.328] [warning] Couldn't find file 'metacarpal2_rvs.vtp'.
+[2025-11-26 20:20:51.328] [warning] Couldn't find file 'index_proximal_rvs.vtp'.
+[2025-11-26 20:20:51.328] [warning] Couldn't find file 'index_medial_rvs.vtp'.
+[2025-11-26 20:20:51.328] [warning] Couldn't find file 'index_distal_rvs.vtp'.
+[2025-11-26 20:20:51.328] [warning] Couldn't find file 'metacarpal3_rvs.vtp'.
+[2025-11-26 20:20:51.328] [warning] Couldn't find file 'middle_proximal_rvs.vtp'.
+[2025-11-26 20:20:51.329] [warning] Couldn't find file 'middle_medial_rvs.vtp'.
+[2025-11-26 20:20:51.329] [warning] Couldn't find file 'middle_distal_rvs.vtp'.
+[2025-11-26 20:20:51.329] [warning] Couldn't find file 'metacarpal4_rvs.vtp'.
+[2025-11-26 20:20:51.329] [warning] Couldn't find file 'ring_proximal_rvs.vtp'.
+[2025-11-26 20:20:51.329] [warning] Couldn't find file 'ring_medial_rvs.vtp'.
+[2025-11-26 20:20:51.329] [warning] Couldn't find file 'ring_distal_rvs.vtp'.
+[2025-11-26 20:20:51.329] [warning] Couldn't find file 'metacarpal5_rvs.vtp'.
+[2025-11-26 20:20:51.329] [warning] Couldn't find file 'little_proximal_rvs.vtp'.
+[2025-11-26 20:20:51.329] [warning] Couldn't find file 'little_medial_rvs.vtp'.
+[2025-11-26 20:20:51.329] [warning] Couldn't find file 'little_distal_rvs.vtp'.
+[2025-11-26 20:20:51.330] [warning] Couldn't find file 'metacarpal1_rvs.vtp'.
+[2025-11-26 20:20:51.330] [warning] Couldn't find file 'thumb_proximal_rvs.vtp'.
+[2025-11-26 20:20:51.330] [warning] Couldn't find file 'thumb_distal_rvs.vtp'.
+[2025-11-26 20:20:51.330] [warning] Couldn't find file 'humerus_lv.vtp'.
+[2025-11-26 20:20:51.330] [warning] Couldn't find file 'ulna_lv.vtp'.
+[2025-11-26 20:20:51.330] [warning] Couldn't find file 'radius_lv.vtp'.
+[2025-11-26 20:20:51.330] [warning] Couldn't find file 'pisiform_lvs.vtp'.
+[2025-11-26 20:20:51.330] [warning] Couldn't find file 'lunate_lvs.vtp'.
+[2025-11-26 20:20:51.330] [warning] Couldn't find file 'scaphoid_lvs.vtp'.
+[2025-11-26 20:20:51.330] [warning] Couldn't find file 'triquetrum_lvs.vtp'.
+[2025-11-26 20:20:51.330] [warning] Couldn't find file 'hamate_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'capitate_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'trapezoid_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'trapezium_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'metacarpal2_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'index_proximal_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'index_medial_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'index_distal_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'metacarpal3_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'middle_proximal_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'middle_medial_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'middle_distal_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'metacarpal4_lvs.vtp'.
+[2025-11-26 20:20:51.331] [warning] Couldn't find file 'ring_proximal_lvs.vtp'.
+[2025-11-26 20:20:51.332] [warning] Couldn't find file 'ring_medial_lvs.vtp'.
+[2025-11-26 20:20:51.332] [warning] Couldn't find file 'ring_distal_lvs.vtp'.
+[2025-11-26 20:20:51.332] [warning] Couldn't find file 'metacarpal5_lvs.vtp'.
+[2025-11-26 20:20:51.332] [warning] Couldn't find file 'little_proximal_lvs.vtp'.
+[2025-11-26 20:20:51.332] [warning] Couldn't find file 'little_medial_lvs.vtp'.
+[2025-11-26 20:20:51.332] [warning] Couldn't find file 'little_distal_lvs.vtp'.
+[2025-11-26 20:20:51.332] [warning] Couldn't find file 'metacarpal1_lvs.vtp'.
+[2025-11-26 20:20:51.332] [warning] Couldn't find file 'thumb_proximal_lvs.vtp'.
+[2025-11-26 20:20:51.332] [warning] Couldn't find file 'thumb_distal_lvs.vtp'.
+[2025-11-26 20:21:04.705] [info] Loaded model GenericAmputeeModel_Right from file models/prosthesisModel_2.osim
+[2025-11-26 20:21:04.706] [warning] Couldn't find file 'r_pelvis.vtp'.
+[2025-11-26 20:21:04.706] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-11-26 20:21:04.706] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-11-26 20:21:04.706] [warning] Couldn't find file 'femur_r.vtp'.
+[2025-11-26 20:21:04.725] [warning] Couldn't find file 'femur_l.vtp'.
+[2025-11-26 20:21:04.726] [warning] Couldn't find file 'tibia_l.vtp'.
+[2025-11-26 20:21:04.726] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-11-26 20:21:04.726] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-11-26 20:21:04.726] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-11-26 20:21:04.726] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-11-26 20:21:04.726] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-11-26 20:21:04.726] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-11-26 20:21:04.726] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-11-26 20:21:04.726] [warning] Couldn't find file 'hat_ribs_scap.vtp'.
+[2025-11-26 20:21:04.726] [warning] Couldn't find file 'humerus_rv.vtp'.
+[2025-11-26 20:21:04.726] [warning] Couldn't find file 'ulna_rv.vtp'.
+[2025-11-26 20:21:04.727] [warning] Couldn't find file 'radius_rv.vtp'.
+[2025-11-26 20:21:04.727] [warning] Couldn't find file 'pisiform_rvs.vtp'.
+[2025-11-26 20:21:04.727] [warning] Couldn't find file 'lunate_rvs.vtp'.
+[2025-11-26 20:21:04.727] [warning] Couldn't find file 'scaphoid_rvs.vtp'.
+[2025-11-26 20:21:04.727] [warning] Couldn't find file 'triquetrum_rvs.vtp'.
+[2025-11-26 20:21:04.727] [warning] Couldn't find file 'hamate_rvs.vtp'.
+[2025-11-26 20:21:04.727] [warning] Couldn't find file 'capitate_rvs.vtp'.
+[2025-11-26 20:21:04.727] [warning] Couldn't find file 'trapezoid_rvs.vtp'.
+[2025-11-26 20:21:04.727] [warning] Couldn't find file 'trapezium_rvs.vtp'.
+[2025-11-26 20:21:04.728] [warning] Couldn't find file 'metacarpal2_rvs.vtp'.
+[2025-11-26 20:21:04.728] [warning] Couldn't find file 'index_proximal_rvs.vtp'.
+[2025-11-26 20:21:04.728] [warning] Couldn't find file 'index_medial_rvs.vtp'.
+[2025-11-26 20:21:04.728] [warning] Couldn't find file 'index_distal_rvs.vtp'.
+[2025-11-26 20:21:04.728] [warning] Couldn't find file 'metacarpal3_rvs.vtp'.
+[2025-11-26 20:21:04.728] [warning] Couldn't find file 'middle_proximal_rvs.vtp'.
+[2025-11-26 20:21:04.728] [warning] Couldn't find file 'middle_medial_rvs.vtp'.
+[2025-11-26 20:21:04.728] [warning] Couldn't find file 'middle_distal_rvs.vtp'.
+[2025-11-26 20:21:04.728] [warning] Couldn't find file 'metacarpal4_rvs.vtp'.
+[2025-11-26 20:21:04.728] [warning] Couldn't find file 'ring_proximal_rvs.vtp'.
+[2025-11-26 20:21:04.728] [warning] Couldn't find file 'ring_medial_rvs.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'ring_distal_rvs.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'metacarpal5_rvs.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'little_proximal_rvs.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'little_medial_rvs.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'little_distal_rvs.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'metacarpal1_rvs.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'thumb_proximal_rvs.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'thumb_distal_rvs.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'humerus_lv.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'ulna_lv.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'radius_lv.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'pisiform_lvs.vtp'.
+[2025-11-26 20:21:04.729] [warning] Couldn't find file 'lunate_lvs.vtp'.
+[2025-11-26 20:21:04.730] [warning] Couldn't find file 'scaphoid_lvs.vtp'.
+[2025-11-26 20:21:04.730] [warning] Couldn't find file 'triquetrum_lvs.vtp'.
+[2025-11-26 20:21:04.730] [warning] Couldn't find file 'hamate_lvs.vtp'.
+[2025-11-26 20:21:04.730] [warning] Couldn't find file 'capitate_lvs.vtp'.
+[2025-11-26 20:21:04.730] [warning] Couldn't find file 'trapezoid_lvs.vtp'.
+[2025-11-26 20:21:04.730] [warning] Couldn't find file 'trapezium_lvs.vtp'.
+[2025-11-26 20:21:04.730] [warning] Couldn't find file 'metacarpal2_lvs.vtp'.
+[2025-11-26 20:21:04.730] [warning] Couldn't find file 'index_proximal_lvs.vtp'.
+[2025-11-26 20:21:04.730] [warning] Couldn't find file 'index_medial_lvs.vtp'.
+[2025-11-26 20:21:04.730] [warning] Couldn't find file 'index_distal_lvs.vtp'.
+[2025-11-26 20:21:04.730] [warning] Couldn't find file 'metacarpal3_lvs.vtp'.
+[2025-11-26 20:21:04.730] [warning] Couldn't find file 'middle_proximal_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'middle_medial_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'middle_distal_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'metacarpal4_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'ring_proximal_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'ring_medial_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'ring_distal_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'metacarpal5_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'little_proximal_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'little_medial_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'little_distal_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'metacarpal1_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'thumb_proximal_lvs.vtp'.
+[2025-11-26 20:21:04.731] [warning] Couldn't find file 'thumb_distal_lvs.vtp'.
+[2025-11-26 20:22:10.905] [info] Loaded model GenericAmputeeModel_Right from file models/prosthesisModel_2.osim
+[2025-11-26 20:22:10.905] [warning] Couldn't find file 'r_pelvis.vtp'.
+[2025-11-26 20:22:10.906] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2025-11-26 20:22:10.906] [warning] Couldn't find file 'sacrum.vtp'.
+[2025-11-26 20:22:10.906] [warning] Couldn't find file 'femur_r.vtp'.
+[2025-11-26 20:22:10.925] [warning] Couldn't find file 'femur_l.vtp'.
+[2025-11-26 20:22:10.925] [warning] Couldn't find file 'tibia_l.vtp'.
+[2025-11-26 20:22:10.925] [warning] Couldn't find file 'l_fibula.vtp'.
+[2025-11-26 20:22:10.925] [warning] Couldn't find file 'l_talus.vtp'.
+[2025-11-26 20:22:10.925] [warning] Couldn't find file 'l_foot.vtp'.
+[2025-11-26 20:22:10.925] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2025-11-26 20:22:10.926] [warning] Couldn't find file 'hat_spine.vtp'.
+[2025-11-26 20:22:10.926] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2025-11-26 20:22:10.926] [warning] Couldn't find file 'hat_skull.vtp'.
+[2025-11-26 20:22:10.926] [warning] Couldn't find file 'hat_ribs_scap.vtp'.
+[2025-11-26 20:22:10.926] [warning] Couldn't find file 'humerus_rv.vtp'.
+[2025-11-26 20:22:10.926] [warning] Couldn't find file 'ulna_rv.vtp'.
+[2025-11-26 20:22:10.926] [warning] Couldn't find file 'radius_rv.vtp'.
+[2025-11-26 20:22:10.926] [warning] Couldn't find file 'pisiform_rvs.vtp'.
+[2025-11-26 20:22:10.926] [warning] Couldn't find file 'lunate_rvs.vtp'.
+[2025-11-26 20:22:10.926] [warning] Couldn't find file 'scaphoid_rvs.vtp'.
+[2025-11-26 20:22:10.926] [warning] Couldn't find file 'triquetrum_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'hamate_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'capitate_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'trapezoid_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'trapezium_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'metacarpal2_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'index_proximal_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'index_medial_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'index_distal_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'metacarpal3_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'middle_proximal_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'middle_medial_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'middle_distal_rvs.vtp'.
+[2025-11-26 20:22:10.927] [warning] Couldn't find file 'metacarpal4_rvs.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'ring_proximal_rvs.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'ring_medial_rvs.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'ring_distal_rvs.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'metacarpal5_rvs.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'little_proximal_rvs.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'little_medial_rvs.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'little_distal_rvs.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'metacarpal1_rvs.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'thumb_proximal_rvs.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'thumb_distal_rvs.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'humerus_lv.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'ulna_lv.vtp'.
+[2025-11-26 20:22:10.928] [warning] Couldn't find file 'radius_lv.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'pisiform_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'lunate_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'scaphoid_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'triquetrum_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'hamate_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'capitate_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'trapezoid_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'trapezium_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'metacarpal2_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'index_proximal_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'index_medial_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'index_distal_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'metacarpal3_lvs.vtp'.
+[2025-11-26 20:22:10.929] [warning] Couldn't find file 'middle_proximal_lvs.vtp'.
+[2025-11-26 20:22:10.930] [warning] Couldn't find file 'middle_medial_lvs.vtp'.
+[2025-11-26 20:22:10.930] [warning] Couldn't find file 'middle_distal_lvs.vtp'.
+[2025-11-26 20:22:10.930] [warning] Couldn't find file 'metacarpal4_lvs.vtp'.
+[2025-11-26 20:22:10.930] [warning] Couldn't find file 'ring_proximal_lvs.vtp'.
+[2025-11-26 20:22:10.930] [warning] Couldn't find file 'ring_medial_lvs.vtp'.
+[2025-11-26 20:22:10.930] [warning] Couldn't find file 'ring_distal_lvs.vtp'.
+[2025-11-26 20:22:10.930] [warning] Couldn't find file 'metacarpal5_lvs.vtp'.
+[2025-11-26 20:22:10.930] [warning] Couldn't find file 'little_proximal_lvs.vtp'.
+[2025-11-26 20:22:10.930] [warning] Couldn't find file 'little_medial_lvs.vtp'.
+[2025-11-26 20:22:10.931] [warning] Couldn't find file 'little_distal_lvs.vtp'.
+[2025-11-26 20:22:10.931] [warning] Couldn't find file 'metacarpal1_lvs.vtp'.
+[2025-11-26 20:22:10.931] [warning] Couldn't find file 'thumb_proximal_lvs.vtp'.
+[2025-11-26 20:22:10.931] [warning] Couldn't find file 'thumb_distal_lvs.vtp'.
+[2025-11-26 20:22:16.387] [info] ========================================================================
+[2025-11-26 20:22:16.387] [info] MocoCasADiSolver starting.
+[2025-11-26 20:22:16.387] [info] Wed Nov 26 20:22:16 2025
+[2025-11-26 20:22:16.387] [info] ------------------------------------------------------------------------
+[2025-11-26 20:22:16.387] [info] Costs: (total: 4)
+[2025-11-26 20:22:16.387] [info]   state_tracking. MocoStateTrackingGoal, enabled: true, mode: cost, weight: 30.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/ground_pelvis/pelvis_tilt/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/ground_pelvis/pelvis_list/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/ground_pelvis/pelvis_rotation/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/ground_pelvis/pelvis_tx/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/ground_pelvis/pelvis_ty/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/ground_pelvis/pelvis_tz/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/hip_r/hip_flexion_r/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/hip_r/hip_adduction_r/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/hip_r/hip_rotation_r/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/walker_knee_r/knee_angle_r/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/hip_l/hip_flexion_l/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/hip_l/hip_adduction_l/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/hip_l/hip_rotation_l/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/walker_knee_l/knee_angle_l/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/ankle_l/ankle_angle_l/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/back/lumbar_extension/value, weight: 1.0
+[2025-11-26 20:22:16.387] [info]         state: /jointset/back/lumbar_bending/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/back/lumbar_rotation/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/acromial_r/arm_flex_r/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/acromial_r/arm_add_r/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/acromial_r/arm_rot_r/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/elbow_r/elbow_flex_r/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/radioulnar_r/pro_sup_r/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/acromial_l/arm_flex_l/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/acromial_l/arm_add_l/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/acromial_l/arm_rot_l/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/elbow_l/elbow_flex_l/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/radioulnar_l/pro_sup_l/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_1/joint_segment_1_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_2/joint_segment_2_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_3/joint_segment_3_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_4/joint_segment_4_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_5/joint_segment_5_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_6/joint_segment_6_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_7/joint_segment_7_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_8/joint_segment_8_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_9/joint_segment_9_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_10/joint_segment_10_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_11/joint_segment_11_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_12/joint_segment_12_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_13/joint_segment_13_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_14/joint_segment_14_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_15/joint_segment_15_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_16/joint_segment_16_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_17/joint_segment_17_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.388] [info]         state: /jointset/joint_segment_18/joint_segment_18_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/joint_segment_19/joint_segment_19_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/joint_segment_20/joint_segment_20_coord_0/value, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/ground_pelvis/pelvis_tilt/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/ground_pelvis/pelvis_list/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/ground_pelvis/pelvis_rotation/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/ground_pelvis/pelvis_tx/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/ground_pelvis/pelvis_ty/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/ground_pelvis/pelvis_tz/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/hip_r/hip_flexion_r/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/hip_r/hip_adduction_r/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/hip_r/hip_rotation_r/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/walker_knee_r/knee_angle_r/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/hip_l/hip_flexion_l/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/hip_l/hip_adduction_l/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/hip_l/hip_rotation_l/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/walker_knee_l/knee_angle_l/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/ankle_l/ankle_angle_l/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/back/lumbar_extension/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/back/lumbar_bending/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/back/lumbar_rotation/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/acromial_r/arm_flex_r/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/acromial_r/arm_add_r/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/acromial_r/arm_rot_r/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/elbow_r/elbow_flex_r/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/radioulnar_r/pro_sup_r/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/acromial_l/arm_flex_l/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/acromial_l/arm_add_l/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/acromial_l/arm_rot_l/speed, weight: 1.0
+[2025-11-26 20:22:16.389] [info]         state: /jointset/elbow_l/elbow_flex_l/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/radioulnar_l/pro_sup_l/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_1/joint_segment_1_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_2/joint_segment_2_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_3/joint_segment_3_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_4/joint_segment_4_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_5/joint_segment_5_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_6/joint_segment_6_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_7/joint_segment_7_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_8/joint_segment_8_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_9/joint_segment_9_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_10/joint_segment_10_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_11/joint_segment_11_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_12/joint_segment_12_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_13/joint_segment_13_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_14/joint_segment_14_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_15/joint_segment_15_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_16/joint_segment_16_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_17/joint_segment_17_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_18/joint_segment_18_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_19/joint_segment_19_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         state: /jointset/joint_segment_20/joint_segment_20_coord_0/speed, weight: 1.0
+[2025-11-26 20:22:16.390] [info]   control_effort. MocoControlGoal, enabled: true, mode: cost, weight: 0.1
+[2025-11-26 20:22:16.390] [info]         control: /forceset/lumbar_ext, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         control: /forceset/lumbar_bend, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         control: /forceset/lumbar_rot, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         control: /forceset/shoulder_flex_r, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         control: /forceset/shoulder_add_r, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         control: /forceset/shoulder_rot_r, weight: 1.0
+[2025-11-26 20:22:16.390] [info]         control: /forceset/elbow_flex_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/pro_sup_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/shoulder_flex_l, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/shoulder_add_l, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/shoulder_rot_l, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/elbow_flex_l, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/pro_sup_l, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/addbrev_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/addlong_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/addmagDist_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/addmagIsch_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/addmagMid_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/addmagProx_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/bflh_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/bfsh_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/glmax1_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/glmax2_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/glmax3_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/glmed1_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/glmed2_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/glmed3_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/glmin1_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/glmin2_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/glmin3_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/grac_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/iliacus_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/piri_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/psoas_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/recfem_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/sart_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/semimem_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/semiten_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/tfl_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/vasint_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/vaslat_r, weight: 1.0
+[2025-11-26 20:22:16.391] [info]         control: /forceset/vasmed_r, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/addbrev_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/addlong_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/addmagDist_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/addmagIsch_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/addmagMid_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/addmagProx_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/bflh_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/bfsh_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/edl_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/ehl_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/fdl_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/fhl_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/gaslat_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/gasmed_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/glmax1_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/glmax2_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/glmax3_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/glmed1_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/glmed2_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/glmed3_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/glmin1_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/glmin2_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/glmin3_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/grac_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/iliacus_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/perbrev_l, weight: 1.0
+[2025-11-26 20:22:16.392] [info]         control: /forceset/perlong_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/piri_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/psoas_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/recfem_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/sart_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/semimem_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/semiten_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/soleus_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/tfl_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/tibant_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/tibpost_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/vasint_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/vaslat_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/vasmed_l, weight: 1.0
+[2025-11-26 20:22:16.393] [info]   met. MocoOutputGoal, enabled: true, mode: cost, weight: 0.1
+[2025-11-26 20:22:16.393] [info]         output: /metabolic_cost|total_metabolic_rate, type: double, exponent: 1
+[2025-11-26 20:22:16.393] [info]   control_reg. MocoControlGoal, enabled: true, mode: cost, weight: 0.01
+[2025-11-26 20:22:16.393] [info]         control: /forceset/lumbar_ext, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/lumbar_bend, weight: 1.0
+[2025-11-26 20:22:16.393] [info]         control: /forceset/lumbar_rot, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/shoulder_flex_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/shoulder_add_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/shoulder_rot_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/elbow_flex_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/pro_sup_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/shoulder_flex_l, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/shoulder_add_l, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/shoulder_rot_l, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/elbow_flex_l, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/pro_sup_l, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/addbrev_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/addlong_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/addmagDist_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/addmagIsch_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/addmagMid_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/addmagProx_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/bflh_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/bfsh_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/glmax1_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/glmax2_r, weight: 1.0
+[2025-11-26 20:22:16.394] [info]         control: /forceset/glmax3_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/glmed1_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/glmed2_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/glmed3_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/glmin1_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/glmin2_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/glmin3_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/grac_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/iliacus_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/piri_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/psoas_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/recfem_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/sart_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/semimem_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/semiten_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/tfl_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/vasint_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/vaslat_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/vasmed_r, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/addbrev_l, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/addlong_l, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/addmagDist_l, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/addmagIsch_l, weight: 1.0
+[2025-11-26 20:22:16.395] [info]         control: /forceset/addmagMid_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/addmagProx_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/bflh_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/bfsh_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/edl_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/ehl_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/fdl_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/fhl_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/gaslat_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/gasmed_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/glmax1_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/glmax2_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/glmax3_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/glmed1_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/glmed2_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/glmed3_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/glmin1_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/glmin2_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/glmin3_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/grac_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/iliacus_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/perbrev_l, weight: 1.0
+[2025-11-26 20:22:16.396] [info]         control: /forceset/perlong_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/piri_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/psoas_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/recfem_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/sart_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/semimem_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/semiten_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/soleus_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/tfl_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/tibant_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/tibpost_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/vasint_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/vaslat_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info]         control: /forceset/vasmed_l, weight: 1.0
+[2025-11-26 20:22:16.397] [info] Endpoint constraints: (total: 1)
+[2025-11-26 20:22:16.397] [info]   periodicity. MocoPeriodicityGoal, enabled: true, mode: endpoint_constraint
+[2025-11-26 20:22:16.397] [info]         state periodicity pairs:
+[2025-11-26 20:22:16.397] [info]                 initial: /jointset/ground_pelvis/pelvis_tilt/value, final: /jointset/ground_pelvis/pelvis_tilt/value
+[2025-11-26 20:22:16.397] [info]                 initial: /jointset/ground_pelvis/pelvis_tilt/speed, final: /jointset/ground_pelvis/pelvis_tilt/speed
+[2025-11-26 20:22:16.397] [info]                 initial: /jointset/ground_pelvis/pelvis_list/value, final: /jointset/ground_pelvis/pelvis_list/value
+[2025-11-26 20:22:16.397] [info]                 initial: /jointset/ground_pelvis/pelvis_list/speed, final: /jointset/ground_pelvis/pelvis_list/speed
+[2025-11-26 20:22:16.397] [info]                 initial: /jointset/ground_pelvis/pelvis_rotation/value, final: /jointset/ground_pelvis/pelvis_rotation/value
+[2025-11-26 20:22:16.397] [info]                 initial: /jointset/ground_pelvis/pelvis_rotation/speed, final: /jointset/ground_pelvis/pelvis_rotation/speed
+[2025-11-26 20:22:16.397] [info]                 initial: /jointset/ground_pelvis/pelvis_tx/speed, final: /jointset/ground_pelvis/pelvis_tx/speed
+[2025-11-26 20:22:16.397] [info]                 initial: /jointset/ground_pelvis/pelvis_ty/value, final: /jointset/ground_pelvis/pelvis_ty/value
+[2025-11-26 20:22:16.397] [info]                 initial: /jointset/ground_pelvis/pelvis_ty/speed, final: /jointset/ground_pelvis/pelvis_ty/speed
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/ground_pelvis/pelvis_tz/value, final: /jointset/ground_pelvis/pelvis_tz/value
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/ground_pelvis/pelvis_tz/speed, final: /jointset/ground_pelvis/pelvis_tz/speed
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/hip_r/hip_flexion_r/value, final: /jointset/hip_r/hip_flexion_r/value
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/hip_r/hip_flexion_r/speed, final: /jointset/hip_r/hip_flexion_r/speed
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/hip_r/hip_adduction_r/value, final: /jointset/hip_r/hip_adduction_r/value
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/hip_r/hip_adduction_r/speed, final: /jointset/hip_r/hip_adduction_r/speed
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/hip_r/hip_rotation_r/value, final: /jointset/hip_r/hip_rotation_r/value
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/hip_r/hip_rotation_r/speed, final: /jointset/hip_r/hip_rotation_r/speed
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/walker_knee_r/knee_angle_r/value, final: /jointset/walker_knee_r/knee_angle_r/value
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/walker_knee_r/knee_angle_r/speed, final: /jointset/walker_knee_r/knee_angle_r/speed
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/hip_l/hip_flexion_l/value, final: /jointset/hip_l/hip_flexion_l/value
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/hip_l/hip_flexion_l/speed, final: /jointset/hip_l/hip_flexion_l/speed
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/hip_l/hip_adduction_l/value, final: /jointset/hip_l/hip_adduction_l/value
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/hip_l/hip_adduction_l/speed, final: /jointset/hip_l/hip_adduction_l/speed
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/hip_l/hip_rotation_l/value, final: /jointset/hip_l/hip_rotation_l/value
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/hip_l/hip_rotation_l/speed, final: /jointset/hip_l/hip_rotation_l/speed
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/walker_knee_l/knee_angle_l/value, final: /jointset/walker_knee_l/knee_angle_l/value
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/walker_knee_l/knee_angle_l/speed, final: /jointset/walker_knee_l/knee_angle_l/speed
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/ankle_l/ankle_angle_l/value, final: /jointset/ankle_l/ankle_angle_l/value
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/ankle_l/ankle_angle_l/speed, final: /jointset/ankle_l/ankle_angle_l/speed
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/back/lumbar_extension/value, final: /jointset/back/lumbar_extension/value
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/back/lumbar_extension/speed, final: /jointset/back/lumbar_extension/speed
+[2025-11-26 20:22:16.398] [info]                 initial: /jointset/back/lumbar_bending/value, final: /jointset/back/lumbar_bending/value
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/back/lumbar_bending/speed, final: /jointset/back/lumbar_bending/speed
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/back/lumbar_rotation/value, final: /jointset/back/lumbar_rotation/value
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/back/lumbar_rotation/speed, final: /jointset/back/lumbar_rotation/speed
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/acromial_r/arm_flex_r/value, final: /jointset/acromial_r/arm_flex_r/value
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/acromial_r/arm_flex_r/speed, final: /jointset/acromial_r/arm_flex_r/speed
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/acromial_r/arm_add_r/value, final: /jointset/acromial_r/arm_add_r/value
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/acromial_r/arm_add_r/speed, final: /jointset/acromial_r/arm_add_r/speed
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/acromial_r/arm_rot_r/value, final: /jointset/acromial_r/arm_rot_r/value
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/acromial_r/arm_rot_r/speed, final: /jointset/acromial_r/arm_rot_r/speed
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/elbow_r/elbow_flex_r/value, final: /jointset/elbow_r/elbow_flex_r/value
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/elbow_r/elbow_flex_r/speed, final: /jointset/elbow_r/elbow_flex_r/speed
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/radioulnar_r/pro_sup_r/value, final: /jointset/radioulnar_r/pro_sup_r/value
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/radioulnar_r/pro_sup_r/speed, final: /jointset/radioulnar_r/pro_sup_r/speed
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/acromial_l/arm_flex_l/value, final: /jointset/acromial_l/arm_flex_l/value
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/acromial_l/arm_flex_l/speed, final: /jointset/acromial_l/arm_flex_l/speed
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/acromial_l/arm_add_l/value, final: /jointset/acromial_l/arm_add_l/value
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/acromial_l/arm_add_l/speed, final: /jointset/acromial_l/arm_add_l/speed
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/acromial_l/arm_rot_l/value, final: /jointset/acromial_l/arm_rot_l/value
+[2025-11-26 20:22:16.399] [info]                 initial: /jointset/acromial_l/arm_rot_l/speed, final: /jointset/acromial_l/arm_rot_l/speed
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/elbow_l/elbow_flex_l/value, final: /jointset/elbow_l/elbow_flex_l/value
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/elbow_l/elbow_flex_l/speed, final: /jointset/elbow_l/elbow_flex_l/speed
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/radioulnar_l/pro_sup_l/value, final: /jointset/radioulnar_l/pro_sup_l/value
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/radioulnar_l/pro_sup_l/speed, final: /jointset/radioulnar_l/pro_sup_l/speed
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_1/joint_segment_1_coord_0/value, final: /jointset/joint_segment_1/joint_segment_1_coord_0/value
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_1/joint_segment_1_coord_0/speed, final: /jointset/joint_segment_1/joint_segment_1_coord_0/speed
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_2/joint_segment_2_coord_0/value, final: /jointset/joint_segment_2/joint_segment_2_coord_0/value
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_2/joint_segment_2_coord_0/speed, final: /jointset/joint_segment_2/joint_segment_2_coord_0/speed
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_3/joint_segment_3_coord_0/value, final: /jointset/joint_segment_3/joint_segment_3_coord_0/value
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_3/joint_segment_3_coord_0/speed, final: /jointset/joint_segment_3/joint_segment_3_coord_0/speed
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_4/joint_segment_4_coord_0/value, final: /jointset/joint_segment_4/joint_segment_4_coord_0/value
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_4/joint_segment_4_coord_0/speed, final: /jointset/joint_segment_4/joint_segment_4_coord_0/speed
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_5/joint_segment_5_coord_0/value, final: /jointset/joint_segment_5/joint_segment_5_coord_0/value
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_5/joint_segment_5_coord_0/speed, final: /jointset/joint_segment_5/joint_segment_5_coord_0/speed
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_6/joint_segment_6_coord_0/value, final: /jointset/joint_segment_6/joint_segment_6_coord_0/value
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_6/joint_segment_6_coord_0/speed, final: /jointset/joint_segment_6/joint_segment_6_coord_0/speed
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_7/joint_segment_7_coord_0/value, final: /jointset/joint_segment_7/joint_segment_7_coord_0/value
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_7/joint_segment_7_coord_0/speed, final: /jointset/joint_segment_7/joint_segment_7_coord_0/speed
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_8/joint_segment_8_coord_0/value, final: /jointset/joint_segment_8/joint_segment_8_coord_0/value
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_8/joint_segment_8_coord_0/speed, final: /jointset/joint_segment_8/joint_segment_8_coord_0/speed
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_9/joint_segment_9_coord_0/value, final: /jointset/joint_segment_9/joint_segment_9_coord_0/value
+[2025-11-26 20:22:16.400] [info]                 initial: /jointset/joint_segment_9/joint_segment_9_coord_0/speed, final: /jointset/joint_segment_9/joint_segment_9_coord_0/speed
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_10/joint_segment_10_coord_0/value, final: /jointset/joint_segment_10/joint_segment_10_coord_0/value
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_10/joint_segment_10_coord_0/speed, final: /jointset/joint_segment_10/joint_segment_10_coord_0/speed
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_11/joint_segment_11_coord_0/value, final: /jointset/joint_segment_11/joint_segment_11_coord_0/value
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_11/joint_segment_11_coord_0/speed, final: /jointset/joint_segment_11/joint_segment_11_coord_0/speed
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_12/joint_segment_12_coord_0/value, final: /jointset/joint_segment_12/joint_segment_12_coord_0/value
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_12/joint_segment_12_coord_0/speed, final: /jointset/joint_segment_12/joint_segment_12_coord_0/speed
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_13/joint_segment_13_coord_0/value, final: /jointset/joint_segment_13/joint_segment_13_coord_0/value
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_13/joint_segment_13_coord_0/speed, final: /jointset/joint_segment_13/joint_segment_13_coord_0/speed
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_14/joint_segment_14_coord_0/value, final: /jointset/joint_segment_14/joint_segment_14_coord_0/value
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_14/joint_segment_14_coord_0/speed, final: /jointset/joint_segment_14/joint_segment_14_coord_0/speed
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_15/joint_segment_15_coord_0/value, final: /jointset/joint_segment_15/joint_segment_15_coord_0/value
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_15/joint_segment_15_coord_0/speed, final: /jointset/joint_segment_15/joint_segment_15_coord_0/speed
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_16/joint_segment_16_coord_0/value, final: /jointset/joint_segment_16/joint_segment_16_coord_0/value
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_16/joint_segment_16_coord_0/speed, final: /jointset/joint_segment_16/joint_segment_16_coord_0/speed
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_17/joint_segment_17_coord_0/value, final: /jointset/joint_segment_17/joint_segment_17_coord_0/value
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_17/joint_segment_17_coord_0/speed, final: /jointset/joint_segment_17/joint_segment_17_coord_0/speed
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_18/joint_segment_18_coord_0/value, final: /jointset/joint_segment_18/joint_segment_18_coord_0/value
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_18/joint_segment_18_coord_0/speed, final: /jointset/joint_segment_18/joint_segment_18_coord_0/speed
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_19/joint_segment_19_coord_0/value, final: /jointset/joint_segment_19/joint_segment_19_coord_0/value
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_19/joint_segment_19_coord_0/speed, final: /jointset/joint_segment_19/joint_segment_19_coord_0/speed
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_20/joint_segment_20_coord_0/value, final: /jointset/joint_segment_20/joint_segment_20_coord_0/value
+[2025-11-26 20:22:16.401] [info]                 initial: /jointset/joint_segment_20/joint_segment_20_coord_0/speed, final: /jointset/joint_segment_20/joint_segment_20_coord_0/speed
+[2025-11-26 20:22:16.401] [info]                 initial: /forceset/addbrev_r/activation, final: /forceset/addbrev_r/activation
+[2025-11-26 20:22:16.401] [info]                 initial: /forceset/addlong_r/activation, final: /forceset/addlong_r/activation
+[2025-11-26 20:22:16.401] [info]                 initial: /forceset/addmagDist_r/activation, final: /forceset/addmagDist_r/activation
+[2025-11-26 20:22:16.401] [info]                 initial: /forceset/addmagIsch_r/activation, final: /forceset/addmagIsch_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/addmagMid_r/activation, final: /forceset/addmagMid_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/addmagProx_r/activation, final: /forceset/addmagProx_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/bflh_r/activation, final: /forceset/bflh_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/bfsh_r/activation, final: /forceset/bfsh_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/glmax1_r/activation, final: /forceset/glmax1_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/glmax2_r/activation, final: /forceset/glmax2_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/glmax3_r/activation, final: /forceset/glmax3_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/glmed1_r/activation, final: /forceset/glmed1_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/glmed2_r/activation, final: /forceset/glmed2_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/glmed3_r/activation, final: /forceset/glmed3_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/glmin1_r/activation, final: /forceset/glmin1_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/glmin2_r/activation, final: /forceset/glmin2_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/glmin3_r/activation, final: /forceset/glmin3_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/grac_r/activation, final: /forceset/grac_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/iliacus_r/activation, final: /forceset/iliacus_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/piri_r/activation, final: /forceset/piri_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/psoas_r/activation, final: /forceset/psoas_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/recfem_r/activation, final: /forceset/recfem_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/sart_r/activation, final: /forceset/sart_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/semimem_r/activation, final: /forceset/semimem_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/semiten_r/activation, final: /forceset/semiten_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/tfl_r/activation, final: /forceset/tfl_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/vasint_r/activation, final: /forceset/vasint_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/vaslat_r/activation, final: /forceset/vaslat_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/vasmed_r/activation, final: /forceset/vasmed_r/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/addbrev_l/activation, final: /forceset/addbrev_l/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/addlong_l/activation, final: /forceset/addlong_l/activation
+[2025-11-26 20:22:16.402] [info]                 initial: /forceset/addmagDist_l/activation, final: /forceset/addmagDist_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/addmagIsch_l/activation, final: /forceset/addmagIsch_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/addmagMid_l/activation, final: /forceset/addmagMid_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/addmagProx_l/activation, final: /forceset/addmagProx_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/bflh_l/activation, final: /forceset/bflh_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/bfsh_l/activation, final: /forceset/bfsh_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/edl_l/activation, final: /forceset/edl_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/ehl_l/activation, final: /forceset/ehl_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/fdl_l/activation, final: /forceset/fdl_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/fhl_l/activation, final: /forceset/fhl_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/gaslat_l/activation, final: /forceset/gaslat_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/gasmed_l/activation, final: /forceset/gasmed_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/glmax1_l/activation, final: /forceset/glmax1_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/glmax2_l/activation, final: /forceset/glmax2_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/glmax3_l/activation, final: /forceset/glmax3_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/glmed1_l/activation, final: /forceset/glmed1_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/glmed2_l/activation, final: /forceset/glmed2_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/glmed3_l/activation, final: /forceset/glmed3_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/glmin1_l/activation, final: /forceset/glmin1_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/glmin2_l/activation, final: /forceset/glmin2_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/glmin3_l/activation, final: /forceset/glmin3_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/grac_l/activation, final: /forceset/grac_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/iliacus_l/activation, final: /forceset/iliacus_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/perbrev_l/activation, final: /forceset/perbrev_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/perlong_l/activation, final: /forceset/perlong_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/piri_l/activation, final: /forceset/piri_l/activation
+[2025-11-26 20:22:16.403] [info]                 initial: /forceset/psoas_l/activation, final: /forceset/psoas_l/activation
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/recfem_l/activation, final: /forceset/recfem_l/activation
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/sart_l/activation, final: /forceset/sart_l/activation
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/semimem_l/activation, final: /forceset/semimem_l/activation
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/semiten_l/activation, final: /forceset/semiten_l/activation
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/soleus_l/activation, final: /forceset/soleus_l/activation
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/tfl_l/activation, final: /forceset/tfl_l/activation
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/tibant_l/activation, final: /forceset/tibant_l/activation
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/tibpost_l/activation, final: /forceset/tibpost_l/activation
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/vasint_l/activation, final: /forceset/vasint_l/activation
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/vaslat_l/activation, final: /forceset/vaslat_l/activation
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/vasmed_l/activation, final: /forceset/vasmed_l/activation
+[2025-11-26 20:22:16.404] [info]         control periodicity pairs:
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/addbrev_r, final: /forceset/addbrev_r
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/addlong_r, final: /forceset/addlong_r
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/addmagDist_r, final: /forceset/addmagDist_r
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/addmagIsch_r, final: /forceset/addmagIsch_r
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/addmagMid_r, final: /forceset/addmagMid_r
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/addmagProx_r, final: /forceset/addmagProx_r
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/bflh_r, final: /forceset/bflh_r
+[2025-11-26 20:22:16.404] [info]                 initial: /forceset/bfsh_r, final: /forceset/bfsh_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/glmax1_r, final: /forceset/glmax1_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/glmax2_r, final: /forceset/glmax2_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/glmax3_r, final: /forceset/glmax3_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/glmed1_r, final: /forceset/glmed1_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/glmed2_r, final: /forceset/glmed2_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/glmed3_r, final: /forceset/glmed3_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/glmin1_r, final: /forceset/glmin1_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/glmin2_r, final: /forceset/glmin2_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/glmin3_r, final: /forceset/glmin3_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/grac_r, final: /forceset/grac_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/iliacus_r, final: /forceset/iliacus_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/piri_r, final: /forceset/piri_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/psoas_r, final: /forceset/psoas_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/recfem_r, final: /forceset/recfem_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/sart_r, final: /forceset/sart_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/semimem_r, final: /forceset/semimem_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/semiten_r, final: /forceset/semiten_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/tfl_r, final: /forceset/tfl_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/vasint_r, final: /forceset/vasint_r
+[2025-11-26 20:22:16.405] [info]                 initial: /forceset/vaslat_r, final: /forceset/vaslat_r
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/vasmed_r, final: /forceset/vasmed_r
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/addbrev_l, final: /forceset/addbrev_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/addlong_l, final: /forceset/addlong_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/addmagDist_l, final: /forceset/addmagDist_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/addmagIsch_l, final: /forceset/addmagIsch_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/addmagMid_l, final: /forceset/addmagMid_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/addmagProx_l, final: /forceset/addmagProx_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/bflh_l, final: /forceset/bflh_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/bfsh_l, final: /forceset/bfsh_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/edl_l, final: /forceset/edl_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/ehl_l, final: /forceset/ehl_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/fdl_l, final: /forceset/fdl_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/fhl_l, final: /forceset/fhl_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/gaslat_l, final: /forceset/gaslat_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/gasmed_l, final: /forceset/gasmed_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/glmax1_l, final: /forceset/glmax1_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/glmax2_l, final: /forceset/glmax2_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/glmax3_l, final: /forceset/glmax3_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/glmed1_l, final: /forceset/glmed1_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/glmed2_l, final: /forceset/glmed2_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/glmed3_l, final: /forceset/glmed3_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/glmin1_l, final: /forceset/glmin1_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/glmin2_l, final: /forceset/glmin2_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/glmin3_l, final: /forceset/glmin3_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/grac_l, final: /forceset/grac_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/iliacus_l, final: /forceset/iliacus_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/perbrev_l, final: /forceset/perbrev_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/perlong_l, final: /forceset/perlong_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/piri_l, final: /forceset/piri_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/psoas_l, final: /forceset/psoas_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/recfem_l, final: /forceset/recfem_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/sart_l, final: /forceset/sart_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/semimem_l, final: /forceset/semimem_l
+[2025-11-26 20:22:16.406] [info]                 initial: /forceset/semiten_l, final: /forceset/semiten_l
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/soleus_l, final: /forceset/soleus_l
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/tfl_l, final: /forceset/tfl_l
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/tibant_l, final: /forceset/tibant_l
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/tibpost_l, final: /forceset/tibpost_l
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/vasint_l, final: /forceset/vasint_l
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/vaslat_l, final: /forceset/vaslat_l
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/vasmed_l, final: /forceset/vasmed_l
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/lumbar_ext, final: /forceset/lumbar_ext
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/lumbar_bend, final: /forceset/lumbar_bend
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/lumbar_rot, final: /forceset/lumbar_rot
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/shoulder_flex_r, final: /forceset/shoulder_flex_r
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/shoulder_add_r, final: /forceset/shoulder_add_r
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/shoulder_rot_r, final: /forceset/shoulder_rot_r
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/elbow_flex_r, final: /forceset/elbow_flex_r
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/pro_sup_r, final: /forceset/pro_sup_r
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/shoulder_flex_l, final: /forceset/shoulder_flex_l
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/shoulder_add_l, final: /forceset/shoulder_add_l
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/shoulder_rot_l, final: /forceset/shoulder_rot_l
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/elbow_flex_l, final: /forceset/elbow_flex_l
+[2025-11-26 20:22:16.407] [info]                 initial: /forceset/pro_sup_l, final: /forceset/pro_sup_l
+[2025-11-26 20:22:16.407] [info] Kinematic constraints: none
+[2025-11-26 20:22:16.407] [info] Path constraints: none
+[2025-11-26 20:22:16.407] [info] States: (total: 185)
+[2025-11-26 20:22:16.408] [info]   /forceset/glmed1_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.408] [info]   /jointset/ground_pelvis/pelvis_tilt/value. bounds: [-1.5708, 1.5708] initial: [-0.0328077, 0.0427465]
+[2025-11-26 20:22:16.408] [info]   /jointset/ground_pelvis/pelvis_list/value. bounds: [-1.5708, 1.5708] initial: [-0.0481089, 0.0957905]
+[2025-11-26 20:22:16.408] [info]   /jointset/radioulnar_r/pro_sup_r/value. bounds: [0, 3.14159] initial: [0.943256, 0.956939]
+[2025-11-26 20:22:16.408] [info]   /jointset/ground_pelvis/pelvis_rotation/value. bounds: [-1.5708, 1.5708] initial: [-0.0216396, 0.143923]
+[2025-11-26 20:22:16.408] [info]   /jointset/ground_pelvis/pelvis_tx/value. bounds: [-5, 5] initial: [0.000172358, 0.0294279]
+[2025-11-26 20:22:16.408] [info]   /forceset/addmagMid_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.408] [info]   /jointset/elbow_r/elbow_flex_r/value. bounds: [0, 2.618] initial: [0.525276, 0.604041]
+[2025-11-26 20:22:16.408] [info]   /jointset/ground_pelvis/pelvis_ty/value. bounds: [-1, 2] initial: [0.85, 1.1] final: 1
+[2025-11-26 20:22:16.408] [info]   /jointset/ground_pelvis/pelvis_tz/value. bounds: [-3, 3] initial: [-0.00493388, -0.0039128]
+[2025-11-26 20:22:16.408] [info]   /jointset/hip_r/hip_adduction_r/speed. bounds: [-50, 50] initial: [0.408348, 0.523599]
+[2025-11-26 20:22:16.408] [info]   /jointset/hip_r/hip_flexion_r/value. bounds: [-0.523599, 2.0944] initial: [0.288098, 0.388098]
+[2025-11-26 20:22:16.408] [info]   /jointset/hip_r/hip_adduction_r/value. bounds: [-0.872665, 0.523599] initial: [0.00779635, 0.0705565]
+[2025-11-26 20:22:16.408] [info]   /forceset/viscoelastic_segment_14/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.408] [info]   /jointset/back/lumbar_rotation/speed. bounds: [-50, 50] initial: [1.04878, 1.15442]
+[2025-11-26 20:22:16.409] [info]   /jointset/hip_r/hip_rotation_r/value. bounds: [-0.698132, 0.698132] initial: [-0.229442, -0.134756]
+[2025-11-26 20:22:16.409] [info]   /jointset/walker_knee_r/knee_angle_r/value. bounds: [0, 2.0944] initial: [0.337768, 0.437768]
+[2025-11-26 20:22:16.409] [info]   /jointset/hip_l/hip_flexion_l/value. bounds: [-0.523599, 2.0944] initial: [0.0949004, 0.1949]
+[2025-11-26 20:22:16.409] [info]   /jointset/hip_l/hip_adduction_l/value. bounds: [-0.872665, 0.523599] initial: [-0.136177, -0.0840957]
+[2025-11-26 20:22:16.409] [info]   /jointset/hip_l/hip_rotation_l/value. bounds: [-0.698132, 0.698132] initial: [-0.0526171, 0.0473829]
+[2025-11-26 20:22:16.409] [info]   /jointset/joint_segment_5/joint_segment_5_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.409] [info]   /jointset/walker_knee_l/knee_angle_l/value. bounds: [0, 2.0944] initial: [1.08793, 1.18793]
+[2025-11-26 20:22:16.409] [info]   /jointset/ankle_l/ankle_angle_l/value. bounds: [-0.698132, 0.523599] initial: [-0.299039, -0.242174]
+[2025-11-26 20:22:16.409] [info]   /jointset/back/lumbar_extension/value. bounds: [-1.5708, 1.5708] initial: [-0.176498, -0.0904924]
+[2025-11-26 20:22:16.409] [info]   /jointset/back/lumbar_bending/value. bounds: [-1.5708, 1.5708] initial: [0.0312741, 0.0815292]
+[2025-11-26 20:22:16.409] [info]   /jointset/back/lumbar_rotation/value. bounds: [-1.5708, 1.5708] initial: [-0.216078, -0.116078]
+[2025-11-26 20:22:16.409] [info]   /jointset/acromial_r/arm_flex_r/value. bounds: [-1.5708, 1.5708] initial: [-0.0587475, 0.0250749]
+[2025-11-26 20:22:16.409] [info]   /jointset/acromial_r/arm_add_r/value. bounds: [-2.0944, 1.5708] initial: [-0.109399, -0.0116854]
+[2025-11-26 20:22:16.410] [info]   /jointset/acromial_r/arm_rot_r/value. bounds: [-1.5708, 1.5708] initial: [-0.483414, -0.383414]
+[2025-11-26 20:22:16.410] [info]   /jointset/acromial_l/arm_flex_l/value. bounds: [-1.5708, 1.5708] initial: [0.0564691, 0.156469]
+[2025-11-26 20:22:16.410] [info]   /jointset/acromial_l/arm_add_l/value. bounds: [-2.0944, 1.5708] initial: [-0.190858, -0.12405]
+[2025-11-26 20:22:16.410] [info]   /jointset/acromial_l/arm_rot_l/value. bounds: [-1.5708, 1.5708] initial: [-0.0706173, -0.00107246]
+[2025-11-26 20:22:16.410] [info]   /jointset/elbow_l/elbow_flex_l/value. bounds: [0, 2.618] initial: [0.78496, 0.88496]
+[2025-11-26 20:22:16.410] [info]   /jointset/radioulnar_l/pro_sup_l/value. bounds: [0, 3.14159] initial: [0.884944, 0.897615]
+[2025-11-26 20:22:16.410] [info]   /jointset/joint_segment_1/joint_segment_1_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.410] [info]   /jointset/joint_segment_2/joint_segment_2_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.410] [info]   /jointset/joint_segment_3/joint_segment_3_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.410] [info]   /forceset/addlong_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.410] [info]   /jointset/joint_segment_4/joint_segment_4_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.410] [info]   /jointset/joint_segment_6/joint_segment_6_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.410] [info]   /forceset/edl_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.410] [info]   /jointset/joint_segment_7/joint_segment_7_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.410] [info]   /jointset/joint_segment_8/joint_segment_8_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.410] [info]   /jointset/joint_segment_9/joint_segment_9_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.410] [info]   /forceset/addmagIsch_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.411] [info]   /jointset/joint_segment_10/joint_segment_10_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.411] [info]   /forceset/glmin2_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.411] [info]   /jointset/joint_segment_11/joint_segment_11_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.411] [info]   /jointset/joint_segment_12/joint_segment_12_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.411] [info]   /jointset/joint_segment_13/joint_segment_13_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.411] [info]   /jointset/joint_segment_14/joint_segment_14_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.411] [info]   /jointset/ground_pelvis/pelvis_tx/speed. bounds: [-50, 50] initial: [0.0186421, 0.0269383]
+[2025-11-26 20:22:16.411] [info]   /jointset/joint_segment_15/joint_segment_15_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.411] [info]   /jointset/walker_knee_r/knee_angle_r/speed. bounds: [-50, 50] initial: [0, 0.0289486]
+[2025-11-26 20:22:16.411] [info]   /jointset/joint_segment_16/joint_segment_16_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.411] [info]   /jointset/joint_segment_17/joint_segment_17_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.411] [info]   /forceset/vasint_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.411] [info]   /jointset/hip_r/hip_rotation_r/speed. bounds: [-50, 50] initial: [0.116802, 0.316802]
+[2025-11-26 20:22:16.411] [info]   /jointset/joint_segment_18/joint_segment_18_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.411] [info]   /jointset/joint_segment_19/joint_segment_19_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.411] [info]   /jointset/joint_segment_16/joint_segment_16_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.411] [info]   /jointset/joint_segment_20/joint_segment_20_coord_0/value. bounds: [-10, 10] initial: 0
+[2025-11-26 20:22:16.411] [info]   /jointset/ground_pelvis/pelvis_tilt/speed. bounds: [-50, 50] initial: [-0.5, 0.5]
+[2025-11-26 20:22:16.411] [info]   /jointset/ground_pelvis/pelvis_list/speed. bounds: [-50, 50] initial: [-0.5, 0.5]
+[2025-11-26 20:22:16.411] [info]   /forceset/perlong_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.412] [info]   /jointset/radioulnar_r/pro_sup_r/speed. bounds: [-50, 50] initial: [0, 0.0563083]
+[2025-11-26 20:22:16.412] [info]   /jointset/ground_pelvis/pelvis_rotation/speed. bounds: [-50, 50] initial: [-0.5, 0.5]
+[2025-11-26 20:22:16.412] [info]   /jointset/elbow_r/elbow_flex_r/speed. bounds: [-50, 50] initial: [0.25715, 0.45715]
+[2025-11-26 20:22:16.412] [info]   /jointset/ground_pelvis/pelvis_ty/speed. bounds: [-50, 50] initial: [-0.5, 0.5] final: 0
+[2025-11-26 20:22:16.412] [info]   /jointset/ground_pelvis/pelvis_tz/speed. bounds: [-50, 50] initial: [-0.00376776, 0.00253069]
+[2025-11-26 20:22:16.412] [info]   /jointset/hip_r/hip_flexion_r/speed. bounds: [-50, 50] initial: [-2.10569, -2.10569]
+[2025-11-26 20:22:16.412] [info]   /forceset/viscoelastic_segment_6/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.412] [info]   /jointset/hip_l/hip_flexion_l/speed. bounds: [-50, 50] initial: [2.9076, 2.9076]
+[2025-11-26 20:22:16.412] [info]   /jointset/hip_l/hip_adduction_l/speed. bounds: [-50, 50] initial: [-0.373519, -0.173519]
+[2025-11-26 20:22:16.412] [info]   /jointset/hip_l/hip_rotation_l/speed. bounds: [-50, 50] initial: [-0.438135, -0.238135]
+[2025-11-26 20:22:16.412] [info]   /jointset/joint_segment_5/joint_segment_5_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.412] [info]   /jointset/walker_knee_l/knee_angle_l/speed. bounds: [-50, 50] initial: [4.15732, 4.15732]
+[2025-11-26 20:22:16.412] [info]   /jointset/ankle_l/ankle_angle_l/speed. bounds: [-50, 50] initial: [1.24246, 1.24246]
+[2025-11-26 20:22:16.412] [info]   /forceset/viscoelastic_segment_17/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.412] [info]   /jointset/back/lumbar_extension/speed. bounds: [-50, 50] initial: [-0.605609, -0.405609]
+[2025-11-26 20:22:16.412] [info]   /jointset/back/lumbar_bending/speed. bounds: [-50, 50] initial: [-0.175403, 0.0245965]
+[2025-11-26 20:22:16.412] [info]   /jointset/acromial_r/arm_flex_r/speed. bounds: [-50, 50] initial: [0.26115, 0.46115]
+[2025-11-26 20:22:16.412] [info]   /jointset/acromial_r/arm_add_r/speed. bounds: [-50, 50] initial: [-0.220801, -0.0208014]
+[2025-11-26 20:22:16.412] [info]   /jointset/acromial_r/arm_rot_r/speed. bounds: [-50, 50] initial: [0.731615, 0.931615]
+[2025-11-26 20:22:16.412] [info]   /jointset/acromial_l/arm_flex_l/speed. bounds: [-50, 50] initial: [-0.370174, -0.170174]
+[2025-11-26 20:22:16.412] [info]   /jointset/acromial_l/arm_add_l/speed. bounds: [-50, 50] initial: [0.0394413, 0.239441]
+[2025-11-26 20:22:16.412] [info]   /jointset/acromial_l/arm_rot_l/speed. bounds: [-50, 50] initial: [-0.706901, -0.506901]
+[2025-11-26 20:22:16.412] [info]   /jointset/elbow_l/elbow_flex_l/speed. bounds: [-50, 50] initial: [-1.56835, -1.56835]
+[2025-11-26 20:22:16.412] [info]   /jointset/radioulnar_l/pro_sup_l/speed. bounds: [-50, 50] initial: [0, 0.0583696]
+[2025-11-26 20:22:16.412] [info]   /jointset/joint_segment_1/joint_segment_1_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_2/joint_segment_2_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_3/joint_segment_3_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_4/joint_segment_4_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_6/joint_segment_6_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_7/joint_segment_7_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_8/joint_segment_8_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_9/joint_segment_9_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /forceset/vaslat_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.413] [info]   /forceset/glmax2_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.413] [info]   /forceset/viscoelastic_segment_10/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_10/joint_segment_10_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_11/joint_segment_11_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_12/joint_segment_12_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /forceset/semiten_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_13/joint_segment_13_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_14/joint_segment_14_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_15/joint_segment_15_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_17/joint_segment_17_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /forceset/bfsh_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_18/joint_segment_18_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_19/joint_segment_19_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /jointset/joint_segment_20/joint_segment_20_coord_0/speed. bounds: [-50, 50] initial: 0
+[2025-11-26 20:22:16.413] [info]   /forceset/viscoelastic_segment_1/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.413] [info]   /forceset/viscoelastic_segment_2/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_3/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_4/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_5/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_7/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_8/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_9/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_11/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/soleus_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_12/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/addbrev_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_13/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_15/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_16/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_18/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/sart_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_19/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/viscoelastic_segment_20/dissipated_energy. bounds: [0, inf]
+[2025-11-26 20:22:16.414] [info]   /forceset/addbrev_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/addmagDist_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/addmagIsch_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/addmagMid_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/addmagProx_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/bflh_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/bfsh_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/glmax1_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/vaslat_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/glmax2_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.414] [info]   /forceset/glmax3_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/glmed2_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/glmed3_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/glmin1_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/glmin3_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/grac_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/iliacus_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/piri_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/psoas_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/recfem_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/sart_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/semimem_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/semiten_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.415] [info]   /forceset/tfl_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/vasmed_r/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/addlong_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/addmagDist_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/addmagProx_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/bflh_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/semimem_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/ehl_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/fdl_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/fhl_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/glmed1_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/gaslat_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/gasmed_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.416] [info]   /forceset/glmax1_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/glmax3_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/glmed2_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/tibant_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/glmed3_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/glmin1_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/glmin2_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/glmin3_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/grac_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/iliacus_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/perbrev_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/piri_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/psoas_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/recfem_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/tfl_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/tibpost_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/vasint_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.417] [info]   /forceset/vasmed_l/activation. bounds: [0.01, 1]
+[2025-11-26 20:22:16.418] [info] Controls: (total: 82)
+[2025-11-26 20:22:16.418] [info]   /forceset/lumbar_ext. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/lumbar_bend. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/lumbar_rot. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/shoulder_flex_r. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/shoulder_add_r. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/glmed1_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.418] [info]   /forceset/shoulder_rot_r. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/elbow_flex_r. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/pro_sup_r. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/shoulder_flex_l. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/shoulder_add_l. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/glmed1_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.418] [info]   /forceset/gaslat_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.418] [info]   /forceset/shoulder_rot_l. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/elbow_flex_l. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/pro_sup_l. bounds: [-inf, inf]
+[2025-11-26 20:22:16.418] [info]   /forceset/addbrev_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.418] [info]   /forceset/addlong_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.418] [info]   /forceset/addmagDist_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.418] [info]   /forceset/addmagIsch_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/addmagMid_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/addmagProx_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/bflh_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/bfsh_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/glmax1_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/vaslat_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/glmax2_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/glmax3_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/glmed2_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/glmed3_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/glmin1_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/glmin2_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/glmin3_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/grac_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/iliacus_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/piri_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/psoas_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/recfem_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/sart_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/semimem_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/semiten_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.419] [info]   /forceset/tfl_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/vasint_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/vasmed_r. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/addbrev_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/addlong_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/addmagDist_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/addmagIsch_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/addmagMid_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/addmagProx_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/bflh_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/bfsh_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/edl_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/semimem_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/ehl_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/fdl_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/fhl_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/gasmed_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/glmax1_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/vaslat_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/glmax2_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/glmax3_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/glmed2_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.420] [info]   /forceset/tibant_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/glmed3_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/glmin1_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/glmin2_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/glmin3_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/grac_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/iliacus_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/perbrev_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/perlong_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/piri_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/psoas_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/recfem_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/sart_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/semiten_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/soleus_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/tfl_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/tibpost_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/vasint_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.421] [info]   /forceset/vasmed_l. bounds: [0.01, 1]
+[2025-11-26 20:22:16.422] [info] Input controls: none
+[2025-11-26 20:22:16.422] [info] Parameters: none
+[2025-11-26 20:22:19.453] [info] Number of threads: 24
