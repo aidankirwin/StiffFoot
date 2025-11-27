@@ -3,12 +3,13 @@ import numpy as np
 import math
 import csv
 
-def solve_metabolic_tracking():
+def solve_metabolic_tracking(model=None):
     """
     Set up and solve a muscle-driven MocoTrack problem to track
     experimental gait data using a modified prosthesis model with
     foot-ground contact and metabolic cost.
     """
+
     # ---------- User settings ----------
     model_file = 'models/prosthesisModel_3.osim'        # your modified Rajagopal + prosthesis
     coords_file = 'sto/coords_modified.sto'         # reconstructed coordinates (states reference)
@@ -69,8 +70,9 @@ def solve_metabolic_tracking():
     track = osim.MocoTrack()
     track.setName('tracking')
 
-    # load model
-    model = osim.Model(model_file)
+    if model is None:
+        # load model
+        model = osim.Model(model_file)
 
     # ------------------------- FOOT GROUND CONTACT ---------------------------------
     ground = model.getGround()
