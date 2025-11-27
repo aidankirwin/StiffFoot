@@ -265,17 +265,15 @@ def solve_metabolic_tracking(model=None):
     solver.resetProblem(problem)
 
     solver.set_num_mesh_intervals(75)  # matches your user setting
-    solver.set_optim_max_iterations(50)  # increase slowly
+    solver.set_optim_max_iterations(1000)  # increase slowly
 
     solver.set_verbosity(2)
     solver.set_optim_solver('ipopt')
-    solver.set_optim_convergence_tolerance(1e-4)
-    solver.set_optim_constraint_tolerance(1e-4)
+    solver.set_optim_convergence_tolerance(1e-2)
+    solver.set_optim_constraint_tolerance(1e-2)
 
     solver.set_transcription_scheme('legendre-gauss-radau-3')
     solver.set_kinematic_constraint_method('Bordalba2023')
-    solver.set_optim_convergence_tolerance(1e-2)
-    solver.set_optim_constraint_tolerance(1e-4)
     solver.resetProblem(problem)
 
     # ------------------------------ SOLVE --------------------------------------
