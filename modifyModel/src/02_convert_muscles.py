@@ -2,7 +2,7 @@ import opensim as osim
 
 # -------- USER SETTINGS --------
 input_model = "models/new_model.osim"
-output_model = "models/prosthesisModel_1.osim"
+output_model = "models/prosthesisModel_2.osim"
 # --------------------------------
 
 print("Loading model:", input_model)

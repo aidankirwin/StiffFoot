@@ -4,7 +4,7 @@ import math
 import csv
 
 # ---------- User settings ----------
-model_file = 'models/prosthesisModel_1.osim'        # your modified Rajagopal + prosthesis
+model_file = 'models/prosthesisModel_2.osim'        # your modified Rajagopal + prosthesis
 coords_file = 'sto/coords_modified.sto'         # reconstructed coordinates (states reference)
 external_loads = None                # set to '' if you don't have it
 desired_speed = 1.2                            # adjust to match your data if known
@@ -27,27 +27,27 @@ def add_foot_ground_contact(model, ground_contact_space, foot_body_name, contact
     model.addContactGeometry(foot_contact_sphere)
 
     # Define Contact Force Parameters
-    stiffness = 4e5
-    dissipation = 2.0
-    static_friction = 0.8
-    dynamic_friction = 0.4
-    transition_velocity = 0.2
+    # stiffness = 4e5
+    # dissipation = 2.0
+    # static_friction = 0.8
+    # dynamic_friction = 0.4
+    # transition_velocity = 0.2
 
     # Create the SmoothSphereHalfSpaceForce
     sshs_force = osim.SmoothSphereHalfSpaceForce()
     sshs_force.setName(f'{foot_body_name}_GroundForce')
     sshs_force.connectSocket_sphere(foot_contact_sphere)
     sshs_force.connectSocket_half_space(ground_contact_space)
-    sshs_force.set_stiffness(stiffness)
-    sshs_force.set_dissipation(dissipation)
-    sshs_force.set_static_friction(static_friction)
-    sshs_force.set_dynamic_friction(dynamic_friction)
-    sshs_force.set_transition_velocity(transition_velocity)
+    # sshs_force.set_stiffness(stiffness)
+    # sshs_force.set_dissipation(dissipation)
+    # sshs_force.set_static_friction(static_friction)
+    # sshs_force.set_dynamic_friction(dynamic_friction)
+    # sshs_force.set_transition_velocity(transition_velocity)
 
     model.get_ComponentSet().addComponent(sshs_force)
     model.finalizeConnections()
 
-    print(f'Added ground contact for {foot_body_name} with stiffness {stiffness}')
+    print(f'Added ground contact for {foot_body_name}')
 
 # setup mocotrack
 track = osim.MocoTrack()
@@ -84,9 +84,7 @@ for imuscle in range(muscles.getSize()):
     muscle_name = muscle.getName()
     
     metabolics.addMuscle(muscle_name, muscle)
-    muscles_added += 1
-    
-print(f'Added {muscles_added} muscles to metabolics')
+
 model.addComponent(metabolics)
 model.finalizeConnections()
 
@@ -116,7 +114,63 @@ track.set_mesh_interval(0.02)
 study = track.initialize()
 problem = study.updProblem()
 
-# Metabolic cost
+# -------------------------- PERIODICITY GOAL --------------------------------
+
+# Get processed model for coordinate checking
+processed_model = mp.process()
+processed_model.initSystem()
+
+# Constrain the states and controls to be periodic.
+periodicityGoal = osim.MocoPeriodicityGoal('periodicity')
+coordinates = processed_model.getCoordinateSet()
+for icoord in range(coordinates.getSize()):
+    coordinate = coordinates.get(icoord)
+    coordName = coordinate.getName()
+
+    # Exclude the knee_angle_l/r_beta coordinates from the periodicity
+    # constraint because they are coupled to the knee_angle_l/r
+    # coordinates.
+    if 'beta' in coordName: continue 
+
+    if not '_tx' in coordName:
+        valueName = coordinate.getStateVariableNames().get(0)
+        periodicityGoal.addStatePair(
+                osim.MocoPeriodicityGoalPair(valueName))
+    speedName = coordinate.getStateVariableNames().get(1)
+    periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(speedName))
+
+muscles = processed_model.getMuscles()
+for imusc in range(muscles.getSize()):
+    muscle = muscles.get(imusc)
+    stateName = muscle.getStateVariableNames().get(0)
+    periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(stateName))
+    controlName = muscle.getAbsolutePathString()
+    periodicityGoal.addControlPair(
+            osim.MocoPeriodicityGoalPair(controlName))
+
+actuators = processed_model.getActuators()
+for iactu in range(actuators.getSize()):
+    actu = osim.CoordinateActuator.safeDownCast(actuators.get(iactu))
+    if actu is not None: 
+        controlName = actu.getAbsolutePathString()
+        periodicityGoal.addControlPair(
+                osim.MocoPeriodicityGoalPair(controlName))
+
+problem.addGoal(periodicityGoal)
+
+effort = osim.MocoControlGoal.safeDownCast(problem.updGoal("control_effort"))
+effort.setWeight(0.1)
+
+# Put larger individual weights on the pelvis CoordinateActuators, which act 
+# as the residual, or 'hand-of-god', forces which we would like to keep as small
+# as possible.
+effort.setWeightForControlPattern('.*pelvis.*', 10)
+
+
+# -------------------------- METABOLIC COST GOAL --------------------------------
+# Metabolic cost; total metabolic rate includes activation heat rate,
+# maintenance heat rate, shortening heat rate, mechanical work rate, and
+# basal metabolic rate.
 metGoal = osim.MocoOutputGoal('met',0.1)
 problem.addGoal(metGoal)
 metGoal.setOutputPath('/metabolic_cost|total_metabolic_rate')
@@ -124,9 +178,6 @@ metGoal.setDivideByDisplacement(True)
 metGoal.setDivideByMass(True)
 
 # -------------------------- CLEANUP BOUNDS --------------------------------
-# Get processed model for coordinate checking
-processed_model = mp.process()
-processed_model.initSystem()
 
 coordinatesUpdated = tableProcessor.process(processed_model)
 labels = coordinatesUpdated.getColumnLabels()
@@ -200,6 +251,11 @@ problem.setStateInfo(
     0.0
 )
 
+# ------------------ CONTROL REGULARIZATION (stabilizes solution) ----------
+control_reg = osim.MocoControlGoal("control_reg", 1e-2)
+control_reg.setDivideByDisplacement(False)
+problem.addGoal(control_reg)
+
 # ------------------------------ SOLVER -------------------------------------
 solver = osim.MocoCasADiSolver.safeDownCast(study.updSolver())
 solver.resetProblem(problem)
@@ -208,7 +264,7 @@ solver.set_verbosity(2)
 solver.set_optim_solver('ipopt')
 solver.set_optim_convergence_tolerance(1e-4)
 solver.set_optim_constraint_tolerance(1e-4)
-solver.set_optim_max_iterations(500)
+solver.set_optim_max_iterations(20)
 solver.set_transcription_scheme('legendre-gauss-radau-3')
 solver.set_kinematic_constraint_method('Bordalba2023')
 solver.set_optim_convergence_tolerance(1e-2)

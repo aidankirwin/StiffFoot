@@ -133,9 +133,9 @@ for idx, row in df.iterrows():
         parent_frame,
         child_frame,
         osim.Vec3(0,0,0),                # translational stiffness
-        osim.Vec3(0,0,0.05),            # rotational stiffness [N*m/rad]
+        osim.Vec3(0,0,1),            # rotational stiffness [N*m/rad]
         osim.Vec3(0,0,0),                # translational damping
-        osim.Vec3(0,0,0.05)              # rotational damping [N*m/(rad/s)]
+        osim.Vec3(0,0,5.73)              # rotational damping [N*m/(rad/s)]
     )
     model.addForce(ve)
 
