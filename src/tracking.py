@@ -17,7 +17,7 @@ def solve_metabolic_tracking(model=None):
 
     # List of removed coordinates (patella angles)
     # REMOVED_COORDS = ['knee_angle_r_beta', 'knee_angle_l_beta']
-    REMOVED_COORDS = []
+    REMOVED_COORDS = []     # for experimenting with no patella
 
     def add_foot_ground_contact(model, ground_contact_space):
         """
@@ -114,7 +114,7 @@ def solve_metabolic_tracking(model=None):
     tableProcessor.append(osim.TabOpAppendCoordinateValueDerivativesAsSpeeds())
     track.setStatesReference(tableProcessor)
 
-    track.set_states_global_tracking_weight(100)
+    track.set_states_global_tracking_weight(30)
     track.set_allow_unused_references(True)
     track.set_track_reference_position_derivatives(True)
     track.set_apply_tracked_states_to_guess(True)
@@ -168,7 +168,6 @@ def solve_metabolic_tracking(model=None):
                     osim.MocoPeriodicityGoalPair(controlName))
 
     problem.addGoal(periodicityGoal)
-
 
 
     # -------------------------- METABOLIC COST GOAL --------------------------------

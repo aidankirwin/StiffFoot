@@ -14,11 +14,11 @@ def run_full_pipeline():
 
     # Step 2: Convert muscles to DeGrooteFregly2016Muscle
     print("Converting muscles to DeGrooteFregly2016Muscle...")
-    processed_model = convert_muscles_to_degroote(save_model=True)
+    convert_muscles_to_degroote(save_model=True)
 
     # Step 3: Solve metabolic/tracking problem
     print("Solving tracking and metabolic cost problem...")
-    solve_metabolic_tracking(model=processed_model)
+    solve_metabolic_tracking()
 
 if __name__ == "__main__":
     run_full_pipeline()
