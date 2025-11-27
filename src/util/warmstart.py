@@ -2,8 +2,8 @@ import pandas as pd
 
 # ========== USER SETTINGS =================================================== #
 
-original_sto = "sto/coords_tbl.csv"
-output_sto = "sto/warmstart_modified.sto"
+original_sto = "sto/coordinates_deg.csv"
+output_sto = "sto/coords_modified_new.sto"
 
 # 20 joint segment coordinates
 added_dofs = [f"/jointset/joint_segment_{i}/joint_segment_{i}_coord_0/value" for i in range(1, 21)]
@@ -80,6 +80,12 @@ for dof in added_dofs:
         print(f"Added column: {dof} = {default_value}")
 
 print(df.columns)
+
+# convert all values to radians
+for col in df.columns:
+    if col != "time":
+        df[col] = df[col].apply(lambda x: x * (3.141592653589793 / 180.0))
+        print(f"Converted column to radians: {col}")
 
 # # Reorder
 # df = df[["time"] + desired_order]

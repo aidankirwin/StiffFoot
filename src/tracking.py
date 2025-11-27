@@ -12,7 +12,7 @@ def solve_metabolic_tracking(model=None):
 
     # ---------- User settings ----------
     model_file = 'models/prosthesisModel_3.osim'        # your modified Rajagopal + prosthesis
-    coords_file = 'sto/coords_modified.sto'         # reconstructed coordinates (states reference)
+    coords_file = 'sto/coords_modified_new.sto'         # reconstructed coordinates (states reference)
     # -----------------------------------
 
     # List of removed coordinates (patella angles)
@@ -45,13 +45,6 @@ def solve_metabolic_tracking(model=None):
             force.connectSocket_sphere(sphere)
             force.connectSocket_half_space(ground_contact_space)
 
-            # Soft contact parameters
-            force.set_stiffness(5000)
-            force.set_dissipation(1.0)
-            force.set_static_friction(0.6)
-            force.set_dynamic_friction(0.5)
-            force.set_transition_velocity(0.2)
-
             # Add to ForceSet so Moco can see it (even if outputs aren't exposed yet)
             model.updForceSet().adoptAndAppend(force)
 
@@ -78,7 +71,7 @@ def solve_metabolic_tracking(model=None):
     ground = model.getGround()
 
     ground_contact_space = osim.ContactHalfSpace(
-        osim.Vec3(0, -0.01, 0),
+        osim.Vec3(0, -0.887, 0),
         osim.Vec3(0, 0, 90*np.pi/180),
         ground
     )
@@ -143,10 +136,9 @@ def solve_metabolic_tracking(model=None):
         # coordinates.
         if 'beta' in coordName: continue 
 
-        if not '_tx' in coordName:
-            valueName = coordinate.getStateVariableNames().get(0)
-            periodicityGoal.addStatePair(
-                    osim.MocoPeriodicityGoalPair(valueName))
+        valueName = coordinate.getStateVariableNames().get(0)
+        periodicityGoal.addStatePair(
+                osim.MocoPeriodicityGoalPair(valueName))
         speedName = coordinate.getStateVariableNames().get(1)
         periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(speedName))
 
@@ -203,7 +195,6 @@ def solve_metabolic_tracking(model=None):
             continue
         
         value = coordinatesUpdated.getDependentColumn(label).to_numpy()
-        value = [np.pi * (v / 180.0) for v in value]  # deg to rad
 
         # get the initial value from the reference
         x0 = value[index]
