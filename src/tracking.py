@@ -200,10 +200,6 @@ def solve_metabolic_tracking(model=None):
         # get the initial value from the reference
         x0 = value[index]
 
-        # Get the model-defined joint limits
-        # model_lb = state_info.getRangeMin()
-        # model_ub = state_info.getRangeMax()
-
         # set bounds based on variable (speed or position) and the initial value
         if '/speed' in label:
             lower = x0 - 0.1
@@ -211,19 +207,6 @@ def solve_metabolic_tracking(model=None):
         else:
             lower = x0 - 0.05
             upper = x0 + 0.05
-
-        # # Clip to trajectory min/max
-        # lower = max(np.min(value), lower)
-        # upper = min(np.max(value), upper)
-
-        # # Clip to model limits
-        # lower = max(model_lb, lower)
-        # upper = min(model_ub, upper)
-
-        # if lower > upper:
-        #     # fallback to x0  small epsilon
-        #     lower = x0 - 1e-6
-        #     upper = x0 + 1e-6
         
         problem.setStateInfo(label, [], [lower, upper])
 
