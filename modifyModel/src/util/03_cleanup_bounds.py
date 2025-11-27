@@ -1,8 +1,8 @@
 import opensim as osim
 import math
 
-input = "models/prosthesisModel_9.osim"
-output = "models/prosthesisModel_9.osim"
+input = "models/prosthesisModel_2.osim"
+output = "models/prosthesisModel_2.osim"
 
 # Load your model
 model = osim.Model(input)
