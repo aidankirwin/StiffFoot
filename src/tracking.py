@@ -136,9 +136,10 @@ def solve_metabolic_tracking(model=None):
         # coordinates.
         if 'beta' in coordName: continue 
 
-        valueName = coordinate.getStateVariableNames().get(0)
-        periodicityGoal.addStatePair(
-                osim.MocoPeriodicityGoalPair(valueName))
+        if not '_tx' in coordName:
+            valueName = coordinate.getStateVariableNames().get(0)
+            periodicityGoal.addStatePair(
+                    osim.MocoPeriodicityGoalPair(valueName))
         speedName = coordinate.getStateVariableNames().get(1)
         periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(speedName))
 
@@ -200,50 +201,31 @@ def solve_metabolic_tracking(model=None):
         x0 = value[index]
 
         # Get the model-defined joint limits
-        model_lb = state_info.getRangeMin()
-        model_ub = state_info.getRangeMax()
+        # model_lb = state_info.getRangeMin()
+        # model_ub = state_info.getRangeMax()
 
-        # tight bounds for pelvis coords causes bound violations
-        if 'pelvis' in label:
-            lower = -0.5
-            upper = 0.5
         # set bounds based on variable (speed or position) and the initial value
-        elif '/speed' in label:
+        if '/speed' in label:
             lower = x0 - 0.1
             upper = x0 + 0.1
         else:
             lower = x0 - 0.05
             upper = x0 + 0.05
 
-        # Clip to trajectory min/max
-        lower = max(np.min(value), lower)
-        upper = min(np.max(value), upper)
+        # # Clip to trajectory min/max
+        # lower = max(np.min(value), lower)
+        # upper = min(np.max(value), upper)
 
-        # Clip to model limits
-        lower = max(model_lb, lower)
-        upper = min(model_ub, upper)
+        # # Clip to model limits
+        # lower = max(model_lb, lower)
+        # upper = min(model_ub, upper)
 
-        if lower > upper:
-            # fallback to x0  small epsilon
-            lower = x0 - 1e-6
-            upper = x0 + 1e-6
+        # if lower > upper:
+        #     # fallback to x0  small epsilon
+        #     lower = x0 - 1e-6
+        #     upper = x0 + 1e-6
         
         problem.setStateInfo(label, [], [lower, upper])
-
-    # pelvis_ty bounds
-    problem.setStateInfo(
-        '/jointset/ground_pelvis/pelvis_ty/value',
-        [], 
-        [0.9, 1.05],
-        0.058         # initial guess around midpoint
-    )
-
-    problem.setStateInfo(
-        '/jointset/ground_pelvis/pelvis_ty/speed',
-        [], 
-        [-0.5, 0.5],
-        0.0
-    )
 
     # ------------------ CONTROL REGULARIZATION (stabilizes solution) ----------
     control_reg = osim.MocoControlGoal("control_reg", 1e-2)
