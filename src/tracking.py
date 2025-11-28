@@ -114,7 +114,7 @@ def solve_metabolic_tracking(model=None):
     study = track.initialize()
     problem = study.updProblem()
 
-    # -------------------------- PERIODICITY GOAL --------------------------------
+    # -------------------------- PERIODICITY  REMOVED --------------------------------
 
     # Get processed model for coordinate checking
     processed_model = mp.process()
@@ -156,7 +156,7 @@ def solve_metabolic_tracking(model=None):
             periodicityGoal.addControlPair(
                     osim.MocoPeriodicityGoalPair(controlName))
 
-    problem.addGoal(periodicityGoal)
+    #problem.addGoal(periodicityGoal)
 
 
     # -------------------------- METABOLIC COST GOAL --------------------------------
