@@ -208,7 +208,7 @@ def solve_metabolic_tracking(model=None):
             lower = x0 - 0.05
             upper = x0 + 0.05
         
-        problem.setStateInfo(label, [], [lower, upper])
+        problem.setStateInfo(label, [lower, upper], [lower, upper])
 
     # ------------------ CONTROL REGULARIZATION (stabilizes solution) ----------
     control_reg = osim.MocoControlGoal("control_reg", 1e-2)
