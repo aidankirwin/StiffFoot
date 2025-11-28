@@ -15,10 +15,6 @@ def solve_metabolic_tracking(model=None):
     coords_file = 'sto/coords_modified_new.sto'         # reconstructed coordinates (states reference)
     # -----------------------------------
 
-    # List of removed coordinates (patella angles)
-    # REMOVED_COORDS = ['knee_angle_r_beta', 'knee_angle_l_beta']
-    REMOVED_COORDS = []     # for experimenting with no patella
-
     def add_foot_ground_contact(model, ground_contact_space):
         """
         Adds four contact spheres:
@@ -180,35 +176,32 @@ def solve_metabolic_tracking(model=None):
     index = coordinatesUpdated.getNearestRowIndexForTime(0.48)
 
     for label in labels:
-        # Extract coordinate name from state path
-        coord_name = label.split('/')[-2]  # second-to-last element
-        
-        # Skip removed coordinates
-        if coord_name in REMOVED_COORDS:
-            print(f'Skipping removed coordinate: {coord_name}')
-            continue
-        
-        # Check if coordinate exists in model
-        try:
-            state_info = processed_model.getCoordinateSet().get(coord_name)
-        except:
-            print(f'Warning: Coordinate {coord_name} not found in model, skipping')
-            continue
-        
         value = coordinatesUpdated.getDependentColumn(label).to_numpy()
 
-        # get the initial value from the reference
+        # get the initial value from the reference to set initial and final bounds
         x0 = value[index]
+
+        # get the min and max of the entire trajectory to set bounds for the full phase
+        xmin = np.min(value)
+        xmax = np.max(value)
 
         # set bounds based on variable (speed or position) and the initial value
         if '/speed' in label:
-            lower = x0 - 0.1
-            upper = x0 + 0.1
+            # initial and final bounds
+            lower_init = x0 - 0.1
+            upper_init = x0 + 0.1
+            # full phase bounds
+            lower = xmin - 0.1
+            upper = xmax + 0.1
         else:
-            lower = x0 - 0.05
-            upper = x0 + 0.05
+            lower_init = x0 - 0.05
+            upper_init = x0 + 0.05
+
+            lower = xmin - 0.05
+            upper = xmax + 0.05
         
-        problem.setStateInfo(label, [], [lower, upper])
+        # set state info parameters: name, full phase bounds, initial bounds, final bounds
+        problem.setStateInfo(label, [lower, upper], [lower_init, upper_init], [lower_init, upper_init])
 
     # ------------------ CONTROL REGULARIZATION (stabilizes solution) ----------
     control_reg = osim.MocoControlGoal("control_reg", 1e-2)
