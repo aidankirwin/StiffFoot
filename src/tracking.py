@@ -107,8 +107,8 @@ def solve_metabolic_tracking(model=None):
     track.set_allow_unused_references(True)
     track.set_track_reference_position_derivatives(True)
     track.set_apply_tracked_states_to_guess(True)
-    track.set_initial_time(0.48)
-    track.set_final_time(1.61)
+    track.set_initial_time(0.45)
+    track.set_final_time(1.51)
     track.set_mesh_interval(0.02)
 
     study = track.initialize()
@@ -173,7 +173,7 @@ def solve_metabolic_tracking(model=None):
 
     coordinatesUpdated = tableProcessor.process(processed_model)
     labels = coordinatesUpdated.getColumnLabels()
-    index = coordinatesUpdated.getNearestRowIndexForTime(0.48)
+    index = coordinatesUpdated.getNearestRowIndexForTime(0.45)
 
     for label in labels:
         value = coordinatesUpdated.getDependentColumn(label).to_numpy()
