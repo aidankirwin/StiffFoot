@@ -114,55 +114,15 @@ def solve_metabolic_tracking(model=None):
     study = track.initialize()
     problem = study.updProblem()
 
-    # -------------------------- PERIODICITY --------------------------------
-
-    # Get processed model for coordinate checking
-    processed_model = mp.process()
-    processed_model.initSystem()
-
-    # Constrain the states and controls to be periodic.
-    periodicityGoal = osim.MocoPeriodicityGoal('periodicity')
-    coordinates = processed_model.getCoordinateSet()
-    for icoord in range(coordinates.getSize()):
-        coordinate = coordinates.get(icoord)
-        coordName = coordinate.getName()
-
-        # Exclude the knee_angle_l/r_beta coordinates from the periodicity
-        # constraint because they are coupled to the knee_angle_l/r
-        # coordinates.
-        if 'beta' in coordName: continue 
-
-        if not '_tx' in coordName:
-            valueName = coordinate.getStateVariableNames().get(0)
-            periodicityGoal.addStatePair(
-                    osim.MocoPeriodicityGoalPair(valueName))
-        speedName = coordinate.getStateVariableNames().get(1)
-        periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(speedName))
-
-    muscles = processed_model.getMuscles()
-    for imusc in range(muscles.getSize()):
-        muscle = muscles.get(imusc)
-        stateName = muscle.getStateVariableNames().get(0)
-        periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(stateName))
-        controlName = muscle.getAbsolutePathString()
-        periodicityGoal.addControlPair(
-                osim.MocoPeriodicityGoalPair(controlName))
-
-    actuators = processed_model.getActuators()
-    for iactu in range(actuators.getSize()):
-        actu = osim.CoordinateActuator.safeDownCast(actuators.get(iactu))
-        if actu is not None: 
-            controlName = actu.getAbsolutePathString()
-            periodicityGoal.addControlPair(
-                    osim.MocoPeriodicityGoalPair(controlName))
-
-    problem.addGoal(periodicityGoal)
-
 
     # -------------------------- METABOLIC COST GOAL --------------------------------
     # Metabolic cost; total metabolic rate includes activation heat rate,
     # maintenance heat rate, shortening heat rate, mechanical work rate, and
     # basal metabolic rate.
+    
+    # Get processed model for coordinate checking
+    processed_model = mp.process()
+    processed_model.initSystem()
     metGoal = osim.MocoOutputGoal('met',0.1)
     problem.addGoal(metGoal)
     metGoal.setOutputPath('/metabolic_cost|total_metabolic_rate')
@@ -202,12 +162,6 @@ def solve_metabolic_tracking(model=None):
         
         # set state info parameters: name, full phase bounds, initial bounds, final bounds
         problem.setStateInfo(label, [lower, upper], [lower_init, upper_init], [lower_init, upper_init])
-
-    # ------------------ CONTROL REGULARIZATION REMOVED (stabilizes solution) ----------
-    control_reg = osim.MocoControlGoal("control_reg", 1e-2)
-    control_reg.setDivideByDisplacement(False)
-    #problem.addGoal(control_reg)
-
 
     # ------------------------------ SOLVER -------------------------------------
     solver = osim.MocoCasADiSolver.safeDownCast(study.updSolver())
