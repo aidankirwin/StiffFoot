@@ -114,7 +114,7 @@ def solve_metabolic_tracking(model=None):
     study = track.initialize()
     problem = study.updProblem()
 
-    # -------------------------- PERIODICITY  REMOVED --------------------------------
+    # -------------------------- PERIODICITY --------------------------------
 
     # Get processed model for coordinate checking
     processed_model = mp.process()
@@ -156,7 +156,7 @@ def solve_metabolic_tracking(model=None):
             periodicityGoal.addControlPair(
                     osim.MocoPeriodicityGoalPair(controlName))
 
-    #problem.addGoal(periodicityGoal)
+    problem.addGoal(periodicityGoal)
 
 
     # -------------------------- METABOLIC COST GOAL --------------------------------
@@ -203,10 +203,10 @@ def solve_metabolic_tracking(model=None):
         # set state info parameters: name, full phase bounds, initial bounds, final bounds
         problem.setStateInfo(label, [lower, upper], [lower_init, upper_init], [lower_init, upper_init])
 
-    # ------------------ CONTROL REGULARIZATION (stabilizes solution) ----------
+    # ------------------ CONTROL REGULARIZATION REMOVED (stabilizes solution) ----------
     control_reg = osim.MocoControlGoal("control_reg", 1e-2)
     control_reg.setDivideByDisplacement(False)
-    problem.addGoal(control_reg)
+    #problem.addGoal(control_reg)
 
 
     # ------------------------------ SOLVER -------------------------------------
