@@ -11,7 +11,7 @@ def solve_metabolic_tracking(model=None):
     """
 
     # ---------- User settings ----------
-    model_file = 'models/prosthesisModel_4.osim'        # your modified Rajagopal + prosthesis
+    model_file = 'models/prosthesisModel_5.osim'        # the modified Rajagopal + prosthesis
     coords_file = 'sto/coords_modified_new.sto'         # reconstructed coordinates (states reference)
     # -----------------------------------
 
@@ -19,14 +19,14 @@ def solve_metabolic_tracking(model=None):
         """
         Adds four contact spheres:
         1. Heel of left foot (calcn_l)
-        2. Mid-foot left (calcn_l)
-        3. Mid-foot right (segment_12)
+        2. Toe left (toes_l)
+        3. Toe right (segment_14)
         4. Heel of right foot (segment_20)
         """
-        # Parameters
-        z_offset = -0.01  # meters below foot origin
+        # Foot contact sphere parameters, somewhat arbitrary
+        z_offset    = -0.01  # meters that the contact sphere will be placed below the foot
         heel_radius = 0.025
-        mid_radius = 0.02
+        mid_radius  = 0.02
 
         # Helper function to add a sphere
         def add_sphere(body_name, radius, pos):
@@ -40,6 +40,10 @@ def solve_metabolic_tracking(model=None):
             force.setName(f"{body_name}_GroundForce")
             force.connectSocket_sphere(sphere)
             force.connectSocket_half_space(ground_contact_space)
+
+            # Set force parameters
+            force.set_stiffness(1e6) # 1 MPa, per https://doi.org/10.1371/journal.pcbi.1012219
+            force.set_dissipation(1.0)
 
             # Add to ForceSet so Moco can see it (even if outputs aren't exposed yet)
             model.updForceSet().adoptAndAppend(force)
@@ -68,7 +72,7 @@ def solve_metabolic_tracking(model=None):
 
     ground_contact_space = osim.ContactHalfSpace(
         osim.Vec3(0, 0.05, 0),
-        osim.Vec3(0, 0, 90*np.pi/180),
+        osim.Vec3(0, 0, 90*np.pi/180),  # plane is horizontal, so the normal force points up
         ground
     )
     ground_contact_space.setName('GroundContactSpace')
@@ -107,8 +111,12 @@ def solve_metabolic_tracking(model=None):
     track.set_allow_unused_references(True)
     track.set_track_reference_position_derivatives(True)
     track.set_apply_tracked_states_to_guess(True)
-    track.set_initial_time(0.45)
-    track.set_final_time(1.51)
+
+    t0 = 0.45
+    tf = 1.51
+    track.set_initial_time(t0)
+    track.set_final_time(tf)
+
     track.set_mesh_interval(0.02)
 
     study = track.initialize()
@@ -121,42 +129,55 @@ def solve_metabolic_tracking(model=None):
     processed_model.initSystem()
 
     # Constrain the states and controls to be periodic.
-    periodicityGoal = osim.MocoPeriodicityGoal('periodicity')
-    coordinates = processed_model.getCoordinateSet()
-    for icoord in range(coordinates.getSize()):
-        coordinate = coordinates.get(icoord)
-        coordName = coordinate.getName()
+    # periodicityGoal = osim.MocoPeriodicityGoal('periodicity')
+    # coordinates = processed_model.getCoordinateSet()
 
-        # Exclude the knee_angle_l/r_beta coordinates from the periodicity
-        # constraint because they are coupled to the knee_angle_l/r
-        # coordinates.
-        if 'beta' in coordName: continue 
+    # # Filters: skip translations and internal prosthesis/segment coords that
+    # # often create infeasible equality constraints.
+    # skip_substrings = ['_tx', '_ty', '_tz', 'pelvis_tx', 'pelvis_ty', 'pelvis_tz']
+    # skip_prefixes = ['joint_segment_', 'segment_']
 
-        if not '_tx' in coordName:
-            valueName = coordinate.getStateVariableNames().get(0)
-            periodicityGoal.addStatePair(
-                    osim.MocoPeriodicityGoalPair(valueName))
-        speedName = coordinate.getStateVariableNames().get(1)
-        periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(speedName))
+    # for icoord in range(coordinates.getSize()):
+    #     coordinate = coordinates.get(icoord)
+    #     coordName = coordinate.getName()
 
-    muscles = processed_model.getMuscles()
-    for imusc in range(muscles.getSize()):
-        muscle = muscles.get(imusc)
-        stateName = muscle.getStateVariableNames().get(0)
-        periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(stateName))
-        controlName = muscle.getAbsolutePathString()
-        periodicityGoal.addControlPair(
-                osim.MocoPeriodicityGoalPair(controlName))
+    #     # Exclude the knee_angle_l/r_beta coordinates from the periodicity
+    #     # constraint because they are coupled to the knee_angle_l/r
+    #     # coordinates.
+    #     if 'beta' in coordName: continue 
 
-    actuators = processed_model.getActuators()
-    for iactu in range(actuators.getSize()):
-        actu = osim.CoordinateActuator.safeDownCast(actuators.get(iactu))
-        if actu is not None: 
-            controlName = actu.getAbsolutePathString()
-            periodicityGoal.addControlPair(
-                    osim.MocoPeriodicityGoalPair(controlName))
+    #     # Skip translations and prosthesis/segment internals
+    #     if any(s in coordName for s in skip_substrings) or any(coordName.startswith(p) for p in skip_prefixes):
+    #         print(f"Skipping (filtered) periodicity for: {coordName}")
+    #         continue
 
-    problem.addGoal(periodicityGoal)
+    #     valueName = coordinate.getStateVariableNames().get(0)
+    #     periodicityGoal.addStatePair(
+    #             osim.MocoPeriodicityGoalPair(valueName))
+    #     speedName = coordinate.getStateVariableNames().get(1)
+    #     periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(speedName))
+    #     print(f"Added periodicity for coordinate: {coordName}")
+
+    # muscles = processed_model.getMuscles()
+    # for imusc in range(muscles.getSize()):
+    #     muscle = muscles.get(imusc)
+    #     stateName = muscle.getStateVariableNames().get(0)
+    #     periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(stateName))
+    #     controlName = muscle.getAbsolutePathString()
+    #     periodicityGoal.addControlPair(
+    #             osim.MocoPeriodicityGoalPair(controlName))
+    #     print(f"Added periodicity for muscle: {muscle.getName()}")
+
+    # actuators = processed_model.getActuators()
+    # for iactu in range(actuators.getSize()):
+    #     actu = osim.CoordinateActuator.safeDownCast(actuators.get(iactu))
+    #     if actu is not None: 
+    #         controlName = actu.getAbsolutePathString()
+    #         periodicityGoal.addControlPair(
+    #                 osim.MocoPeriodicityGoalPair(controlName))
+    #         print(f"Added periodicity for actuator: {actu.getName()}")
+
+    # problem.addGoal(periodicityGoal)
 
 
     # -------------------------- METABOLIC COST GOAL --------------------------------
@@ -173,13 +194,20 @@ def solve_metabolic_tracking(model=None):
 
     coordinatesUpdated = tableProcessor.process(processed_model)
     labels = coordinatesUpdated.getColumnLabels()
-    index = coordinatesUpdated.getNearestRowIndexForTime(0.45)
+    index_0 = coordinatesUpdated.getNearestRowIndexForTime(t0)
+    index_f = coordinatesUpdated.getNearestRowIndexForTime(tf)
 
     for label in labels:
         value = coordinatesUpdated.getDependentColumn(label).to_numpy()
 
+        if 'segment_' in label:
+            problem.setStateInfo(label, [-2, 2], [-1, 1], [-1, 1])
+            continue
+
         # get the initial value from the reference to set initial and final bounds
-        x0 = value[index]
+        x0 = value[index_0]
+        # get the final value from the reference to set initial and final bounds
+        xf = value[index_f]
 
         # get the min and max of the entire trajectory to set bounds for the full phase
         xmin = np.min(value)
@@ -187,42 +215,36 @@ def solve_metabolic_tracking(model=None):
 
         # set bounds based on variable (speed or position) and the initial value
         if '/speed' in label:
-            # initial and final bounds
-            lower_init = x0 - 0.1
-            upper_init = x0 + 0.1
-            # full phase bounds
-            lower = xmin - 0.1
-            upper = xmax + 0.1
+            margin = 0.3
         else:
-            lower_init = x0 - 0.05
-            upper_init = x0 + 0.05
+            margin = 0.2
 
-            lower = xmin - 0.05
-            upper = xmax + 0.05
+        # initial and final bounds
+        lower_init = x0 - margin
+        upper_init = x0 + margin
+        lower_final = xf - margin
+        upper_final = xf + margin
+        # full phase bounds
+        lower = xmin - margin
+        upper = xmax + margin
         
         # set state info parameters: name, full phase bounds, initial bounds, final bounds
-        problem.setStateInfo(label, [lower, upper], [lower_init, upper_init], [lower_init, upper_init])
-
-    # ------------------ CONTROL REGULARIZATION (stabilizes solution) ----------
-    control_reg = osim.MocoControlGoal("control_reg", 1e-2)
-    control_reg.setDivideByDisplacement(False)
-    problem.addGoal(control_reg)
-
+        problem.setStateInfo(label, [lower, upper], [lower_init, upper_init], [lower_final, upper_final])
 
     # ------------------------------ SOLVER -------------------------------------
     solver = osim.MocoCasADiSolver.safeDownCast(study.updSolver())
-    solver.resetProblem(problem)
 
-    solver.set_num_mesh_intervals(75)  # matches your user setting
+    solver.set_num_mesh_intervals(200)
     solver.set_optim_max_iterations(1000)  # increase slowly
 
     solver.set_verbosity(2)
     solver.set_optim_solver('ipopt')
-    solver.set_optim_convergence_tolerance(1e-2)
-    solver.set_optim_constraint_tolerance(1e-2)
+    solver.set_optim_convergence_tolerance(1e-1)
+    solver.set_optim_constraint_tolerance(1e-1)
 
-    solver.set_transcription_scheme('legendre-gauss-radau-3')
+    solver.set_transcription_scheme('hermite-simpson') # was legendre-gauss-radau-3
     solver.set_kinematic_constraint_method('Bordalba2023')
+    solver.set_optim_hessian_approximation('limited-memory')
     solver.resetProblem(problem)
 
     # ------------------------------ SOLVE --------------------------------------

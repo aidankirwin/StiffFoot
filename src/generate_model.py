@@ -73,6 +73,8 @@ def generate_model_with_segments(save_model=False, stiffness_array=None):
     parent_body = model.getBodySet().get("pylon_r")
     parent_length = 0.155 # length along parent z-axis from joint origin to distal end
 
+    damping = 0.3  # N*m/(rad/s), should be 5.73 per paper, but for now we scale it down to help with stability
+
     for idx, row in df.iterrows():
         '''
         Attach prosthetic foot segments to the pylon.
@@ -100,6 +102,7 @@ def generate_model_with_segments(save_model=False, stiffness_array=None):
         if stiffness_array is None:
             # Update rotational stiffness based on segment length
             k_rot = young_modulus * area_moment_of_inertia / length  # N*m/rad
+            k_rot *= 0.01 # scale down temporarily
             print(f"Segment {seg_name} length: {length} m, rotational stiffness: {k_rot} N*m/rad")
         else:
             k_rot = stiffness_array[idx]
@@ -155,7 +158,7 @@ def generate_model_with_segments(save_model=False, stiffness_array=None):
             osim.Vec3(0,0,0),                # translational stiffness
             osim.Vec3(0,0,k_rot),            # rotational stiffness [N*m/rad]
             osim.Vec3(0,0,0),                # translational damping
-            osim.Vec3(0,0,5.73)              # rotational damping [N*m/(rad/s)]
+            osim.Vec3(0,0,damping)           # rotational damping [N*m/(rad/s)]
         )
         model.addForce(ve)
 

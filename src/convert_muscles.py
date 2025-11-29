@@ -8,7 +8,7 @@ def convert_muscles_to_degroote(model=None, save_model=False):
     if model is None:
         # -------- USER SETTINGS --------
         input_model = "models/new_model.osim"
-        output_model = "models/prosthesisModel_4.osim"
+        output_model = "models/prosthesisModel_5.osim"
         # --------------------------------
 
         print("Loading model:", input_model)
@@ -34,4 +34,4 @@ def convert_muscles_to_degroote(model=None, save_model=False):
     return processed
 
 if __name__ == "__main__":
-    convert_muscles_to_degroote()
+    convert_muscles_to_degroote(save_model=True)
