@@ -71,7 +71,7 @@ def solve_metabolic_tracking(model=None, iterations=1000):
     ground = model.getGround()
 
     ground_contact_space = osim.ContactHalfSpace(
-        osim.Vec3(0, 0.01, 0),
+        osim.Vec3(0, -0.01, 0),
         osim.Vec3(0, 0, 90*np.pi/180),  # plane is horizontal
         ground
     )
@@ -80,9 +80,9 @@ def solve_metabolic_tracking(model=None, iterations=1000):
 
     add_foot_ground_contact(model, ground_contact_space)
 
-    # # Save the updated model
-    # model.printToXML("models/footgroundcontact.osim")
-    # print("Saved model as footgroundcontact.osim")
+    # Save the updated model
+    model.printToXML("models/footgroundcontact.osim")
+    print("Saved model as footgroundcontact.osim")
     # return
 
     # ------------------------- METABOLICS ---------------------------------
