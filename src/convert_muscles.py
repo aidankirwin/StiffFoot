@@ -8,11 +8,20 @@ def convert_muscles_to_degroote(model=None, save_model=False):
     if model is None:
         # -------- USER SETTINGS --------
         input_model = "models/new_model.osim"
-        output_model = "models/prosthesisModel_5.osim"
+        output_model = "models/prosthesisModel_7.osim"
         # --------------------------------
 
         print("Loading model:", input_model)
         model = osim.Model(input_model)
+    
+    model.initSystem()
+
+    # Set minimum muscle controls and activations to 0 (default is 0.01).
+    muscles = model.updMuscles()
+    for imuscle in range(muscles.getSize()):
+        muscle = osim.Millard2012EquilibriumMuscle.safeDownCast(muscles.get(imuscle))
+        muscle.setMinimumActivation(0.0)
+        muscle.setMinControl(0.0)
 
     mp = osim.ModelProcessor(model)
 
@@ -23,7 +32,6 @@ def convert_muscles_to_degroote(model=None, save_model=False):
 
     print("Applying model processing operations...")
     processed = mp.process()
-    processed.initSystem()
     processed.finalizeConnections()
 
     if save_model is True:

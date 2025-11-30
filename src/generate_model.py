@@ -73,7 +73,7 @@ def generate_model_with_segments(save_model=False, stiffness_array=None):
     parent_body = model.getBodySet().get("pylon_r")
     parent_length = 0.155 # length along parent z-axis from joint origin to distal end
 
-    damping = 0.3  # N*m/(rad/s), should be 5.73 per paper, but for now we scale it down to help with stability
+    damping = 5.73  # N*m/(rad/s)
 
     for idx, row in df.iterrows():
         '''
@@ -102,7 +102,6 @@ def generate_model_with_segments(save_model=False, stiffness_array=None):
         if stiffness_array is None:
             # Update rotational stiffness based on segment length
             k_rot = young_modulus * area_moment_of_inertia / length  # N*m/rad
-            k_rot *= 0.01 # scale down temporarily
             print(f"Segment {seg_name} length: {length} m, rotational stiffness: {k_rot} N*m/rad")
         else:
             k_rot = stiffness_array[idx]
@@ -137,18 +136,8 @@ def generate_model_with_segments(save_model=False, stiffness_array=None):
         #     coord.set_locked(0, True)
 
         # use translation-only Transforms to avoid Rotation ctor overload issues
-        parent_frame = osim.PhysicalOffsetFrame(
-            f"{seg_name}_parent_frame",
-            parent_body,
-            osim.Transform(osim.Vec3(0, -parent_length, 0))
-        )
-        child_frame = osim.PhysicalOffsetFrame(
-            f"{seg_name}_child_frame",
-            segment,
-            osim.Transform(osim.Vec3(0, length, 0))
-        )
-        model.addComponent(parent_frame)
-        model.addComponent(child_frame)
+        parent_frame = joint.getParentFrame()
+        child_frame = joint.getChildFrame()
 
         # Attach viscoelastic element (damper + spring) to joint
         ve = osim.BushingForce(
@@ -156,9 +145,9 @@ def generate_model_with_segments(save_model=False, stiffness_array=None):
             parent_frame,
             child_frame,
             osim.Vec3(0,0,0),                # translational stiffness
-            osim.Vec3(0,0,k_rot),            # rotational stiffness [N*m/rad]
+            osim.Vec3(k_rot,k_rot,k_rot),            # rotational stiffness [N*m/rad]
             osim.Vec3(0,0,0),                # translational damping
-            osim.Vec3(0,0,damping)           # rotational damping [N*m/(rad/s)]
+            osim.Vec3(damping,damping,damping)           # rotational damping [N*m/(rad/s)]
         )
         model.addForce(ve)
 

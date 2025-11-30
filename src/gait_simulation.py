@@ -3,7 +3,7 @@ import numpy as np
 import math
 import csv
 
-def solve_metabolic_tracking(model=None):
+def solve_metabolic_tracking(model=None, iterations=1000):
     """
     Set up and solve a muscle-driven MocoTrack problem to track
     experimental gait data using a modified prosthesis model with
@@ -11,7 +11,7 @@ def solve_metabolic_tracking(model=None):
     """
 
     # ---------- User settings ----------
-    model_file = 'models/prosthesisModel_5.osim'        # the modified Rajagopal + prosthesis
+    model_file = 'models/prosthesisModel_7.osim'        # the modified Rajagopal + prosthesis
     coords_file = 'sto/coords_modified_new.sto'         # reconstructed coordinates (states reference)
     # -----------------------------------
 
@@ -71,7 +71,7 @@ def solve_metabolic_tracking(model=None):
     ground = model.getGround()
 
     ground_contact_space = osim.ContactHalfSpace(
-        osim.Vec3(0, 0.05, 0),
+        osim.Vec3(0, 0.01, 0),
         osim.Vec3(0, 0, 90*np.pi/180),  # plane is horizontal
         ground
     )
@@ -79,6 +79,11 @@ def solve_metabolic_tracking(model=None):
     model.addContactGeometry(ground_contact_space)
 
     add_foot_ground_contact(model, ground_contact_space)
+
+    # # Save the updated model
+    # model.printToXML("models/footgroundcontact.osim")
+    # print("Saved model as footgroundcontact.osim")
+    # return
 
     # ------------------------- METABOLICS ---------------------------------
     metabolics = osim.Bhargava2004SmoothedMuscleMetabolics()
@@ -122,62 +127,9 @@ def solve_metabolic_tracking(model=None):
     study = track.initialize()
     problem = study.updProblem()
 
-    # -------------------------- PERIODICITY GOAL --------------------------------
-
     # Get processed model for coordinate checking
     processed_model = mp.process()
     processed_model.initSystem()
-
-    # Constrain the states and controls to be periodic.
-    # periodicityGoal = osim.MocoPeriodicityGoal('periodicity')
-    # coordinates = processed_model.getCoordinateSet()
-
-    # # Filters: skip translations and internal prosthesis/segment coords that
-    # # often create infeasible equality constraints.
-    # skip_substrings = ['_tx', '_ty', '_tz', 'pelvis_tx', 'pelvis_ty', 'pelvis_tz']
-    # skip_prefixes = ['joint_segment_', 'segment_']
-
-    # for icoord in range(coordinates.getSize()):
-    #     coordinate = coordinates.get(icoord)
-    #     coordName = coordinate.getName()
-
-    #     # Exclude the knee_angle_l/r_beta coordinates from the periodicity
-    #     # constraint because they are coupled to the knee_angle_l/r
-    #     # coordinates.
-    #     if 'beta' in coordName: continue 
-
-    #     # Skip translations and prosthesis/segment internals
-    #     if any(s in coordName for s in skip_substrings) or any(coordName.startswith(p) for p in skip_prefixes):
-    #         print(f"Skipping (filtered) periodicity for: {coordName}")
-    #         continue
-
-    #     valueName = coordinate.getStateVariableNames().get(0)
-    #     periodicityGoal.addStatePair(
-    #             osim.MocoPeriodicityGoalPair(valueName))
-    #     speedName = coordinate.getStateVariableNames().get(1)
-    #     periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(speedName))
-    #     print(f"Added periodicity for coordinate: {coordName}")
-
-    # muscles = processed_model.getMuscles()
-    # for imusc in range(muscles.getSize()):
-    #     muscle = muscles.get(imusc)
-    #     stateName = muscle.getStateVariableNames().get(0)
-    #     periodicityGoal.addStatePair(osim.MocoPeriodicityGoalPair(stateName))
-    #     controlName = muscle.getAbsolutePathString()
-    #     periodicityGoal.addControlPair(
-    #             osim.MocoPeriodicityGoalPair(controlName))
-    #     print(f"Added periodicity for muscle: {muscle.getName()}")
-
-    # actuators = processed_model.getActuators()
-    # for iactu in range(actuators.getSize()):
-    #     actu = osim.CoordinateActuator.safeDownCast(actuators.get(iactu))
-    #     if actu is not None: 
-    #         controlName = actu.getAbsolutePathString()
-    #         periodicityGoal.addControlPair(
-    #                 osim.MocoPeriodicityGoalPair(controlName))
-    #         print(f"Added periodicity for actuator: {actu.getName()}")
-
-    # problem.addGoal(periodicityGoal)
 
 
     # -------------------------- METABOLIC COST GOAL --------------------------------
@@ -235,7 +187,7 @@ def solve_metabolic_tracking(model=None):
     solver = osim.MocoCasADiSolver.safeDownCast(study.updSolver())
 
     solver.set_num_mesh_intervals(50)
-    solver.set_optim_max_iterations(1000)  # increase slowly
+    solver.set_optim_max_iterations(iterations)
 
     solver.set_verbosity(2)
     solver.set_optim_solver('ipopt')
@@ -258,6 +210,9 @@ def solve_metabolic_tracking(model=None):
         print('   ')
         print(f"The metabolic cost of transport is: {10*solution.getObjectiveTerm('met'):.3f} J/kg/m")
         print('   ')
+
+        return 10*solution.getObjectiveTerm('met')  # return cost of transport
+    
     except:
         if not solution.success():
             print('Solver failed. Unsealing solution for debugging.')
