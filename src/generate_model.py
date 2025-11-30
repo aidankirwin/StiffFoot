@@ -145,9 +145,9 @@ def generate_model_with_segments(save_model=False, stiffness_array=None):
             parent_frame,
             child_frame,
             osim.Vec3(0,0,0),                # translational stiffness
-            osim.Vec3(k_rot,k_rot,k_rot),            # rotational stiffness [N*m/rad]
+            osim.Vec3(0,0,k_rot),            # rotational stiffness [N*m/rad]
             osim.Vec3(0,0,0),                # translational damping
-            osim.Vec3(damping,damping,damping)           # rotational damping [N*m/(rad/s)]
+            osim.Vec3(0,0,damping)           # rotational damping [N*m/(rad/s)]
         )
         model.addForce(ve)
 
