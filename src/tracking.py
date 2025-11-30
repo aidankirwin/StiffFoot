@@ -72,7 +72,7 @@ def solve_metabolic_tracking(model=None):
 
     ground_contact_space = osim.ContactHalfSpace(
         osim.Vec3(0, 0.05, 0),
-        osim.Vec3(0, 0, 90*np.pi/180),  # plane is horizontal, so the normal force points up
+        osim.Vec3(0, 0, 90*np.pi/180),  # plane is horizontal
         ground
     )
     ground_contact_space.setName('GroundContactSpace')
@@ -234,7 +234,7 @@ def solve_metabolic_tracking(model=None):
     # ------------------------------ SOLVER -------------------------------------
     solver = osim.MocoCasADiSolver.safeDownCast(study.updSolver())
 
-    solver.set_num_mesh_intervals(200)
+    solver.set_num_mesh_intervals(50)
     solver.set_optim_max_iterations(1000)  # increase slowly
 
     solver.set_verbosity(2)
