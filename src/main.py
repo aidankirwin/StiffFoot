@@ -1,4 +1,7 @@
 import opensim as osim
-study = osim.MocoStudy()
-solver = study.initCasADiSolver()
-print("Moco and IPOPT are working!")
+from simulated_annealing import run_simulated_annealing
+
+if __name__ == "__main__":
+    # Set up logging to file
+    osim.Logger.addFileSink('full_log.txt')
+    run_simulated_annealing()

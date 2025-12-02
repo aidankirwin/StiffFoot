@@ -9,11 +9,9 @@ def solve_metabolic_tracking(model=None, iterations=1000):
     experimental gait data using a modified prosthesis model with
     foot-ground contact and metabolic cost.
     """
-
-    # ---------- User settings ----------
+    
     model_file = 'models/prosthesisModel_9.osim'        # the modified Rajagopal + prosthesis
     coords_file = 'sto/coords_modified_no_segments.sto'         # reconstructed coordinates (states reference)
-    # -----------------------------------
 
     def add_foot_ground_contact(model, ground_contact_space):
         """

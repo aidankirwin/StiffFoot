@@ -6,10 +6,8 @@ def convert_muscles_to_degroote(model=None, save_model=False):
     to DeGrooteFregly2016Muscle using a ModelProcessor. 
     """
     if model is None:
-        # -------- USER SETTINGS --------
         input_model = "original_model/GenericAmputee_r.osim"
         output_model = "models/amputee_degrootefregly.osim"
-        # --------------------------------
 
         print("Loading model:", input_model)
         model = osim.Model(input_model)
