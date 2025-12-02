@@ -4,7 +4,7 @@ import numpy as np
 
 model_file = "original_model/GenericAmputee_r.osim"
 
-def generate_model_with_segments(save_model=False, stiffness_array=None):
+def generate_model_with_segments(save_model=False, stiffness_array=None, bounds=(194.8,1334)):
     """
     Generate a modified OpenSim model by adding prosthetic foot segments
     defined in 'segments.csv' to the base model 'original_model/GenericAmputee_no_patella.osim'.
@@ -102,6 +102,8 @@ def generate_model_with_segments(save_model=False, stiffness_array=None):
         if stiffness_array is None:
             # Update rotational stiffness based on segment length
             k_rot = young_modulus * area_moment_of_inertia / length  # N*m/rad
+            k_rot = max(bounds[0], min(bounds[1], k_rot))  # clamp to bounds
+
             print(f"Segment {seg_name} length: {length} m, rotational stiffness: {k_rot} N*m/rad")
         else:
             k_rot = stiffness_array[idx]
@@ -145,7 +147,7 @@ def generate_model_with_segments(save_model=False, stiffness_array=None):
             parent_frame,
             child_frame,
             osim.Vec3(0,0,0),                # translational stiffness
-            osim.Vec3(0,0,k_rot),            # rotational stiffness [N*m/rad]
+            osim.Vec3(0,0,float(k_rot)),            # rotational stiffness [N*m/rad]
             osim.Vec3(0,0,0),                # translational damping
             osim.Vec3(0,0,damping)           # rotational damping [N*m/(rad/s)]
         )

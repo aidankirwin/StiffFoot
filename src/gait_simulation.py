@@ -81,9 +81,8 @@ def solve_metabolic_tracking(model=None, iterations=1000):
     add_foot_ground_contact(model, ground_contact_space)
 
     # Save the updated model
-    model.printToXML("models/footgroundcontact.osim")
-    print("Saved model as footgroundcontact.osim")
-    # return
+    # model.printToXML("models/footgroundcontact.osim")
+    # print("Saved model as footgroundcontact.osim")
 
     # ------------------------- METABOLICS ---------------------------------
     metabolics = osim.Bhargava2004SmoothedMuscleMetabolics()
@@ -118,7 +117,7 @@ def solve_metabolic_tracking(model=None, iterations=1000):
     track.set_apply_tracked_states_to_guess(True)
 
     t0 = 0.45
-    tf = 1.51
+    tf = 0.75 # 1.51, testing with shorter time
     track.set_initial_time(t0)
     track.set_final_time(tf)
 
@@ -186,7 +185,7 @@ def solve_metabolic_tracking(model=None, iterations=1000):
     # ------------------------------ SOLVER -------------------------------------
     solver = osim.MocoCasADiSolver.safeDownCast(study.updSolver())
 
-    solver.set_num_mesh_intervals(50)
+    solver.set_num_mesh_intervals(25)
     solver.set_optim_max_iterations(iterations)
 
     solver.set_verbosity(2)
