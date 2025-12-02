@@ -24,6 +24,8 @@ counter = 1
 sim_annealing_max_iter = 10
 gait_cycle_max_iter = 10
 
+simulated_annealing_data = []
+
 def run_full_pipeline(x):
     global counter
     """
@@ -33,7 +35,7 @@ def run_full_pipeline(x):
     """
 
     print('====================================================================================')
-    print(f'= RUNNING GAIT CYCLE OPTIMIZATION {counter} OF {sim_annealing_max_iter}            =')
+    print(f'RUNNING GAIT CYCLE OPTIMIZATION {counter} OF {sim_annealing_max_iter}')
     print('====================================================================================')
 
     model = osim.Model(template_model)
@@ -53,30 +55,30 @@ def run_full_pipeline(x):
     counter += 1    # track simulated annealing iterations
     return met
 
+def store_iteration_data(x, f, context):
+    simulated_annealing_data.append({'iteration': context['iteration'], 'x': x, 'objective': f, 'context': context})
+    print('====================================================================================')
+    print(f'SAVING DATA FROM ITERATION {counter}')
+    print('====================================================================================')
+
 def run_simulated_annealing():
     """
     Runs the whole simulated annealing pipeline to optimize prosthetic segment stiffnesses
     to minimize metabolic cost during gait simulation.
     """
 
-    res = dual_annealing(run_full_pipeline, bounds, x0=init_stiffness, maxfun=sim_annealing_max_iter, maxiter=sim_annealing_max_iter, no_local_search=True)
+    res = dual_annealing(run_full_pipeline, bounds, x0=init_stiffness, callback=store_iteration_data, maxfun=sim_annealing_max_iter, maxiter=sim_annealing_max_iter, no_local_search=True)
     print("Optimization completed.")
     print("Best parameters found:", res.x)
     print("With objective function value (metabolic cost):", res.fun)
 
     # save optimization results to a pkl file
-    with open('simulated_annealing_results.pkl', 'wb') as f:
+    with open('annealing_result_object.pkl', 'wb') as f:
         pickle.dump(res, f)
-    print("Saved optimization results to simulated_annealing_results.pkl")
 
-    # plot convergence
-    # this is untested
-    plt.plot(res.func_vals)
-    plt.xlabel('Iteration')
-    plt.ylabel('Metabolic Cost')
-    plt.title('Simulated Annealing Convergence')
-    plt.savefig('simulated_annealing_convergence.png')
-    print("Saved convergence plot to simulated_annealing_convergence.png")
+    # save individual iteration data
+    with open('iteration_data.pkl', 'wb') as f:
+        pickle.dump(simulated_annealing_data, f)
 
 if __name__ == "__main__":
     # Set up logging to file
