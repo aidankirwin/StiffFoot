@@ -3,7 +3,7 @@ import pandas as pd
 # ========== USER SETTINGS =================================================== #
 
 original_sto = "sto/coordinates_deg.csv"
-output_sto = "sto/coords_modified_new.sto"
+output_sto = "sto/coords_modified_no_segments.sto"
 
 # 20 joint segment coordinates
 added_dofs = [f"/jointset/joint_segment_{i}/joint_segment_{i}_coord_0/value" for i in range(1, 21)]
@@ -19,18 +19,22 @@ remove_dofs = [
 # Load original STO
 df = pd.read_csv(original_sto)
 
+print(f'original # of columns: {len(df.columns)}')
+
 cols_to_drop = [
     col for col in df.columns
     if any(sub in col for sub in remove_dofs)
 ]
 
+print(f'columns to remove: {cols_to_drop}')
+
 df = df.drop(columns=cols_to_drop)
 
 # Add missing DOFs with default initialization
-for dof in added_dofs:
-    if dof not in df.columns:
-        df[dof] = default_value
-        print(f"Added column: {dof} = {default_value}")
+# for dof in added_dofs:
+#     if dof not in df.columns:
+#         df[dof] = default_value
+#         print(f"Added column: {dof} = {default_value}")
 
 print(df.columns)
 
@@ -44,7 +48,7 @@ for col in df.columns:
 # # Reorder
 # df = df[["time"] + desired_order]
 
-print(len(df.columns))
+print(f'updated # of columns: {len(df.columns)}')
 # Write new STO
 with open(output_sto, "w") as f:
     f.write("sto_file_version=1.0\n")

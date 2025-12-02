@@ -7,8 +7,8 @@ def convert_muscles_to_degroote(model=None, save_model=False):
     """
     if model is None:
         # -------- USER SETTINGS --------
-        input_model = "models/new_model.osim"
-        output_model = "models/prosthesisModel_7.osim"
+        input_model = "original_model/GenericAmputee_r.osim"
+        output_model = "models/amputee_degrootefregly.osim"
         # --------------------------------
 
         print("Loading model:", input_model)
@@ -29,6 +29,7 @@ def convert_muscles_to_degroote(model=None, save_model=False):
     mp.append(osim.ModOpReplaceMusclesWithDeGrooteFregly2016())
     mp.append(osim.ModOpIgnorePassiveFiberForcesDGF())
     mp.append(osim.ModOpScaleActiveFiberForceCurveWidthDGF(1.5))
+    mp.append(osim.ModOpAddReserves(1.0))   # adds additional actuators if the muscles are too weak to achieve desired trajectories
 
     print("Applying model processing operations...")
     processed = mp.process()

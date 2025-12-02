@@ -10,8 +10,9 @@ from scipy.optimize import dual_annealing   # scipy simulated annealing function
 import pickle
 import matplotlib.pyplot as plt
 
-init_stiffness = [785, 1221, 1334, 1334, 1334, 1334, 1334, 1334, 1099, 1334, 
-                  916, 610, 916, 523, 366, 1221, 1334, 1334, 1334, 1221]
+template_model = "original_model/GenericAmputee_r.osim"
+init_stiffness = [13.71, 21.32, 23.3, 23.3, 23.3, 23.3, 23.3, 23.3, 19.19, 23.3, 
+                  15.99, 10.66, 15.99, 9.14, 6.4, 21.32, 23.3, 23.3, 23.3, 21.32]   # initial stiffness params in N*m/deg
 
 def run_full_pipeline(x):
     """
@@ -20,17 +21,19 @@ def run_full_pipeline(x):
     prosthetic segment stiffness parameters.
     """
 
-    # Step 1: Generate modified model with prosthetic segments
-    print("Generating modified model with prosthetic segments...")
-    model = generate_model_with_segments(stiffness_array=x)
+    model = osim.Model(template_model)
 
-    # Step 2: Convert muscles to DeGrooteFregly2016Muscle
+    # Step 1: Convert muscles to DeGrooteFregly2016Muscle
     print("Converting muscles to DeGrooteFregly2016Muscle...")
     model_degroote_fregly = convert_muscles_to_degroote(model=model)
 
+    # Step 2: Generate modified model with prosthetic segments
+    print("Generating modified model with prosthetic segments...")
+    prosthesis_model = generate_model_with_segments(model=model_degroote_fregly, stiffness_array=x)
+
     # Step 3: Solve metabolic/tracking problem
     print("Solving tracking and metabolic cost problem...")
-    met = solve_metabolic_tracking(model=model_degroote_fregly, iterations=10)
+    met = solve_metabolic_tracking(model=prosthesis_model, iterations=10)
     return met
 
 def run_simulated_annealing():

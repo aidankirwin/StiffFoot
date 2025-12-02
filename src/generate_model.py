@@ -2,9 +2,10 @@ import opensim as osim
 import pandas as pd
 import numpy as np
 
-model_file = "original_model/GenericAmputee_r.osim"
+model_file = "models/amputee_degrootefregly.osim"
+output_file = "models/prosthesisModel_9.osim"
 
-def generate_model_with_segments(save_model=False, stiffness_array=None, bounds=(194.8,1334)):
+def generate_model_with_segments(model=None, save_model=False, stiffness_array=None, bounds=(3.4, 23.3)):
     """
     Generate a modified OpenSim model by adding prosthetic foot segments
     defined in 'segments.csv' to the base model 'original_model/GenericAmputee_no_patella.osim'.
@@ -52,18 +53,24 @@ def generate_model_with_segments(save_model=False, stiffness_array=None, bounds=
         
         return angle
 
-    # Load model
-    model = osim.Model(model_file)
-    print("Loaded model")
+    if model is None:
+        # Load model
+        model = osim.Model(model_file)
+        print("Loaded model")
 
     # Load segment coordinates from CSV
     df = pd.read_csv("segments.csv")
     print(df)
 
     # Parameters
-    segment_radius = 0.01    # visualization radius
-    segment_mass = 0.025     # mass of each segment, assume constant
-    segment_inertia = [segment_mass * segment_radius**2 / 4 , segment_mass * segment_radius**2 / 4 , segment_mass * segment_radius**2 / 2]
+    segment_radius = 0.01               # visualization radius
+    segment_mass = 0.025                # mass of each segment, assume constant
+    
+    # NOTE: inertia values were extremely small when using the proper formula due to tiny segments
+    # [segment_mass * segment_radius**2 / 4 , segment_mass * segment_radius**2 / 4 , segment_mass * segment_radius**2 / 2]
+    # opted to just assume these values because they are more reasonable for the solver
+    segment_inertia = [0.2, 0.2, 0.1]
+    print(segment_inertia)
 
     # These are used to calculate the initial values of the viscoelastic elements
     young_modulus = 1.4e9  # Pa (base untis: N/m^2)
@@ -102,12 +109,16 @@ def generate_model_with_segments(save_model=False, stiffness_array=None, bounds=
         if stiffness_array is None:
             # Update rotational stiffness based on segment length
             k_rot = young_modulus * area_moment_of_inertia / length  # N*m/rad
-            k_rot = max(bounds[0], min(bounds[1], k_rot))  # clamp to bounds
 
-            print(f"Segment {seg_name} length: {length} m, rotational stiffness: {k_rot} N*m/rad")
+            # convert to N*m/degree
+            k_rot = k_rot * np.pi / 180
+            
+            k_rot = round(max(bounds[0], min(bounds[1], k_rot)), 2)  # clamp to bounds
+
+            print(f"Segment {seg_name} length: {length} m, rotational stiffness: {k_rot} N*m/deg")
         else:
             k_rot = stiffness_array[idx]
-            print(f"Segment {seg_name} length: {length} m, rotational stiffness from array: {k_rot} N*m/rad")
+            print(f"Segment {seg_name} length: {length} m, rotational stiffness from array: {k_rot} N*m/deg")
 
         if idx != 0:
             parent_body = model.getBodySet().get(f"segment_{int(row['Parent'])}")
@@ -137,26 +148,25 @@ def generate_model_with_segments(save_model=False, stiffness_array=None, bounds=
         #     coord = joint.upd_coordinates(0) # joint_segment_1_coord_0
         #     coord.set_locked(0, True)
 
-        # use translation-only Transforms to avoid Rotation ctor overload issues
-        parent_frame = joint.getParentFrame()
-        child_frame = joint.getChildFrame()
-
-        # Attach viscoelastic element (damper + spring) to joint
-        ve = osim.BushingForce(
-            f"viscoelastic_{seg_name}",
-            parent_frame,
-            child_frame,
-            osim.Vec3(0,0,0),                # translational stiffness
-            osim.Vec3(0,0,float(k_rot)),            # rotational stiffness [N*m/rad]
-            osim.Vec3(0,0,0),                # translational damping
-            osim.Vec3(0,0,damping)           # rotational damping [N*m/(rad/s)]
-        )
-        model.addForce(ve)
-
         # Set coordinate default values
         coord = model.getCoordinateSet().get(f"joint_{seg_name}_coord_0")
         coord.setDefaultValue(0)
         # coord.setDefaultSpeed(0)
+
+        # Torsional spring + damper on the coordinate
+        spring_damper = osim.CoordinateLimitForce()
+        spring_damper.setName(f"viscoelastic_{seg_name}")
+        spring_damper.set_coordinate(coord.getName())
+        # Set limits to a wide range (so it’s active across motion)
+        spring_damper.setLowerLimit(-1)
+        spring_damper.setUpperLimit(1)
+
+        # Set stiffness for the lower/upper limit
+        spring_damper.setLowerStiffness(k_rot)  # N*m/rad
+        spring_damper.setUpperStiffness(k_rot)
+        spring_damper.set_damping(damping)        # N*m/(rad/s)
+        spring_damper.set_transition(1)         # zero threshold
+        model.addForce(spring_damper)
         
         # Update parent for next iteration
         parent_body = segment
@@ -169,8 +179,8 @@ def generate_model_with_segments(save_model=False, stiffness_array=None, bounds=
 
     if save_model:
         # Save the updated model
-        model.printToXML("models/new_model.osim")
-        print("Saved model as new_model.osim")
+        model.printToXML(output_file)
+        print(f"Saved model as {output_file}")
     
     return model
 

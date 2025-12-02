@@ -11,8 +11,8 @@ def solve_metabolic_tracking(model=None, iterations=1000):
     """
 
     # ---------- User settings ----------
-    model_file = 'models/prosthesisModel_7.osim'        # the modified Rajagopal + prosthesis
-    coords_file = 'sto/coords_modified_new.sto'         # reconstructed coordinates (states reference)
+    model_file = 'models/prosthesisModel_9.osim'        # the modified Rajagopal + prosthesis
+    coords_file = 'sto/coords_modified_no_segments.sto'         # reconstructed coordinates (states reference)
     # -----------------------------------
 
     def add_foot_ground_contact(model, ground_contact_space):
@@ -94,6 +94,7 @@ def solve_metabolic_tracking(model=None, iterations=1000):
     for imuscle in range(muscles.getSize()):
         muscle = osim.Muscle.safeDownCast(muscles.get(imuscle))
         muscle_name = muscle.getName()
+        # print(muscle_name)
         
         metabolics.addMuscle(muscle_name, muscle)
 
@@ -106,9 +107,9 @@ def solve_metabolic_tracking(model=None, iterations=1000):
 
     # ---------------------- STATE TRACKING GOAL --------------------------------
     tableProcessor = osim.TableProcessor(coords_file)
-    tableProcessor.append(osim.TabOpUseAbsoluteStateNames())
-    tableProcessor.append(osim.TabOpAppendCoupledCoordinateValues())
-    tableProcessor.append(osim.TabOpAppendCoordinateValueDerivativesAsSpeeds())
+    # tableProcessor.append(osim.TabOpUseAbsoluteStateNames())
+    # tableProcessor.append(osim.TabOpAppendCoupledCoordinateValues())
+    # tableProcessor.append(osim.TabOpAppendCoordinateValueDerivativesAsSpeeds())
     track.setStatesReference(tableProcessor)
 
     track.set_states_global_tracking_weight(30)
@@ -125,6 +126,16 @@ def solve_metabolic_tracking(model=None, iterations=1000):
 
     study = track.initialize()
     problem = study.updProblem()
+
+    # Get a reference to the MocoControlCost that is added to every MocoTrack
+    # problem by default and set the overall weight to 0.1.
+    effort = osim.MocoControlGoal.safeDownCast(problem.updGoal("control_effort"))
+    effort.setWeight(0.1)
+
+    # Put larger individual weights on the pelvis CoordinateActuators, which act 
+    # as the residual, or 'hand-of-god', forces which we would like to keep as small
+    # as possible.
+    effort.setWeightForControlPattern('.*pelvis.*', 10)
 
     # Get processed model for coordinate checking
     processed_model = mp.process()
@@ -151,9 +162,10 @@ def solve_metabolic_tracking(model=None, iterations=1000):
     for label in labels:
         value = coordinatesUpdated.getDependentColumn(label).to_numpy()
 
-        if 'segment_' in label:
-            problem.setStateInfo(label, [-2, 2], [-1, 1], [-1, 1])
-            continue
+        # if 'segment_' in label:
+        #     problem.setStateInfo(label, [-2, 2], [-1, 1], [-1, 1])
+        #     track.setWeight
+        #     continue
 
         # get the initial value from the reference to set initial and final bounds
         x0 = value[index_0]
