@@ -42,7 +42,7 @@ def run_simulated_annealing():
     # Define bounds for parameters to optimize
     # Bounds for 20 stiffnesses are 3.4 Nm deg−1 and 23.3 Nm deg−1 (194.8 to 1334 Nms rad−1)
     bounds = [(194.8, 1334) for _ in range(20)]
-    res = dual_annealing(run_full_pipeline, bounds, x0=init_stiffness, maxiter=20)
+    res = dual_annealing(run_full_pipeline, bounds, x0=init_stiffness, maxiter=20, no_local_search=True)
     print("Optimization completed.")
     print("Best parameters found:", res.x)
     print("With objective function value (metabolic cost):", res.fun)
