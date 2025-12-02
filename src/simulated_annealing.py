@@ -56,7 +56,7 @@ def run_full_pipeline(x):
     return met
 
 def store_iteration_data(x, f, context):
-    simulated_annealing_data.append({'iteration': context['iteration'], 'x': x, 'objective': f, 'context': context})
+    simulated_annealing_data.append({'iteration': counter-1, 'x': x, 'objective': f, 'context': context})
     print('====================================================================================')
     print(f'SAVING DATA FROM ITERATION {counter}')
     print('====================================================================================')
