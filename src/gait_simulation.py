@@ -116,8 +116,8 @@ def solve_metabolic_tracking(model=None, iterations=1000):
     track.set_track_reference_position_derivatives(True)
     track.set_apply_tracked_states_to_guess(True)
 
-    t0 = 0.45
-    tf = 0.75 # 1.51, testing with shorter time
+    t0 = 0.48
+    tf = 1.61
     track.set_initial_time(t0)
     track.set_final_time(tf)
 
@@ -180,6 +180,7 @@ def solve_metabolic_tracking(model=None, iterations=1000):
         upper = xmax + margin
         
         # set state info parameters: name, full phase bounds, initial bounds, final bounds
+        # these are really tight bounds, like unusual for a tracking problem, but since we're having convergence issues this keeps our solution close to a regular gait cycle
         problem.setStateInfo(label, [lower, upper], [lower_init, upper_init], [lower_final, upper_final])
 
     # ------------------------------ SOLVER -------------------------------------
