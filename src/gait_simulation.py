@@ -218,6 +218,8 @@ def solve_metabolic_tracking(model=None, iterations=1000):
             print('Solver failed. Unsealing solution for debugging.')
             solution.unseal()
             solution.write('failed_solution.sto')
+            return 10*solution.getObjectiveTerm('met')  # return cost of transport
+
 
 if __name__ == "__main__":
     solve_metabolic_tracking()
