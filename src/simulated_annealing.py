@@ -1,17 +1,25 @@
+import opensim as osim
+
+# for running simulated annealing
 from generate_model import generate_model_with_segments
 from convert_muscles import convert_muscles_to_degroote
 from gait_simulation import solve_metabolic_tracking
+from scipy.optimize import dual_annealing   # scipy simulated annealing function
 
-import opensim as osim
-
-from scipy.optimize import dual_annealing
-
+# saving and plotting results
 import pickle
+import matplotlib.pyplot as plt
 
 init_stiffness = [785, 1221, 1334, 1334, 1334, 1334, 1334, 1334, 1099, 1334, 
                   916, 610, 916, 523, 366, 1221, 1334, 1334, 1334, 1221]
 
 def run_full_pipeline(x):
+    """
+    Run the full pipeline of generating the model, converting muscles,
+    and solving the metabolic tracking problem for a given set of
+    prosthetic segment stiffness parameters.
+    """
+
     # Step 1: Generate modified model with prosthetic segments
     print("Generating modified model with prosthetic segments...")
     model = generate_model_with_segments(stiffness_array=x)
@@ -27,7 +35,8 @@ def run_full_pipeline(x):
 
 def run_simulated_annealing():
     """
-    Runs simulated annealing 
+    Runs the whole simulated annealing pipeline to optimize prosthetic segment stiffnesses
+    to minimize metabolic cost during gait simulation.
     """
 
     # Define bounds for parameters to optimize
@@ -42,6 +51,15 @@ def run_simulated_annealing():
     with open('simulated_annealing_results.pkl', 'wb') as f:
         pickle.dump(res, f)
     print("Saved optimization results to simulated_annealing_results.pkl")
+
+    # plot convergence
+    # this is untested
+    plt.plot(res.func_vals)
+    plt.xlabel('Iteration')
+    plt.ylabel('Metabolic Cost')
+    plt.title('Simulated Annealing Convergence')
+    plt.savefig('simulated_annealing_convergence.png')
+    print("Saved convergence plot to simulated_annealing_convergence.png")
 
 if __name__ == "__main__":
     # Set up logging to file
