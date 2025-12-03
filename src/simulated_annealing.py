@@ -83,6 +83,10 @@ def run_simulated_annealing():
     with open('annealing_result_object.pkl', 'wb') as f:
         pickle.dump(res, f)
 
+    # save minima data
+    with open('minima_data.pkl', 'wb') as f:
+        pickle.dump(minimas, f)
+
     # save individual iteration data
     with open('iteration_data.pkl', 'wb') as f:
         pickle.dump(simulated_annealing_data, f)
