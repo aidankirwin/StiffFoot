@@ -25,6 +25,7 @@ sim_annealing_max_iter = 10
 gait_cycle_max_iter = 10
 
 simulated_annealing_data = []
+minimas = []
 
 def run_full_pipeline(x):
     global counter
@@ -53,12 +54,18 @@ def run_full_pipeline(x):
     met = solve_metabolic_tracking(model=prosthesis_model, iterations=gait_cycle_max_iter)
 
     counter += 1    # track simulated annealing iterations
+
+    simulated_annealing_data.append({'iteration': counter-1, 'x': x, 'objective': met})
+    print('====================================================================================')
+    print(f'SAVING DATA FROM ITERATION {counter}')
+    print('====================================================================================')
+
     return met
 
 def store_iteration_data(x, f, context):
-    simulated_annealing_data.append({'iteration': counter-1, 'x': x, 'objective': f, 'context': context})
+    minimas.append({'iteration': counter-1, 'x': x, 'objective': f, 'context': context})
     print('====================================================================================')
-    print(f'SAVING DATA FROM ITERATION {counter}')
+    print(f'MINIMA DETECTED - SAVING DATA FROM ITERATION {counter} TO MINIMA ARRAY')
     print('====================================================================================')
 
 def run_simulated_annealing():
