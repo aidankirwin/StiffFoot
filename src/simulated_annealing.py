@@ -21,7 +21,7 @@ init_stiffness = [13.71, 21.32, 23.3, 23.3, 23.3, 23.3, 23.3, 23.3, 19.19, 23.3,
                   15.99, 10.66, 15.99, 9.14, 6.4, 21.32, 23.3, 23.3, 23.3, 21.32]
 
 counter = 1
-sim_annealing_max_iter = 10
+sim_annealing_max_iter = 20
 gait_cycle_max_iter = 10
 
 simulated_annealing_data = []
