@@ -27,7 +27,7 @@ gait_cycle_max_iter = 10
 simulated_annealing_data = []
 minimas = []
 
-def run_full_pipeline(x):
+def run_full_pipeline(x, iterations=gait_cycle_max_iter):
     global counter
     """
     Run the full pipeline of generating the model, converting muscles,
@@ -51,7 +51,7 @@ def run_full_pipeline(x):
 
     # Step 3: Solve metabolic/tracking problem
     print("Solving tracking and metabolic cost problem...")
-    met = solve_metabolic_tracking(model=prosthesis_model, iterations=gait_cycle_max_iter)
+    met = solve_metabolic_tracking(model=prosthesis_model, iterations=iterations)
 
     counter += 1    # track simulated annealing iterations
 

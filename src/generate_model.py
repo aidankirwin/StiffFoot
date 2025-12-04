@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 model_file = "models/amputee_degrootefregly.osim"
-output_file = "models/prosthesisModel_9.osim"
+output_file = "models/prosthesis_model_init_stiffness.osim"
 
 def generate_model_with_segments(model=None, save_model=False, stiffness_array=None, bounds=(3.4, 23.3)):
     """

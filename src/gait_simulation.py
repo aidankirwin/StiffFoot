@@ -10,8 +10,8 @@ def solve_metabolic_tracking(model=None, iterations=1000):
     foot-ground contact and metabolic cost.
     """
     
-    model_file = 'models/prosthesisModel_9.osim'        # the modified Rajagopal + prosthesis
-    coords_file = 'sto/coords_modified_no_segments.sto'         # reconstructed coordinates (states reference)
+    model_file = 'models/prosthesis_model_init_stiffness.osim'        # the modified Rajagopal + prosthesis
+    coords_file = 'sto/coordinates_amputee.sto'         # reconstructed coordinates (states reference)
 
     def add_foot_ground_contact(model, ground_contact_space):
         """
