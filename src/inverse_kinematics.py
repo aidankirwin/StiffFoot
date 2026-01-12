@@ -1,6 +1,10 @@
 import opensim as osim
 import numpy as np
 
+"""Inverse kinematics simulation run using the non-amputated model. The model came from OpenSim's 3D walking example. It is a version of the Rajagopal (2016) 3D model."""
+
+# This code is adapted from https://github.com/opensim-org/opensim-core/blob/main/Bindings/Python/examples/Moco/example3DWalking/exampleMocoTrack.py
+
 def inverse_kinematics():
     # Construct the MocoInverse tool.
     inverse = osim.MocoInverse()
@@ -9,7 +13,7 @@ def inverse_kinematics():
     # muscles in the model are replaced with optimization-friendly
     # DeGrooteFregly2016Muscles, and adjustments are made to the default muscle
     # parameters.
-    modelProcessor = osim.ModelProcessor('models/subject_walk_scaled.osim')
+    modelProcessor = osim.ModelProcessor('models/not_amputated_model.osim')
     modelProcessor.append(osim.ModOpAddExternalLoads('sto/grf_walk.xml'))
     # Replace the PinJoints representing the model's toes with WeldJoints.
     jointsToWeld = osim.StdVectorString()
@@ -37,7 +41,7 @@ def inverse_kinematics():
     # ModelProcessors by appending TableOperators to modify the base table.
     # A TableProcessor with no operators, as we have here, simply returns the
     # base table.
-    tableProcessor = osim.TableProcessor('sto/coordinates.sto')
+    tableProcessor = osim.TableProcessor('sto/coordinates_not_amputated.sto')
     inverse.setKinematics(tableProcessor)
 
     for i in range(model.getForceSet().getSize()):
@@ -68,12 +72,12 @@ def inverse_kinematics():
     solution = inverse.solve()
 
     try:
-        solution.getMocoSolution().write('example3DWalking_MocoInverse_solution.sto')
+        solution.getMocoSolution().write('output_not_amputated_inv_kin.sto')
 
         # Generate a PDF with plots for the solution trajectory.
         model = modelProcessor.process()
         report = osim.report.Report(model,
-                                    'example3DWalking_MocoInverse_solution.sto',
+                                    'output_not_amputated_inv_kin.sto',
                                     bilateral=True)
         
         # The PDF is saved to the working directory.

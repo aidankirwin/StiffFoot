@@ -11,7 +11,7 @@ import pickle
 import matplotlib.pyplot as plt
 
 # Our input model, amputated version of the Rajagopal (2016) 3D musculoskeletal model
-template_model = "original_model/GenericAmputee_r.osim"
+template_model = "original_model/template.osim"
 # Define bounds for parameters to optimize
 # Bounds for 20 stiffnesses are 3.4 Nm deg−1 and 23.3 Nm deg−1, from: https://link.springer.com/article/10.1186/s12984-021-00916-1#Sec2
 bounds = [(3.4, 23.3) for _ in range(20)]
@@ -41,15 +41,15 @@ def run_full_pipeline(x, iterations=gait_cycle_max_iter):
 
     model = osim.Model(template_model)
 
-    # Step 1: Convert muscles to DeGrooteFregly2016Muscle
+    # step 1: convert muscles to DeGrooteFregly2016Muscle
     print("Converting muscles to DeGrooteFregly2016Muscle...")
     model_degroote_fregly = convert_muscles_to_degroote(model=model)
 
-    # Step 2: Generate modified model with prosthetic segments
+    # step 2: generate modified model with prosthetic segments
     print("Generating modified model with prosthetic segments...")
     prosthesis_model = generate_model_with_segments(model=model_degroote_fregly, stiffness_array=x)
 
-    # Step 3: Solve metabolic/tracking problem
+    # step 3: solve metabolic/tracking problem
     print("Solving tracking and metabolic cost problem...")
     met = solve_metabolic_tracking(model=prosthesis_model, iterations=iterations)
 

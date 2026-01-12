@@ -8,10 +8,15 @@ def solve_metabolic_tracking(model=None, iterations=1000):
     Set up and solve a muscle-driven MocoTrack problem to track
     experimental gait data using a modified prosthesis model with
     foot-ground contact and metabolic cost.
+
+    Adapted from:
+    - https://github.com/opensim-org/opensim-core/blob/main/Bindings/Python/examples/Moco/example3DWalking/exampleMocoTrack.py
+    - https://github.com/opensim-org/opensim-core/blob/main/Bindings/Python/examples/Moco/example3DWalking/example3DWalking.py
+    - https://github.com/opensim-org/opensim-core/blob/main/Bindings/Python/examples/Moco/example2DWalking/example2DWalkingMetabolics.py
     """
     
-    model_file = 'models/prosthesis_model_init_stiffness.osim'        # the modified Rajagopal + prosthesis
-    coords_file = 'sto/coordinates_amputee.sto'         # reconstructed coordinates (states reference)
+    model_file = 'models/prosthesis_model_init_stiffness.osim'      # the modified Rajagopal + prosthesis
+    coords_file = 'sto/coordinates_amputee.sto'                     # reconstructed coordinates (states reference)
 
     def add_foot_ground_contact(model, ground_contact_space):
         """
@@ -78,10 +83,6 @@ def solve_metabolic_tracking(model=None, iterations=1000):
 
     add_foot_ground_contact(model, ground_contact_space)
 
-    # Save the updated model
-    # model.printToXML("models/footgroundcontact.osim")
-    # print("Saved model as footgroundcontact.osim")
-
     # ------------------------- METABOLICS ---------------------------------
     metabolics = osim.Bhargava2004SmoothedMuscleMetabolics()
     metabolics.setName('metabolic_cost')
@@ -92,7 +93,6 @@ def solve_metabolic_tracking(model=None, iterations=1000):
     for imuscle in range(muscles.getSize()):
         muscle = osim.Muscle.safeDownCast(muscles.get(imuscle))
         muscle_name = muscle.getName()
-        # print(muscle_name)
         
         metabolics.addMuscle(muscle_name, muscle)
 
@@ -105,9 +105,6 @@ def solve_metabolic_tracking(model=None, iterations=1000):
 
     # ---------------------- STATE TRACKING GOAL --------------------------------
     tableProcessor = osim.TableProcessor(coords_file)
-    # tableProcessor.append(osim.TabOpUseAbsoluteStateNames())
-    # tableProcessor.append(osim.TabOpAppendCoupledCoordinateValues())
-    # tableProcessor.append(osim.TabOpAppendCoordinateValueDerivativesAsSpeeds())
     track.setStatesReference(tableProcessor)
 
     track.set_states_global_tracking_weight(30)
@@ -159,11 +156,6 @@ def solve_metabolic_tracking(model=None, iterations=1000):
 
     for label in labels:
         value = coordinatesUpdated.getDependentColumn(label).to_numpy()
-
-        # if 'segment_' in label:
-        #     problem.setStateInfo(label, [-2, 2], [-1, 1], [-1, 1])
-        #     track.setWeight
-        #     continue
 
         # get the initial value from the reference to set initial and final bounds
         x0 = value[index_0]

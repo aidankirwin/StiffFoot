@@ -1,9 +1,7 @@
 import pandas as pd
 
-# ========== USER SETTINGS =================================================== #
-
-original_sto = "sto/coordinates_deg.csv"
-output_sto = "sto/coords_modified_no_segments.sto"
+original_sto = "sto/coordinates.csv"
+output_sto = "sto/coordinates_amputee.sto"
 
 # 20 joint segment coordinates
 added_dofs = [f"/jointset/joint_segment_{i}/joint_segment_{i}_coord_0/value" for i in range(1, 21)]
