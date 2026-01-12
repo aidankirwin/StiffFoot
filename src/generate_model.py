@@ -1,0 +1,188 @@
+import opensim as osim
+import pandas as pd
+import numpy as np
+
+model_file = "models/amputee_degrootefregly.osim"
+output_file = "models/prosthesis_model_init_stiffness.osim"
+
+def generate_model_with_segments(model=None, save_model=False, stiffness_array=None, bounds=(3.4, 23.3)):
+    """
+    Generate a modified OpenSim model by adding prosthetic foot segments
+    defined in 'segments.csv' to the base model 'original_model/GenericAmputee_no_patella.osim'.
+    The modified model is saved as 'models/new_model.osim'.
+    """
+    def get_relative_angle(row, df, deg=False):
+        """
+        Compute the relative angle between a segment and its parent.
+        
+        Parameters
+        ----------
+        row : pd.Series
+            The current segment row (must have 'Segment', 'Parent', 'start_x', 'start_y', 'end_x', 'end_y').
+        df : pd.DataFrame
+            The full DataFrame containing all segments.
+        deg : bool
+            If True, returns the angle in degrees. Default is radians.
+        
+        Returns
+        -------
+        float
+            The relative angle (signed) between the segment and its parent.
+        """
+        if row['Parent'] == 0:
+            # No parent (e.g., connects to pylon)
+            return np.radians(-90.0)
+        
+        # Find parent row
+        df['Segment'] = df['Segment'].astype(int)
+        df['Parent'] = df['Parent'].astype(int)
+        parent_row = df[df['Segment'] == row['Parent']].iloc[0]
+        
+        # Segment vectors
+        seg_vec = np.array([row['end_x'] - row['start_x'], row['end_y'] - row['start_y']])
+        parent_vec = np.array([parent_row['end_x'] - parent_row['start_x'],
+                            parent_row['end_y'] - parent_row['start_y']])
+        
+        # Compute signed angle using arctan2
+        dot = np.dot(parent_vec, seg_vec)
+        det = parent_vec[0]*seg_vec[1] - parent_vec[1]*seg_vec[0]
+        angle = np.arctan2(det, dot)
+        
+        if deg:
+            angle = np.radians(angle)
+        
+        return angle
+
+    if model is None:
+        # Load model
+        model = osim.Model(model_file)
+        print("Loaded model")
+
+    # Load segment coordinates from CSV
+    df = pd.read_csv("segments.csv")
+    print(df)
+
+    # Parameters
+    segment_radius = 0.01               # visualization radius
+    segment_mass = 0.025                # mass of each segment, assume constant
+    
+    # NOTE: inertia values were extremely small when using the proper formula due to tiny segments
+    # [segment_mass * segment_radius**2 / 4 , segment_mass * segment_radius**2 / 4 , segment_mass * segment_radius**2 / 2]
+    # opted to just assume these values because they are more reasonable for the solver
+    segment_inertia = [0.2, 0.2, 0.1]
+    print(segment_inertia)
+
+    # These are used to calculate the initial values of the viscoelastic elements
+    young_modulus = 1.4e9  # Pa (base untis: N/m^2)
+    area_moment_of_inertia = (np.pi * segment_radius**4) / 4 # m^4
+
+    # Initial parent is the pylon
+    parent_body = model.getBodySet().get("pylon_r")
+    parent_length = 0.155 # length along parent z-axis from joint origin to distal end
+
+    damping = 5.73  # N*m/(rad/s)
+
+    for idx, row in df.iterrows():
+        '''
+        Attach prosthetic foot segments to the pylon.
+        Rules:
+        1. Each segment is described in segments.csv by its vertices (start and end position)
+        2. The vertices are relative to the distal end of the pylon (0,0)
+        '''
+        seg_name = f"segment_{int(row['Segment'])}"
+        
+        # Compute segment vector in 2D
+        dx = row['end_x'] - row['start_x']
+        dy = row['end_y'] - row['start_y']
+        dx = dx / 2
+        dy = dy / 2
+        length = round(np.sqrt(dx**2 + dy**2), 3) 
+        
+        # Mass center at middle of segment
+        mass_center = osim.Vec3(0, 0, length/2)
+        
+        # Cylinder geometry
+        cyl = osim.Cylinder(segment_radius, length)
+
+        angle = get_relative_angle(row, df, False)
+
+        if stiffness_array is None:
+            # Update rotational stiffness based on segment length
+            k_rot = young_modulus * area_moment_of_inertia / length  # N*m/rad
+
+            # convert to N*m/degree
+            k_rot = k_rot * np.pi / 180
+            
+            k_rot = round(max(bounds[0], min(bounds[1], k_rot)), 2)  # clamp to bounds
+
+            print(f"Segment {seg_name} length: {length} m, rotational stiffness: {k_rot} N*m/deg")
+        else:
+            k_rot = stiffness_array[idx]
+            print(f"Segment {seg_name} length: {length} m, rotational stiffness from array: {k_rot} N*m/deg")
+
+        if idx != 0:
+            parent_body = model.getBodySet().get(f"segment_{int(row['Parent'])}")
+        # Create new segment
+        segment = osim.Body(
+            seg_name,
+            segment_mass,
+            mass_center,
+            osim.Inertia(segment_inertia[0], segment_inertia[1], segment_inertia[2])
+        )
+        model.addBody(segment)
+        segment.attachGeometry(cyl)
+
+        # PinJoint: connect to distal end of parent
+        joint = osim.PinJoint(
+            f"joint_{seg_name}",
+            parent_body,
+            osim.Vec3(0,-parent_length,0),  # distal end of parent
+            osim.Vec3(0,0,angle),              # parent orientation
+            segment,
+            osim.Vec3(0,length,0),              # child proximal end
+            osim.Vec3(0,0,0)          # child orientation along z
+        )
+        model.addJoint(joint)
+        # TODO: maybe lock the first joint?
+        # if idx == 0:
+        #     coord = joint.upd_coordinates(0) # joint_segment_1_coord_0
+        #     coord.set_locked(0, True)
+
+        # Set coordinate default values
+        coord = model.getCoordinateSet().get(f"joint_{seg_name}_coord_0")
+        coord.setDefaultValue(0)
+        # coord.setDefaultSpeed(0)
+
+        # Torsional spring + damper on the coordinate
+        spring_damper = osim.CoordinateLimitForce()
+        spring_damper.setName(f"viscoelastic_{seg_name}")
+        spring_damper.set_coordinate(coord.getName())
+        # Set limits to a wide range (so it’s active across motion)
+        spring_damper.setLowerLimit(-1)
+        spring_damper.setUpperLimit(1)
+
+        # Set stiffness for the lower/upper limit
+        spring_damper.setLowerStiffness(k_rot)  # N*m/rad
+        spring_damper.setUpperStiffness(k_rot)
+        spring_damper.set_damping(damping)        # N*m/(rad/s)
+        spring_damper.set_transition(1)         # zero threshold
+        model.addForce(spring_damper)
+        
+        # Update parent for next iteration
+        parent_body = segment
+        parent_length = length  # length along local z-axis for next joint
+
+    # Finalize and initialize system
+    model.finalizeConnections()
+    model.initSystem()
+    print("Segments added/modified and model assembled successfully.")
+
+    if save_model:
+        # Save the updated model
+        model.printToXML(output_file)
+        print(f"Saved model as {output_file}")
+    
+    return model
+
+if __name__ == "__main__":
+    generate_model_with_segments(save_model=True)
