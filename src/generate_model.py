@@ -14,21 +14,8 @@ def generate_model_with_segments(model=None, save_model=False, stiffness_array=N
     def get_relative_angle(row, df, deg=False):
         """
         Compute the relative angle between a segment and its parent.
-        
-        Parameters
-        ----------
-        row : pd.Series
-            The current segment row (must have 'Segment', 'Parent', 'start_x', 'start_y', 'end_x', 'end_y').
-        df : pd.DataFrame
-            The full DataFrame containing all segments.
-        deg : bool
-            If True, returns the angle in degrees. Default is radians.
-        
-        Returns
-        -------
-        float
-            The relative angle (signed) between the segment and its parent.
         """
+
         if row['Parent'] == 0:
             # No parent (e.g., connects to pylon)
             return np.radians(-90.0)
@@ -143,15 +130,10 @@ def generate_model_with_segments(model=None, save_model=False, stiffness_array=N
             osim.Vec3(0,0,0)          # child orientation along z
         )
         model.addJoint(joint)
-        # TODO: maybe lock the first joint?
-        # if idx == 0:
-        #     coord = joint.upd_coordinates(0) # joint_segment_1_coord_0
-        #     coord.set_locked(0, True)
 
         # Set coordinate default values
         coord = model.getCoordinateSet().get(f"joint_{seg_name}_coord_0")
         coord.setDefaultValue(0)
-        # coord.setDefaultSpeed(0)
 
         # Torsional spring + damper on the coordinate
         spring_damper = osim.CoordinateLimitForce()
